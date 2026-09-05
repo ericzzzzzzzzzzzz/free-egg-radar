@@ -28,14 +28,11 @@ jobs:
 
       - name: 修复 lmsys.py URL
         run: |
-          echo "当前 commit:"
-          git log --oneline -1
-          echo "下载最新 lmsys.py:"
-          curl -sL "https://raw.githubusercontent.com/ericzzzzzzzzzzzz/free-egg-radar/main/scrapers/lmsys.py" -o scrapers/lmsys.py
-          echo "下载后行数:"
-          wc -l scrapers/lmsys.py
-          echo "检查 URL:"
-          grep -n "huggingface" scrapers/lmsys.py || echo "未找到 huggingface"
+          echo "替换前:"
+          grep -n "arena-leaderboard" scrapers/lmsys.py || echo "未找到旧 URL"
+          sed -i 's|lmarena-ai/arena-leaderboard|lmarena-ai/chatbot-arena-leaderboard|g' scrapers/lmsys.py
+          echo "替换后:"
+          grep -n "chatbot-arena-leaderboard" scrapers/lmsys.py || echo "未找到新 URL"
           python fix_lmsys_url.py
 
       - name: 抓取 + 评分 + 生成
