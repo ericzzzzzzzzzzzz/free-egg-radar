@@ -127,16 +127,19 @@
       var inputCost = m.inputCost != null ? '$' + formatPrice(m.inputCost) : '—';
       var outputCost = m.outputCost != null ? '$' + formatPrice(m.outputCost) : '—';
 
+      // 美化模型名
+      var displayName = beautifyModelName(m.name || '未知模型');
+
       // 数据来源标签
       var sourceTags = '';
-      if (m.lmsysElo) sourceTags += '<span class="tag" style="color:#34d399;border-color:rgba(52,211,153,0.3);background:rgba(52,211,153,0.06);">LMSYS</span>';
-      if (m.livebenchScore) sourceTags += '<span class="tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.06);">LiveBench</span>';
+      if (m.lmsysElo) sourceTags += '<span class="tag" style="color:#34d399;border-color:rgba(52,211,153,0.3);background:rgba(52,211,153,0.06);">LMSYS ELO ' + Math.round(m.lmsysElo) + '</span>';
+      if (m.livebenchScore) sourceTags += '<span class="tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.06);">LiveBench ' + m.livebenchScore + '</span>';
       if (m.priceSource === 'openrouter') sourceTags += '<span class="tag" style="color:#06b6d4;border-color:rgba(6,182,212,0.3);background:rgba(6,182,212,0.06);">OpenRouter</span>';
       if (!m.lmsysElo && !m.livebenchScore && m.priceSource !== 'openrouter') sourceTags += '<span class="tag">Seed</span>';
 
       html += '<article class="model-card' + rankClass + '" style="animation-delay:' + (i * 0.03) + 's">';
       html += '<div class="model-rank">' + (i + 1) + '</div>';
-      html += '<div class="model-name">' + escapeHtml(m.name || '未知模型') + '</div>';
+      html += '<div class="model-name">' + escapeHtml(displayName) + '</div>';
       html += '<div class="model-vendor">' + escapeHtml(m.vendor || '未知') + '</div>';
       if (sourceTags) html += '<div class="egg-tags" style="margin-top:-4px;">' + sourceTags + '</div>';
       html += '<div class="model-pricing">';
@@ -144,13 +147,31 @@
       html += '<div class="price-item"><div class="price-label">输出</div><div class="price-value output">' + outputCost + '</div></div>';
       html += '</div>';
       html += '<div class="model-score-row">';
-      html += '<div><div class="model-score-label">综合性能分</div><div class="model-date">' + (m.releasedAt || '') + '</div></div>';
+      html += '<div><div class="model-score-label">综合性能分</div><div class="model-date">' + (m.releaseDate || m.updatedAt || '') + '</div></div>';
       html += '<div class="model-score">' + (m.score != null ? m.score : '—') + '</div>';
       html += '</div>';
       html += '</article>';
     });
 
     grid.innerHTML = html;
+  }
+
+  function beautifyModelName(name) {
+    if (!name) return name;
+    // 去掉日期后缀（如 -2507、-20250701）
+    name = name.replace(/-\d{4}$/, '');
+    name = name.replace(/-\d{8}$/, '');
+    // 将连字符替换为空格
+    name = name.replace(/-/g, ' ');
+    // 首字母大写
+    name = name.replace(/\b\w/g, function(c) { return c.toUpperCase(); });
+    // 特殊处理
+    name = name.replace(/\bQwen\b/g, 'Qwen');
+    name = name.replace(/\bDeepseek\b/g, 'DeepSeek');
+    name = name.replace(/\bGlm\b/g, 'GLM');
+    name = name.replace(/\bGpt\b/g, 'GPT');
+    name = name.replace(/\bLlama\b/g, 'LLaMA');
+    return name;
   }
 
   function formatPrice(p) {
