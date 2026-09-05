@@ -122,16 +122,25 @@ class ModelRankingScraper(BaseScraper):
             # 4. 提取 text 类别的模型 ELO 分数
             import pandas as pd
             lmsys_data = {}
+
+            # 调试：打印数据结构
+            print(f"[模型榜] battle_info 键: {list(battle_info.keys()) if isinstance(battle_info, dict) else 'not dict'}")
+
             if isinstance(battle_info, dict) and "text" in battle_info:
                 text_data = battle_info["text"]
+                print(f"[模型榜] text 类别: {list(text_data.keys())}")
                 for category, category_data in text_data.items():
                     if "style_control" in category:
                         continue  # 跳过 style_control 类别
                     if "leaderboard_table_df" in category_data:
                         df = category_data["leaderboard_table_df"]
+                        print(f"[模型榜] 类别 {category}: {len(df)} 个模型, 列: {list(df.columns)}")
                         if hasattr(df, "iterrows"):
-                            for _, row in df.iterrows():
-                                model_name = str(row.get("model") or row.get("model_name") or row.index[0]).strip()
+                            for idx, row in df.iterrows():
+                                # 模型名在索引中
+                                model_name = str(idx).strip() if idx is not None else ""
+                                if not model_name or model_name == "nan":
+                                    model_name = str(row.get("model") or row.get("model_name") or "").strip()
                                 rating = row.get("rating")
                                 if model_name and rating is not None and pd.notna(rating):
                                     elo = float(rating)
@@ -142,6 +151,8 @@ class ModelRankingScraper(BaseScraper):
                                             "elo": elo,
                                             "source": "lmsys",
                                         }
+                        # 只处理第一个非 style_control 类别（通常是 overall）
+                        break
             elif hasattr(battle_info, "iterrows"):
                 # 直接是 DataFrame
                 for _, row in battle_info.iterrows():
