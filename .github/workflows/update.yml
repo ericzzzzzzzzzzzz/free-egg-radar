@@ -15,6 +15,8 @@ jobs:
     steps:
       - name: 拉取代码
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 安装 Python
         uses: actions/setup-python@v5
@@ -24,8 +26,8 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
 
-      - name: 调试：打印 lmsys.py 前20行
-        run: head -20 scrapers/lmsys.py
+      - name: 调试：打印 lmsys.py 中的 URL
+        run: grep -n "huggingface" scrapers/lmsys.py
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
