@@ -1,14 +1,16 @@
 """模型榜抓取器：多来源公开数据综合评分自动更新
 
 数据源（按公信力排序）：
-1. LMSYS Chatbot Arena - 盲测 ELO 分数（最有公信力，HuggingFace 公开数据）
-2. OpenRouter API - 最新价格（公开 API，无需 key）
-3. 种子数据 - 多家公开榜单综合分（兜底）
+1. LMSYS Chatbot Arena - 盲测 ELO 分数（最有公信力，HuggingFace/第三方 API）
+2. LiveBench - 无污染实时基准（Global Average，每月更新问题）
+3. OpenRouter API - 最新价格（公开 API，无需 key）
+4. 种子数据 - 多家公开榜单综合分（兜底）
 
-综合评分公式：
-- LMSYS ELO 归一化（0-100）× 60%
-- 价格合理性分（0-100）× 20%
-- 种子性能分（0-100）× 20%
+综合评分公式（动态权重，缺失来源自动重新分配）：
+- LMSYS ELO 归一化（0-100）× 40%
+- LiveBench Global Average（0-100）× 30%
+- 价格合理性分（0-100）× 15%
+- 种子性能分（0-100）× 15%
 
 产出：site/data/models.json（按综合分降序排列的模型榜单）
 """
@@ -20,6 +22,7 @@ from typing import List, Dict, Any, Optional
 
 from scrapers.base import BaseScraper
 from scrapers.lmsys import LMSYSScraper
+from scrapers.livebench import LiveBenchScraper
 
 OPENROUTER_API = "https://openrouter.ai/api/v1/models"
 SEED_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "models_seed.json")
@@ -40,15 +43,25 @@ class ModelRankingScraper(BaseScraper):
             lmsys_scraper = LMSYSScraper()
             lmsys_data = lmsys_scraper.scrape()
         except Exception as e:
-            print(f"[模型榜] LMSYS 获取失败（将使用种子数据兜底）: {e}")
+            print(f"[模型榜] LMSYS 获取失败（将使用其他来源兜底）: {e}")
 
-        # 3. 从 OpenRouter 获取最新价格
+        # 3. 从 LiveBench 获取 Global Average（无污染基准）
+        livebench_data = {}
+        try:
+            lb_scraper = LiveBenchScraper()
+            livebench_data = lb_scraper.scrape()
+        except Exception as e:
+            print(f"[模型榜] LiveBench 获取失败（将使用其他来源兜底）: {e}")
+
+        # 4. 从 OpenRouter 获取最新价格
         openrouter_models = self._fetch_openrouter_models()
 
-        # 4. 合并多来源数据，计算综合分
-        models = self._merge_and_score(seed_models, lmsys_data, openrouter_models)
+        # 5. 合并多来源数据，计算综合分
+        models = self._merge_and_score(
+            seed_models, lmsys_data, livebench_data, openrouter_models
+        )
 
-        # 5. 按综合分降序排列
+        # 6. 按综合分降序排列
         models.sort(key=lambda m: m.get("score", 0), reverse=True)
 
         return models
@@ -107,11 +120,13 @@ class ModelRankingScraper(BaseScraper):
         self,
         seed_models: List[Dict],
         lmsys_data: Dict[str, Dict],
+        livebench_data: Dict[str, Dict],
         openrouter_models: Dict[str, Dict],
     ) -> List[Dict]:
-        """合并多来源数据，计算综合分。"""
+        """合并多来源数据，计算综合分（动态权重）。"""
         today = date.today().isoformat()
         lmsys_scraper = LMSYSScraper()
+        lb_scraper = LiveBenchScraper()
 
         # 计算 LMSYS ELO 的归一化范围
         elo_values = [v.get("elo") for v in lmsys_data.values() if v.get("elo")]
@@ -134,7 +149,17 @@ class ModelRankingScraper(BaseScraper):
             else:
                 model["lmsysElo"] = None
 
-            # 2. 匹配 OpenRouter 最新价格
+            # 2. 匹配 LiveBench Global Average
+            lb_match = lb_scraper.find_model(name, livebench_data)
+            if lb_match and lb_match.get("global_average"):
+                model["livebenchScore"] = lb_match["global_average"]
+                model["livebenchReasoning"] = lb_match.get("reasoning")
+                model["livebenchCoding"] = lb_match.get("coding")
+                sources_used.add("livebench")
+            else:
+                model["livebenchScore"] = None
+
+            # 3. 匹配 OpenRouter 最新价格
             or_model = self._find_openrouter_match(name, openrouter_models)
             if or_model:
                 model["inputCost"] = or_model.get("inputCost", model.get("inputCost"))
@@ -147,25 +172,39 @@ class ModelRankingScraper(BaseScraper):
             else:
                 model["priceSource"] = model.get("priceSource", "seed")
 
-            # 3. 计算综合分
+            # 4. 计算各来源归一化分数
             seed_score = m.get("score", 50)
             lmsys_score = self._normalize_elo(model.get("lmsysElo"), elo_min, elo_max)
+            lb_score = model.get("livebenchScore")  # LiveBench 已经是 0-100 范围
             price_score = self._score_price(model.get("inputCost"), model.get("outputCost"))
 
-            # 加权综合：LMSYS 60% + 价格 20% + 种子 20%
+            # 5. 动态权重综合评分
+            # 基础权重：LMSYS 40% + LiveBench 30% + 价格 15% + 种子 15%
+            # 缺失的来源权重自动重新分配给可用来源
+            weights = {"lmsys": 0.40, "livebench": 0.30, "price": 0.15, "seed": 0.15}
+            available = {}
             if lmsys_score is not None:
-                final_score = round(lmsys_score * 0.6 + price_score * 0.2 + seed_score * 0.2, 1)
-                model["scoreSource"] = "lmsys+price+seed"
-            else:
-                final_score = round(seed_score * 0.7 + price_score * 0.3, 1)
-                model["scoreSource"] = "seed+price"
+                available["lmsys"] = lmsys_score
+            if lb_score is not None:
+                available["livebench"] = lb_score
+            available["price"] = price_score
+            available["seed"] = seed_score
+
+            # 重新计算权重
+            total_weight = sum(weights[k] for k in available.keys())
+            final_score = 0
+            for k, v in available.items():
+                final_score += v * (weights[k] / total_weight)
+            final_score = round(final_score, 1)
 
             model["score"] = final_score
             model["scoreBreakdown"] = {
                 "lmsys": lmsys_score,
+                "livebench": lb_score,
                 "price": price_score,
                 "seed": seed_score,
             }
+            model["scoreSource"] = "+".join(sorted(available.keys()))
             model["updatedAt"] = today
 
             merged.append(model)
@@ -185,14 +224,12 @@ class ModelRankingScraper(BaseScraper):
     def _score_price(input_cost: Optional[float], output_cost: Optional[float]) -> float:
         """根据价格计算合理性分数（越便宜分越高，0-100）。"""
         if input_cost is None and output_cost is None:
-            return 50  # 未知价格给中值
+            return 50
 
-        # 用混合价格（输入:输出 = 3:1）
         ic = input_cost if input_cost is not None else 0
         oc = output_cost if output_cost is not None else 0
         blended = (ic * 3 + oc) / 4
 
-        # 价格越低分越高
         if blended <= 0.1:
             return 95
         if blended <= 0.5:
@@ -217,11 +254,9 @@ class ModelRankingScraper(BaseScraper):
 
         name_lower = name.lower().replace(" ", "-").replace(".", "-")
 
-        # 精确匹配
         if name_lower in openrouter_models:
             return openrouter_models[name_lower]
 
-        # 模糊匹配
         keywords = [k for k in name_lower.replace("-", " ").split() if len(k) > 2]
         if not keywords:
             return None
