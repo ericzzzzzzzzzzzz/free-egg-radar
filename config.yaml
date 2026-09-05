@@ -1,0 +1,34 @@
+# ============ FreeEgg Radar 配置 ============
+# 自动抓取 · 自动评分 · 自动更新 · 免费部署
+
+# 蛋力分权重（可解释公式，总和=1）
+score_weights:
+  quota: 0.40      # 额度量级
+  duration: 0.20   # 长期性
+  threshold: 0.15  # 门槛高低
+  urgency: 0.15    # 时效紧迫
+  source: 0.10     # 来源可信
+
+# 抓取源开关
+sources:
+  openrouter:
+    enabled: true      # OpenRouter 官方 API（免费模型池，全球）
+  siliconflow:
+    enabled: true      # 硅基流动官方定价页（免费模型，国内）
+
+# LLM 解析（把公告/线报文本转成结构化条目）
+# 默认关闭；配置 SILICONFLOW_API_KEY 环境变量后自动启用
+llm:
+  enabled: false
+  base_url: https://api.siliconflow.cn/v1
+  model: Qwen/Qwen2.5-7B-Instruct   # 硅基流动免费模型
+
+# 上传目标：qiniu（推荐，国内+永久免费10GB）/ cos（腾讯云6个月免费）/ none
+upload:
+  provider: qiniu
+  prefix: ""            # 对象存储里的前缀，留空则放根目录
+  qiniu:
+    bucket: ""          # 七牛云空间名（Secrets 里配 QINIU_*）
+  cos:
+    bucket: ""          # 腾讯云 COS 桶名（Secrets 里配 COS_*）
+    region: ap-guangzhou
