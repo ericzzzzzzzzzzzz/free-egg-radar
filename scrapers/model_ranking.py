@@ -123,18 +123,13 @@ class ModelRankingScraper(BaseScraper):
             import pandas as pd
             lmsys_data = {}
 
-            # 调试：打印数据结构
-            print(f"[模型榜] battle_info 键: {list(battle_info.keys()) if isinstance(battle_info, dict) else 'not dict'}")
-
             if isinstance(battle_info, dict) and "text" in battle_info:
                 text_data = battle_info["text"]
-                print(f"[模型榜] text 类别: {list(text_data.keys())}")
                 for category, category_data in text_data.items():
                     if "style_control" in category:
                         continue  # 跳过 style_control 类别
                     if "leaderboard_table_df" in category_data:
                         df = category_data["leaderboard_table_df"]
-                        print(f"[模型榜] 类别 {category}: {len(df)} 个模型, 列: {list(df.columns)}")
                         if hasattr(df, "iterrows"):
                             for idx, row in df.iterrows():
                                 # 模型名在索引中
@@ -151,7 +146,7 @@ class ModelRankingScraper(BaseScraper):
                                             "elo": elo,
                                             "source": "lmsys",
                                         }
-                        # 只处理第一个非 style_control 类别（通常是 overall）
+                        # 只处理第一个非 style_control 类别（通常是 full/overall）
                         break
             elif hasattr(battle_info, "iterrows"):
                 # 直接是 DataFrame
@@ -193,7 +188,18 @@ class ModelRankingScraper(BaseScraper):
         if name_norm in data_dict:
             return data_dict[name_norm]
 
-        # 2. 关键词匹配（至少匹配 2 个关键词）
+        # 2. 子字符串匹配（一个名称包含另一个）
+        for key, value in data_dict.items():
+            data_name = value.get("name", key)
+            data_norm = normalize(data_name)
+            if name_norm in data_norm or data_norm in name_norm:
+                # 额外检查：至少有一个共同关键词
+                name_parts = set(name_norm.split())
+                data_parts = set(data_norm.split())
+                if name_parts & data_parts or len(name_norm) > 5:
+                    return value
+
+        # 3. 关键词匹配（至少匹配 1 个关键词，且名称长度相似）
         name_keywords = set(name_norm.split())
         if not name_keywords:
             name_keywords = {name_norm}
@@ -214,9 +220,14 @@ class ModelRankingScraper(BaseScraper):
 
             # 额外加分：一个名称包含另一个
             if name_norm in data_norm or data_norm in name_norm:
-                score += 2
+                score += 3
 
-            if score > best_score and score >= 2:
+            # 长度相似度加分
+            len_diff = abs(len(name_norm) - len(data_norm))
+            if len_diff < 5:
+                score += 1
+
+            if score > best_score and score >= 1:
                 best_score = score
                 best_match = value
 
