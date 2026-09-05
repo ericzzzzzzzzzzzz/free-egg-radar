@@ -1,15 +1,15 @@
 /* FreeEgg Radar 样式 v3：霓虹极光 · 玻璃拟态 · 赛博未来 */
 :root {
-  --bg: #161632;
-  --bg-2: #1c1a3a;
-  --card: rgba(34, 32, 62, 0.55);
-  --card-solid: #22203e;
-  --card-hover: rgba(42, 38, 72, 0.7);
-  --border: rgba(255, 255, 255, 0.12);
-  --border-strong: rgba(255, 255, 255, 0.2);
-  --text: #f5f7ff;
-  --text-dim: #b0b8d8;
-  --text-faint: #7a84a8;
+  --bg: #2e2c52;
+  --bg-2: #36345e;
+  --card: rgba(58, 56, 92, 0.45);
+  --card-solid: #3a385c;
+  --card-hover: rgba(68, 64, 104, 0.6);
+  --border: rgba(255, 255, 255, 0.16);
+  --border-strong: rgba(255, 255, 255, 0.26);
+  --text: #f8faff;
+  --text-dim: #c8cde8;
+  --text-faint: #98a0c0;
 
   /* 霓虹极光主色 */
   --neon-purple: #a855f7;
@@ -41,7 +41,7 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    linear-gradient(160deg, #1a1838 0%, #161632 25%, #1c1a3e 55%, #14142e 100%);
+    linear-gradient(160deg, #3a3868 0%, #2e2c52 25%, #34325e 55%, #28264a 100%);
   color: var(--text);
   font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
   line-height: 1.6;
@@ -56,12 +56,12 @@ body::before {
   position: fixed;
   top: -300px;
   left: -150px;
-  width: 900px;
-  height: 800px;
+  width: 1000px;
+  height: 900px;
   background:
-    radial-gradient(ellipse at 40% 30%, rgba(168, 85, 247, 0.22) 0%, transparent 45%),
-    radial-gradient(ellipse at 70% 50%, rgba(6, 182, 212, 0.18) 0%, transparent 40%),
-    radial-gradient(ellipse at 30% 70%, rgba(236, 72, 153, 0.12) 0%, transparent 45%);
+    radial-gradient(ellipse at 40% 30%, rgba(168, 85, 247, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 70% 50%, rgba(6, 182, 212, 0.25) 0%, transparent 40%),
+    radial-gradient(ellipse at 30% 70%, rgba(236, 72, 153, 0.18) 0%, transparent 45%);
   pointer-events: none;
   z-index: 0;
   animation: aurora1 20s ease-in-out infinite alternate;
@@ -72,12 +72,12 @@ body::after {
   position: fixed;
   bottom: -250px;
   right: -150px;
-  width: 850px;
-  height: 750px;
+  width: 950px;
+  height: 850px;
   background:
-    radial-gradient(ellipse at 60% 40%, rgba(6, 182, 212, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 30% 60%, rgba(168, 85, 247, 0.15) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 70%, rgba(16, 185, 129, 0.1) 0%, transparent 40%);
+    radial-gradient(ellipse at 60% 40%, rgba(6, 182, 212, 0.25) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 60%, rgba(168, 85, 247, 0.22) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 70%, rgba(16, 185, 129, 0.15) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
   animation: aurora2 25s ease-in-out infinite alternate;
@@ -117,9 +117,9 @@ a:hover { color: #fff; text-decoration: none; }
 /* ========== 顶栏 ========== */
 .topnav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(22, 22, 50, 0.65);
-  backdrop-filter: blur(20px) saturate(1.8);
-  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  background: rgba(46, 44, 82, 0.55);
+  backdrop-filter: blur(24px) saturate(2);
+  -webkit-backdrop-filter: blur(24px) saturate(2);
   border-bottom: 1px solid var(--border);
 }
 .topnav-inner { display: flex; align-items: center; gap: 12px; padding: 12px 18px; }
@@ -224,7 +224,7 @@ a:hover { color: #fff; text-decoration: none; }
 .filter-advanced {
   display: flex; gap: 16px; flex-wrap: wrap; width: 100%;
   padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);
-  margin-top: 4px; background: rgba(255,255,255,0.02);
+  margin-top: 4px; background: rgba(255,255,255,0.05);
   animation: slideDown 0.25s ease;
 }
 @keyframes slideDown {
@@ -400,11 +400,11 @@ a:hover { color: #fff; text-decoration: none; }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .modal {
-  background: linear-gradient(180deg, #2a2850, #1e1c3e);
+  background: linear-gradient(180deg, #4a4878, #3a3860);
   border: 1px solid var(--border-strong); border-radius: 20px;
   max-width: 580px; width: 100%; max-height: 82vh; overflow-y: auto;
   padding: 24px; position: relative;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.5), 0 0 80px rgba(168, 85, 247, 0.15);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.35), 0 0 80px rgba(168, 85, 247, 0.2);
   animation: modalIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @keyframes modalIn {
