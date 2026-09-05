@@ -42,7 +42,12 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    linear-gradient(180deg, #102a23 0%, #0e251f 40%, #0c221c 70%, #0a1f1a 100%);
+    /* 微妙对角线高光（左上稍亮） */
+    linear-gradient(135deg, rgba(255,255,255,0.025) 0%, transparent 40%),
+    /* 微妙对角线暗角（右下稍暗） */
+    linear-gradient(315deg, rgba(0,0,0,0.08) 0%, transparent 45%),
+    /* 基础从上到下渐变 */
+    linear-gradient(180deg, #112d25 0%, #0e251f 40%, #0c221c 70%, #0a1f1a 100%);
   color: var(--text);
   font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
   line-height: 1.6;
@@ -51,7 +56,32 @@ body {
   position: relative;
 }
 
-/* 背景光晕已移除，改用干净的线性渐变 */
+/* 微妙网格纹理覆盖层 */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 极微妙的顶部光晕（大面积、低不透明度、边缘完全模糊） */
+body::after {
+  content: '';
+  position: fixed;
+  top: -400px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1600px;
+  height: 800px;
+  background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
 
 .container { max-width: 980px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 1; }
 
