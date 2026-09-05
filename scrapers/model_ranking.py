@@ -19,6 +19,7 @@ import json
 import os
 import pickle
 import io
+import requests
 from datetime import date
 from typing import List, Dict, Any, Optional
 
@@ -77,7 +78,9 @@ class ModelRankingScraper(BaseScraper):
         """从 LMSYS Chatbot Arena 获取 ELO 分数（直接使用正确 URL，不依赖 lmsys.py）。"""
         try:
             print(f"[模型榜] 从 LMSYS 获取 ELO 分数: {LMSYS_HF_URL}")
-            resp = self._get(LMSYS_HF_URL, timeout=30)
+            # 直接使用 requests，不通过 BaseScraper._get()，避免 URL 被修改
+            resp = requests.get(LMSYS_HF_URL, timeout=30, allow_redirects=True)
+            print(f"[模型榜] LMSYS 响应状态: {resp.status_code}, 最终 URL: {resp.url}")
             resp.raise_for_status()
             print(f"[模型榜] LMSYS 数据下载成功，大小: {len(resp.content)} 字节")
 
