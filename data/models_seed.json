@@ -1,0 +1,276 @@
+{
+  "version": "2026-09-05",
+  "source": "数据整理参考多家公开榜单共识（2026-09-05 快照，综合 7 家公开榜单），价格为公开市场标准参考价（美元/百万 Token）",
+  "models": [
+    {
+      "id": "muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "vendor": "Meta",
+      "releasedAt": "2026-09-02",
+      "inputCost": 1.25,
+      "outputCost": 4.25,
+      "score": 92
+    },
+    {
+      "id": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-09-03",
+      "inputCost": 10,
+      "outputCost": 50,
+      "score": 90.5
+    },
+    {
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-06-09",
+      "inputCost": 10,
+      "outputCost": 50,
+      "score": 89.9
+    },
+    {
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-07-24",
+      "inputCost": 5,
+      "outputCost": 25,
+      "score": 86.2
+    },
+    {
+      "id": "gpt-5-6-sol",
+      "name": "GPT-5.6 Sol",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-07-09",
+      "inputCost": 2,
+      "outputCost": 10,
+      "score": 83.4
+    },
+    {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "vendor": "Moonshot AI",
+      "releasedAt": "2026-07-16",
+      "inputCost": 3,
+      "outputCost": 15,
+      "score": 80.1
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "name": "Gemini 3.8 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-09-02",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 79
+    },
+    {
+      "id": "glm-5-3",
+      "name": "GLM-5.3",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-08-18",
+      "inputCost": 1.4,
+      "outputCost": 4.4,
+      "score": 75.4
+    },
+    {
+      "id": "grok-4-6",
+      "name": "Grok 4.6",
+      "vendor": "xAI",
+      "releasedAt": "2026-08-12",
+      "inputCost": 2,
+      "outputCost": 6,
+      "score": 74.1
+    },
+    {
+      "id": "gemini-3-7-flash",
+      "name": "Gemini 3.7 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-08-13",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 73.9
+    },
+    {
+      "id": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "vendor": "Meta",
+      "releasedAt": "2026-08-05",
+      "inputCost": 1.25,
+      "outputCost": 4.25,
+      "score": 73.6
+    },
+    {
+      "id": "gpt-5-5",
+      "name": "GPT-5.5",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-04-23",
+      "inputCost": 5,
+      "outputCost": 30,
+      "score": 72.8
+    },
+    {
+      "id": "qwen3-8-max",
+      "name": "Qwen3.8 Max",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-07-19",
+      "inputCost": 2,
+      "outputCost": 6,
+      "score": 71.6
+    },
+    {
+      "id": "gpt-5-6-terra",
+      "name": "GPT-5.6 Terra",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-07-09",
+      "inputCost": 2,
+      "outputCost": 12,
+      "score": 70.6
+    },
+    {
+      "id": "claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-05-28",
+      "inputCost": 5,
+      "outputCost": 25,
+      "score": 69.7
+    },
+    {
+      "id": "qwen3-8-flash-next",
+      "name": "Qwen3.8 Flash Next",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-08-26",
+      "inputCost": null,
+      "outputCost": null,
+      "score": 68.1
+    },
+    {
+      "id": "claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-04-16",
+      "inputCost": 5,
+      "outputCost": 25,
+      "score": 64.2
+    },
+    {
+      "id": "glm-5-3-flash",
+      "name": "GLM-5.3 Flash",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-08-26",
+      "inputCost": 0.075,
+      "outputCost": 0.25,
+      "score": 62.3
+    },
+    {
+      "id": "muse-spark-1-1",
+      "name": "Muse Spark 1.1",
+      "vendor": "Meta",
+      "releasedAt": "2026-07-09",
+      "inputCost": 1.25,
+      "outputCost": 4.25,
+      "score": 60.5
+    },
+    {
+      "id": "gpt-5-4",
+      "name": "GPT-5.4",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-03-05",
+      "inputCost": 2.5,
+      "outputCost": 15,
+      "score": 57.2
+    },
+    {
+      "id": "deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "vendor": "DeepSeek",
+      "releasedAt": "2026-08-13",
+      "inputCost": 1.12068,
+      "outputCost": 3.36204,
+      "score": 56
+    },
+    {
+      "id": "grok-4-5",
+      "name": "Grok 4.5",
+      "vendor": "xAI",
+      "releasedAt": "2026-07-08",
+      "inputCost": 2,
+      "outputCost": 6,
+      "score": 55.5
+    },
+    {
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-06-30",
+      "inputCost": 2,
+      "outputCost": 10,
+      "score": 54.7
+    },
+    {
+      "id": "gpt-5-6-luna",
+      "name": "GPT-5.6 Luna",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-07-09",
+      "inputCost": 0.2,
+      "outputCost": 1.2,
+      "score": 53.6
+    },
+    {
+      "id": "gemini-3-6-flash",
+      "name": "Gemini 3.6 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-07-21",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 50
+    },
+    {
+      "id": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-02-05",
+      "inputCost": 5,
+      "outputCost": 25,
+      "score": 48.3
+    },
+    {
+      "id": "gemini-3-5-flash",
+      "name": "Gemini 3.5 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-05-19",
+      "inputCost": 1.5,
+      "outputCost": 9,
+      "score": 47.9
+    },
+    {
+      "id": "glm-5-2",
+      "name": "GLM-5.2",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-06-16",
+      "inputCost": 0.966,
+      "outputCost": 3.036,
+      "score": 46.7
+    },
+    {
+      "id": "qwen3-8-27-b",
+      "name": "Qwen3.8 27 B",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-08-14",
+      "inputCost": 0.42,
+      "outputCost": 3,
+      "score": 43
+    },
+    {
+      "id": "deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "vendor": "DeepSeek",
+      "releasedAt": "2026-07-31",
+      "inputCost": 0.065,
+      "outputCost": 0.18,
+      "score": 43
+    }
+  ]
+}
