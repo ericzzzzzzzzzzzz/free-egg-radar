@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: 拉取代码
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
       - name: 安装 Python
         uses: actions/setup-python@v5
@@ -25,15 +23,6 @@ jobs:
 
       - name: 安装依赖
         run: pip install -r requirements.txt
-
-      - name: 修复 lmsys.py URL
-        run: |
-          echo "替换前:"
-          grep -n "arena-leaderboard" scrapers/lmsys.py || echo "未找到旧 URL"
-          sed -i 's|lmarena-ai/arena-leaderboard|lmarena-ai/chatbot-arena-leaderboard|g' scrapers/lmsys.py
-          echo "替换后:"
-          grep -n "chatbot-arena-leaderboard" scrapers/lmsys.py || echo "未找到新 URL"
-          python fix_lmsys_url.py
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
