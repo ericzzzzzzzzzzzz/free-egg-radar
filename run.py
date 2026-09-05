@@ -8,7 +8,9 @@
 """
 
 import argparse
+import json
 import sys
+from datetime import date
 from pathlib import Path
 
 import yaml
@@ -87,6 +89,40 @@ def run_fetch(cfg: dict) -> list:
     return scraped
 
 
+def run_model_ranking(cfg: dict) -> list:
+    """执行模型榜抓取器，返回按性能分排序的模型列表。"""
+    sources = cfg.get("sources", {})
+    if not sources.get("model-ranking", {}).get("enabled", True):
+        return []
+
+    try:
+        from scrapers.model_ranking import ModelRankingScraper
+        models = ModelRankingScraper().scrape()
+        print(f"[模型榜] 抓取到 {len(models)} 个模型")
+        return models
+    except Exception as e:
+        print(f"[模型榜] 抓取失败: {e}")
+        return []
+
+
+def export_model_ranking(models: list, output_dir: Path):
+    """导出模型榜数据到 site/data/models.json。"""
+    if not models:
+        return
+
+    today = date.today().isoformat()
+    data = {
+        "version": today,
+        "source": "性能分参考多家公开榜单共识，价格为 OpenRouter 标准参考价（美元/百万 Token），自动更新",
+        "models": models,
+    }
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    with open(output_dir / "models.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"[模型榜] 已导出 {len(models)} 个模型到 site/data/models.json")
+
+
 def main():
     parser = argparse.ArgumentParser(description="FreeEgg Radar")
     parser.add_argument("--no-fetch", action="store_true", help="不执行网络抓取，仅本地数据")
@@ -106,6 +142,11 @@ def main():
     stats = export_site_data(eggs, ROOT / "site" / "data")
 
     print(f"[生成] 有效 {stats['total']} 条（金{stats['gold']} 银{stats['silver']} 铜{stats['copper']}）· 过期 {stats['expired']} 条")
+
+    # 模型榜抓取和导出
+    if not args.no_fetch:
+        models = run_model_ranking(cfg)
+        export_model_ranking(models, ROOT / "site" / "data")
 
     if args.upload:
         provider = cfg.get("upload", {}).get("provider", "none")
