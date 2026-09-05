@@ -165,28 +165,61 @@ class LiveBenchScraper(BaseScraper):
         """从 JavaScript 变量中提取模型数据。"""
         models = {}
 
-        # 查找包含模型数据的 JS 数组
-        # 常见模式: const data = [{model: "...", score: ...}, ...]
+        # 方法 1: 查找 __NEXT_DATA__
+        next_match = re.search(
+            r'<script[^>]*id="__NEXT_DATA__"[^>]*>(.*?)</script>',
+            html,
+            re.DOTALL,
+        )
+        if next_match:
+            try:
+                data = json.loads(next_match.group(1))
+                models = self._parse_next_data(data)
+                if models:
+                    return models
+            except Exception:
+                pass
+
+        # 方法 2: 查找 window.__INITIAL_STATE__ 或类似变量
+        state_match = re.search(
+            r'window\.__[A-Z_]+__\s*=\s*(\{.*?\});',
+            html,
+            re.DOTALL,
+        )
+        if state_match:
+            try:
+                data = json.loads(state_match.group(1))
+                models = self._parse_next_data(data)
+                if models:
+                    return models
+            except Exception:
+                pass
+
+        # 方法 3: 查找包含模型数据的 JS 数组
         js_arrays = re.findall(
             r'(?:const|let|var)\s+\w+\s*=\s*(\[[^\]]+\{[^\}]+\}[^\]]+\])',
             html,
             re.DOTALL,
         )
 
-        for arr_str in js_arrays[:5]:  # 只检查前 5 个
+        for arr_str in js_arrays[:10]:
             try:
-                # 尝试解析为 JSON（可能需要清理）
-                cleaned = re.sub(r"(\w+):", r'"\1":', arr_str)  # 键加引号
-                cleaned = re.sub(r",\s*}", "}", cleaned)  # 去掉 trailing comma
+                cleaned = re.sub(r"(\w+):", r'"\1":', arr_str)
+                cleaned = re.sub(r",\s*}", "}", cleaned)
                 data = json.loads(cleaned)
                 if isinstance(data, list) and len(data) > 0:
                     first = data[0]
                     if isinstance(first, dict) and any(
-                        k in first for k in ["model", "name", "score"]
+                        k in first for k in ["model", "name", "score", "overall"]
                     ):
                         for m in data:
                             name = m.get("model") or m.get("name") or ""
-                            score = m.get("score") or m.get("global_average")
+                            score = (
+                                m.get("score")
+                                or m.get("global_average")
+                                or m.get("overall")
+                                or m.get("average")
+                            )
                             if name and score:
                                 normalized_name = self._normalize_name(name)
                                 models[normalized_name] = {
