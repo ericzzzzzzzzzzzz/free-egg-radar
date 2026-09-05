@@ -26,27 +26,8 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
 
-      - name: 调试：打印 lmsys.py 内容
-        run: cat scrapers/lmsys.py | head -35
-
-      - name: 强制更新 lmsys.py（确保使用最新版本）
-        run: |
-          echo "当前 git log:"
-          git log --oneline -5
-          echo "当前 lmsys.py 行数:"
-          wc -l scrapers/lmsys.py
-          echo "用 Python 强制替换 URL:"
-          python -c "
-import re
-with open('scrapers/lmsys.py', 'r', encoding='utf-8') as f:
-    content = f.read()
-content = content.replace('lmarena-ai/arena-leaderboard', 'lmarena-ai/chatbot-arena-leaderboard')
-with open('scrapers/lmsys.py', 'w', encoding='utf-8') as f:
-    f.write(content)
-print('替换完成')
-"
-          echo "替换后检查:"
-          grep -n "huggingface" scrapers/lmsys.py || echo "仍未找到"
+      - name: 修复 lmsys.py URL
+        run: python fix_lmsys_url.py
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
