@@ -42,6 +42,30 @@ def run_fetch(cfg: dict) -> list:
             scraped.extend(SiliconFlowScraper().scrape())
         except Exception as e:
             print(f"[抓取] 硅基流动失败: {e}")
+    if sources.get("cohere", {}).get("enabled", True):
+        try:
+            from scrapers.cohere import CohereScraper
+            scraped.extend(CohereScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] Cohere 失败: {e}")
+    if sources.get("gemini", {}).get("enabled", True):
+        try:
+            from scrapers.gemini import GeminiScraper
+            scraped.extend(GeminiScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] Gemini 失败: {e}")
+    if sources.get("mistral", {}).get("enabled", True):
+        try:
+            from scrapers.mistral import MistralScraper
+            scraped.extend(MistralScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] Mistral 失败: {e}")
+    if sources.get("groq", {}).get("enabled", True):
+        try:
+            from scrapers.groq import GroqScraper
+            scraped.extend(GroqScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] Groq 失败: {e}")
     return scraped
 
 
