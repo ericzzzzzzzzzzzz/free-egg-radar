@@ -1,10 +1,10 @@
 {
-  "version": "2026-09-05T06:50+00:00",
+  "version": "2026-09-05T18:25+08:00",
   "stats": {
     "gold": 6,
-    "silver": 9,
+    "silver": 13,
     "copper": 7,
-    "total": 22,
+    "total": 26,
     "expired": 8
   },
   "eggs": [
@@ -197,6 +197,82 @@
       "published_at": "2026-08-31",
       "updated_at": "2026-08-31",
       "source": "seed"
+    },
+    {
+      "id": "cohere-trial-2026-09-05",
+      "title": "Cohere Trial 免费层（注册即取 API Key）",
+      "vendor": "Cohere",
+      "category": "api-quota",
+      "score": 68.5,
+      "summary": "注册即获 Trial API Key，所有模型免费调用，限速 10 RPM",
+      "content": "Cohere 官方定价页自动探测（2026-09-05 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed Semantic、Embed Rerank\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
+      "link": "https://cohere.com/pricing",
+      "tags": {
+        "duration": "longterm",
+        "region": "global"
+      },
+      "expired": false,
+      "expiry_date": null,
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
+      "source": "cohere"
+    },
+    {
+      "id": "gemini-free-2026-09-05",
+      "title": "Google Gemini API 免费层（4 款模型）",
+      "vendor": "Google Gemini",
+      "category": "api-quota",
+      "score": 68.5,
+      "summary": "Google AI Studio 注册即取 API Key，gemini-2.0-flash、gemini-1.5-flash、gemini-1.5-flash-8b、gemini-embedding-001 免费调用",
+      "content": "Google Gemini API 官方文档自动探测（2026-09-05 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-2.0-flash、gemini-1.5-flash、gemini-1.5-flash-8b、gemini-embedding-001\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
+      "link": "https://ai.google.dev/gemini-api/docs/models",
+      "tags": {
+        "duration": "longterm",
+        "region": "global"
+      },
+      "expired": false,
+      "expiry_date": null,
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
+      "source": "gemini"
+    },
+    {
+      "id": "mistral-free-2026-09-05",
+      "title": "Mistral La Plateforme 免费层（5 款模型）",
+      "vendor": "Mistral AI",
+      "category": "api-quota",
+      "score": 68.5,
+      "summary": "注册即取 API Key，mistral-small-latest、mistral-medium-latest、mistral-large-latest、codestral-latest、embedding-v3 免费调用，限速",
+      "content": "Mistral AI 官方文档自动探测（2026-09-05 快照）。\n\n- **免费层**：La Plateforme 免费层，注册即可使用\n- **覆盖模型**：mistral-small-latest、mistral-medium-latest、mistral-large-latest、codestral-latest、embedding-v3\n- **速率限制**：免费层有限速（约 2 RPM），适合评估和原型开发\n- **功能**：Chat Completion、Embedding、Function Calling 等\n\n使用步骤：\n\n1. 打开 [Mistral Console](https://console.mistral.ai/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Mistral API（OpenAI 兼容格式）即可\n\n**注意**：免费层有速率限制，超出后需等待重置或升级；模型清单和免费政策以 [官方文档](https://docs.mistral.ai/getting-started/models/) 为准。本条目由自动抓取生成，未人工实测。",
+      "link": "https://docs.mistral.ai/getting-started/models/",
+      "tags": {
+        "duration": "longterm",
+        "region": "global"
+      },
+      "expired": false,
+      "expiry_date": null,
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
+      "source": "mistral"
+    },
+    {
+      "id": "groq-free-2026-09-05",
+      "title": "Groq 免费模型池（6 款模型 · 高速推理）",
+      "vendor": "Groq",
+      "category": "api-quota",
+      "score": 68.5,
+      "summary": "注册即取 API Key，llama-3.3-70b-versatile、llama-3.1-8b-instant、mixtral-8x7b-32768、gemma2-9b-it、llama-guard-3-8b、whisper-large-v3 免费调用，LPU 高速推理",
+      "content": "Groq 官方 API/文档自动探测（2026-09-05 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.3-70b-versatile、llama-3.1-8b-instant、mixtral-8x7b-32768、gemma2-9b-it、llama-guard-3-8b、whisper-large-v3\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
+      "link": "https://console.groq.com/docs/models",
+      "tags": {
+        "duration": "longterm",
+        "region": "global"
+      },
+      "expired": false,
+      "expiry_date": null,
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
+      "source": "groq"
     },
     {
       "id": "monkeycode-free-tier-202608",
