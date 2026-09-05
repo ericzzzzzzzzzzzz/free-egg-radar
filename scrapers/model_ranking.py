@@ -164,9 +164,6 @@ class ModelRankingScraper(BaseScraper):
                             }
 
             print(f"[模型榜] LMSYS ELO 数据: {len(lmsys_data)} 个模型")
-            # 调试：打印前 20 个模型名
-            sample_names = list(lmsys_data.values())[:20]
-            print(f"[模型榜] LMSYS 模型名样本: {[v['name'] for v in sample_names]}")
             return lmsys_data
 
         except Exception as e:
@@ -291,7 +288,9 @@ class ModelRankingScraper(BaseScraper):
         livebench_data: Dict[str, Dict],
         openrouter_models: Dict[str, Dict],
     ) -> List[Dict]:
-        """合并多来源数据，计算综合分（动态权重）。"""
+        """合并多来源数据，计算综合分（动态权重）。
+        优先使用 LMSYS 中的真实模型数据，种子数据作为补充。
+        """
         today = date.today().isoformat()
         lb_scraper = LiveBenchScraper()
 
@@ -302,62 +301,66 @@ class ModelRankingScraper(BaseScraper):
 
         merged = []
         sources_used = set()
+        used_lmsys_names = set()
 
-        for m in seed_models:
-            name = m.get("name", "")
-            model = dict(m)  # 复制种子数据
+        # 1. 优先使用 LMSYS 中的真实模型（按 ELO 降序，取前 30 个）
+        lmsys_sorted = sorted(lmsys_data.values(), key=lambda x: x.get("elo", 0), reverse=True)
+        for lmsys_model in lmsys_sorted[:30]:
+            name = lmsys_model.get("name", "")
+            if not name or name in used_lmsys_names:
+                continue
+            used_lmsys_names.add(name)
 
-            # 1. 匹配 LMSYS ELO 分数（简单模糊匹配）
-            lmsys_match = self._fuzzy_match_model(name, lmsys_data)
-            if lmsys_match and lmsys_match.get("elo"):
-                model["lmsysElo"] = lmsys_match["elo"]
-                sources_used.add("lmsys")
-                print(f"[模型榜] LMSYS 匹配: {name} -> {lmsys_match['name']} (ELO={lmsys_match['elo']:.1f})")
-            else:
-                model["lmsysElo"] = None
+            model = {
+                "name": name,
+                "vendor": self._extract_vendor(name),
+                "releaseDate": today,
+                "contextLength": None,
+                "inputCost": None,
+                "outputCost": None,
+                "lmsysElo": lmsys_model.get("elo"),
+                "livebenchScore": None,
+                "score": 0,
+                "scoreBreakdown": {},
+                "scoreSource": "",
+                "updatedAt": today,
+            }
+            sources_used.add("lmsys")
 
-            # 2. 匹配 LiveBench Global Average
-            lb_match = lb_scraper.find_model(name, livebench_data)
-            if lb_match and lb_match.get("global_average"):
-                model["livebenchScore"] = lb_match["global_average"]
-                model["livebenchReasoning"] = lb_match.get("reasoning")
-                model["livebenchCoding"] = lb_match.get("coding")
-                sources_used.add("livebench")
-            else:
-                model["livebenchScore"] = None
-
-            # 3. 匹配 OpenRouter 最新价格
+            # 匹配 OpenRouter 最新价格
             or_model = self._find_openrouter_match(name, openrouter_models)
             if or_model:
-                model["inputCost"] = or_model.get("inputCost", model.get("inputCost"))
-                model["outputCost"] = or_model.get("outputCost", model.get("outputCost"))
+                model["inputCost"] = or_model.get("inputCost")
+                model["outputCost"] = or_model.get("outputCost")
                 if or_model.get("contextLength"):
                     model["contextLength"] = or_model["contextLength"]
                 model["priceUpdatedAt"] = today
                 model["priceSource"] = "openrouter"
                 sources_used.add("openrouter")
             else:
-                model["priceSource"] = model.get("priceSource", "seed")
+                model["priceSource"] = "unknown"
 
-            # 4. 计算各来源归一化分数
-            seed_score = m.get("score", 50)
+            # 匹配 LiveBench
+            lb_match = lb_scraper.find_model(name, livebench_data)
+            if lb_match and lb_match.get("global_average"):
+                model["livebenchScore"] = lb_match["global_average"]
+                model["livebenchReasoning"] = lb_match.get("reasoning")
+                model["livebenchCoding"] = lb_match.get("coding")
+                sources_used.add("livebench")
+
+            # 计算综合分
             lmsys_score = self._normalize_elo(model.get("lmsysElo"), elo_min, elo_max)
-            lb_score = model.get("livebenchScore")  # LiveBench 已经是 0-100 范围
+            lb_score = model.get("livebenchScore")
             price_score = self._score_price(model.get("inputCost"), model.get("outputCost"))
 
-            # 5. 动态权重综合评分
-            # 基础权重：LMSYS 40% + LiveBench 30% + 价格 15% + 种子 15%
-            # 缺失的来源权重自动重新分配给可用来源
-            weights = {"lmsys": 0.40, "livebench": 0.30, "price": 0.15, "seed": 0.15}
+            weights = {"lmsys": 0.50, "livebench": 0.25, "price": 0.25}
             available = {}
             if lmsys_score is not None:
                 available["lmsys"] = lmsys_score
             if lb_score is not None:
                 available["livebench"] = lb_score
             available["price"] = price_score
-            available["seed"] = seed_score
 
-            # 重新计算权重
             total_weight = sum(weights[k] for k in available.keys())
             final_score = 0
             for k, v in available.items():
@@ -369,15 +372,117 @@ class ModelRankingScraper(BaseScraper):
                 "lmsys": lmsys_score,
                 "livebench": lb_score,
                 "price": price_score,
-                "seed": seed_score,
             }
             model["scoreSource"] = "+".join(sorted(available.keys()))
-            model["updatedAt"] = today
 
             merged.append(model)
 
+        # 2. 如果 LMSYS 模型不足 30 个，用种子数据补充
+        if len(merged) < 30:
+            for m in seed_models:
+                if len(merged) >= 30:
+                    break
+                name = m.get("name", "")
+                # 跳过已经在 LMSYS 中的模型
+                if any(self._names_similar(name, mm["name"]) for mm in merged):
+                    continue
+
+                model = dict(m)
+                lmsys_match = self._fuzzy_match_model(name, lmsys_data)
+                if lmsys_match and lmsys_match.get("elo"):
+                    model["lmsysElo"] = lmsys_match["elo"]
+                    sources_used.add("lmsys")
+                else:
+                    model["lmsysElo"] = None
+
+                lb_match = lb_scraper.find_model(name, livebench_data)
+                if lb_match and lb_match.get("global_average"):
+                    model["livebenchScore"] = lb_match["global_average"]
+                    sources_used.add("livebench")
+                else:
+                    model["livebenchScore"] = None
+
+                or_model = self._find_openrouter_match(name, openrouter_models)
+                if or_model:
+                    model["inputCost"] = or_model.get("inputCost", model.get("inputCost"))
+                    model["outputCost"] = or_model.get("outputCost", model.get("outputCost"))
+                    model["priceSource"] = "openrouter"
+                    sources_used.add("openrouter")
+                else:
+                    model["priceSource"] = model.get("priceSource", "seed")
+
+                seed_score = m.get("score", 50)
+                lmsys_score = self._normalize_elo(model.get("lmsysElo"), elo_min, elo_max)
+                lb_score = model.get("livebenchScore")
+                price_score = self._score_price(model.get("inputCost"), model.get("outputCost"))
+
+                weights = {"lmsys": 0.40, "livebench": 0.30, "price": 0.15, "seed": 0.15}
+                available = {}
+                if lmsys_score is not None:
+                    available["lmsys"] = lmsys_score
+                if lb_score is not None:
+                    available["livebench"] = lb_score
+                available["price"] = price_score
+                available["seed"] = seed_score
+
+                total_weight = sum(weights[k] for k in available.keys())
+                final_score = 0
+                for k, v in available.items():
+                    final_score += v * (weights[k] / total_weight)
+                final_score = round(final_score, 1)
+
+                model["score"] = final_score
+                model["scoreBreakdown"] = {
+                    "lmsys": lmsys_score,
+                    "livebench": lb_score,
+                    "price": price_score,
+                    "seed": seed_score,
+                }
+                model["scoreSource"] = "+".join(sorted(available.keys()))
+                model["updatedAt"] = today
+
+                merged.append(model)
+
+        # 按综合分降序排列
+        merged.sort(key=lambda x: x.get("score", 0), reverse=True)
+
         print(f"[模型榜] 数据来源: {', '.join(sorted(sources_used)) or 'seed only'}")
+        print(f"[模型榜] 最终模型数: {len(merged)} (LMSYS 真实模型: {len(used_lmsys_names)})")
         return merged
+
+    @staticmethod
+    def _extract_vendor(name: str) -> str:
+        """从模型名中提取厂商名。"""
+        name_lower = name.lower()
+        vendors = {
+            "openai": ["gpt", "o1", "o3", "chatgpt"],
+            "google": ["gemini", "palm"],
+            "anthropic": ["claude"],
+            "meta": ["llama", "muse"],
+            "mistral": ["mistral", "mixtral"],
+            "deepseek": ["deepseek"],
+            "qwen": ["qwen", "tongyi"],
+            "zhipu": ["glm", "chatglm"],
+            "xai": ["grok"],
+            "cohere": ["command", "cohere"],
+            "baidu": ["ernie", "wenxin"],
+            "alibaba": ["qwen", "tongyi"],
+            "tencent": ["hunyuan"],
+        }
+        for vendor, keywords in vendors.items():
+            for kw in keywords:
+                if kw in name_lower:
+                    return vendor.capitalize()
+        return "Unknown"
+
+    @staticmethod
+    def _names_similar(name1: str, name2: str) -> bool:
+        """判断两个模型名是否相似（用于去重）。"""
+        def normalize(s):
+            return s.lower().replace(" ", "").replace("-", "").replace(".", "").replace("_", "")
+        n1 = normalize(name1)
+        n2 = normalize(name2)
+        return n1 in n2 or n2 in n1
 
     @staticmethod
     def _normalize_elo(elo: Optional[float], elo_min: float, elo_max: float) -> Optional[float]:
