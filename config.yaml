@@ -29,6 +29,8 @@ sources:
     enabled: true      # 腾讯云混元（首次开通送100万tokens，国内）
   aliyun-bailian:
     enabled: true      # 阿里云百炼（多模型免费额度90天，国内）
+  model-ranking:
+    enabled: true      # 模型榜（OpenRouter价格+种子性能分，自动更新）
 
 # LLM 解析（把公告/线报文本转成结构化条目）
 # 默认关闭；配置 SILICONFLOW_API_KEY 环境变量后自动启用
