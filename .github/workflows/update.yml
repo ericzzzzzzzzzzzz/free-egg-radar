@@ -27,7 +27,16 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: 修复 lmsys.py URL
-        run: python fix_lmsys_url.py
+        run: |
+          echo "当前 commit:"
+          git log --oneline -1
+          echo "下载最新 lmsys.py:"
+          curl -sL "https://raw.githubusercontent.com/ericzzzzzzzzzzzz/free-egg-radar/main/scrapers/lmsys.py" -o scrapers/lmsys.py
+          echo "下载后行数:"
+          wc -l scrapers/lmsys.py
+          echo "检查 URL:"
+          grep -n "huggingface" scrapers/lmsys.py || echo "未找到 huggingface"
+          python fix_lmsys_url.py
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
