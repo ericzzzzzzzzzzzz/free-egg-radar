@@ -101,9 +101,10 @@ class ModelRankingScraper(BaseScraper):
             resp.raise_for_status()
             print(f"[模型榜] LMSYS 数据下载成功，大小: {len(resp.content)} 字节")
 
-            # 3. 解析 pkl 文件（pandas DataFrame）
-            import pandas as pd
-            battle_info = pd.read_pickle(io.BytesIO(resp.content))
+            # 3. 解析 pkl 文件（使用 pickle.loads 避免 plotly 版本兼容问题）
+            print(f"[模型榜] 开始解析 pkl 文件...")
+            import pickle
+            battle_info = pickle.loads(resp.content, encoding='latin1')
             print(f"[模型榜] LMSYS pkl 解析成功，类型: {type(battle_info)}")
 
             # 4. 提取 text 类别的模型 ELO 分数
