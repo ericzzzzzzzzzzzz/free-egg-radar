@@ -1,6 +1,6 @@
 requests>=2.31
 PyYAML>=6.0
 pandas>=2.0
-plotly>=5.0
+plotly==4.14.3
 qiniu>=7.10.0
 # cos-python-sdk-v5>=1.9.24   # 使用腾讯云 COS 时取消注释
