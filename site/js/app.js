@@ -44,23 +44,25 @@
     var d = egg.tags && egg.tags.duration;
     var cls = d === "limited" ? "tag tag-limit" : "tag tag-longterm";
     var label = d === "limited" ? "限时" : "长期";
+    var isAuto = egg.source !== "seed" && egg.source !== "manual";
     return '<div class="egg-tags"><span class="' + cls + '">' + label + "</span>" +
-      '<span class="tag">' + (CAT_LABEL[egg.category] || "其他") + "</span></div>";
+      '<span class="tag">' + (CAT_LABEL[egg.category] || "其他") + "</span>" +
+      (isAuto ? '<span class="tag tag-auto">自动</span>' : "") + "</div>";
   }
 
   function cardHtml(egg) {
     var tier = tierOf(egg.score);
     var cd = countdownText(egg.expiry_date);
-    return '<article class="egg-card" data-id="' + esc(egg.id) + '" tabindex="0" role="button">' +
+    return '<article class="egg-card tier-' + tier + '" data-id="' + esc(egg.id) + '" tabindex="0" role="button">' +
       '<div class="egg-head">' + eggIcon(tier, 26) +
       '<span class="egg-vendor">' + esc(egg.vendor) + "</span>" +
       '<span class="egg-tier tier-' + tier + '">' + TIER_LABEL[tier] + "</span></div>" +
       '<h3 class="egg-title">' + esc(egg.title) + "</h3>" +
       '<p class="egg-summary">' + esc(egg.summary) + "</p>" +
       tagHtml(egg) +
-      '<div class="egg-meta"><span class="egg-score">' + esc(egg.score) + " 分</span>" +
+      '<div class="egg-meta">' +
       (cd ? '<span class="egg-countdown">' + cd + "</span>" : '<span>长期有效</span>') +
-      '<span class="egg-rotate" style="margin-left:auto;font-size:11px">' + (egg.source === "seed" ? "初始" : "自动") + "</span></div>" +
+      '<span class="egg-score">' + esc(egg.score) + " 分</span></div>" +
       "</article>";
   }
 
