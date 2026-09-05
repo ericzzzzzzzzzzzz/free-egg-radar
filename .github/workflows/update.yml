@@ -26,8 +26,14 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
 
-      - name: 调试：打印 lmsys.py 中的 URL
-        run: grep -n "huggingface" scrapers/lmsys.py
+      - name: 调试：打印 lmsys.py 内容
+        run: cat scrapers/lmsys.py | head -35
+
+      - name: 强制更新 lmsys.py（确保使用最新版本）
+        run: |
+          curl -sL "https://raw.githubusercontent.com/ericzzzzzzzzzzzz/free-egg-radar/main/scrapers/lmsys.py" -o scrapers/lmsys.py
+          echo "下载完成，检查 URL:"
+          grep -n "huggingface" scrapers/lmsys.py || echo "未找到 huggingface URL"
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
