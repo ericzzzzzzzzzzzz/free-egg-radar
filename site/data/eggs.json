@@ -1,10 +1,10 @@
 {
-  "version": "2026-09-05T10:06+08:00",
+  "version": "2026-09-05T06:50+00:00",
   "stats": {
     "gold": 6,
-    "silver": 7,
+    "silver": 9,
     "copper": 7,
-    "total": 20,
+    "total": 22,
     "expired": 8
   },
   "eggs": [
@@ -140,6 +140,44 @@
       "published_at": "2026-08-30",
       "updated_at": "2026-08-30",
       "source": "seed"
+    },
+    {
+      "id": "openrouter-free-2026-09-05",
+      "title": "OpenRouter 免费模型池（22 款 $0 模型）",
+      "vendor": "OpenRouter",
+      "category": "api-quota",
+      "score": 72.5,
+      "summary": "官方 API 实时探测：当前 22 款模型输入/输出均免费",
+      "content": "OpenRouter 聚合网关免费模型池，由官方公开 API 自动探测（2026-09-05 快照）。\n\n- 免费模型数：**22 款**（pricing 均为 $0）\n- 代表模型：inclusionAI: Ling 3.0 Flash Sante (free)、inclusionAI: Ling 3.0 Flash Fin (free)、Dots Studio: Dots3-Note Preview (free)、LiquidAI: LFM2.5-2.6B (free)、NVIDIA: Nemotron 3.5 Lightning (free)、Thinking Machines: Inkling Small (free)、Poolside: Laguna S 2.1 (free)、Thinking Machines: Inkling (free)、Poolside: Laguna XS 2.1 (free)、Cohere: North Mini Code (free)、Z.ai: GLM 5.2 (free)、NVIDIA: Nemotron 3.5 Content Safety (free) 等 22 款\n- 接入：OpenAI 兼容 API，注册创建 Key 后调用 `:free` 后缀模型\n\n使用步骤：\n\n1. 打开 [OpenRouter 免费模型页](https://openrouter.ai/models?max_price=0) 筛选 Free\n2. 注册并创建 API Key\n3. 调用标注 Free 的模型即可\n\n**注意**：免费模型上下架频繁，额度与限速以模型页实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "link": "https://openrouter.ai/models?max_price=0",
+      "tags": {
+        "duration": "longterm",
+        "region": "global"
+      },
+      "expired": false,
+      "expiry_date": null,
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
+      "source": "openrouter"
+    },
+    {
+      "id": "siliconflow-free-2026-09-05",
+      "title": "硅基流动免费模型（20 款）",
+      "vendor": "硅基流动",
+      "category": "api-quota",
+      "score": 72.5,
+      "summary": "官方定价页实时探测：20 款模型标注免费",
+      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-09-05 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**20 款**，含 Qwen/Qwen3-ASR-1.7B、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR、FunAudioLLM/SenseVoiceSmall、Qwen/Qwen3-8B 等 20 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "link": "https://siliconflow.cn/pricing",
+      "tags": {
+        "duration": "longterm",
+        "region": "cn"
+      },
+      "expired": false,
+      "expiry_date": null,
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
+      "source": "siliconflow"
     },
     {
       "id": "tencent-tokenhub-newuser-202608",
