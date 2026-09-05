@@ -1,0 +1,604 @@
+{
+  "version": "2026-09-05",
+  "source": "性能分参考多家公开榜单共识，价格为 OpenRouter 标准参考价（美元/百万 Token），自动更新",
+  "models": [
+    {
+      "id": "muse-spark-1-3",
+      "name": "Muse Spark 1.3",
+      "vendor": "Meta",
+      "releasedAt": "2026-09-02",
+      "inputCost": 0.1,
+      "outputCost": 0.2,
+      "score": 89.9,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 92
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "glm-5-3",
+      "name": "GLM-5.3",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-08-18",
+      "inputCost": 0.075,
+      "outputCost": 0.25,
+      "score": 78.3,
+      "lmsysElo": null,
+      "contextLength": 1310720,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 75.4
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "muse-spark-1-2",
+      "name": "Muse Spark 1.2",
+      "vendor": "Meta",
+      "releasedAt": "2026-08-05",
+      "inputCost": 0.1,
+      "outputCost": 0.2,
+      "score": 77.0,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 73.6
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gpt-5-6-sol",
+      "name": "GPT-5.6 Sol",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-07-09",
+      "inputCost": 2.0,
+      "outputCost": 10.0,
+      "score": 74.9,
+      "lmsysElo": null,
+      "contextLength": 1050000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 55,
+        "seed": 83.4
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gemini-3-8-flash",
+      "name": "Gemini 3.8 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-09-02",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 74.8,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 79
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gpt-6-astra",
+      "name": "GPT-6 Astra",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-09-03",
+      "inputCost": 10.0,
+      "outputCost": 50.0,
+      "score": 73.8,
+      "lmsysElo": null,
+      "contextLength": 1050000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 35,
+        "seed": 90.5
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "claude-opus-5",
+      "name": "Claude Opus 5",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-07-24",
+      "inputCost": 5.0,
+      "outputCost": 25.0,
+      "score": 73.8,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 45,
+        "seed": 86.2
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "claude-fable-5",
+      "name": "Claude Fable 5",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-06-09",
+      "inputCost": 10.0,
+      "outputCost": 50.0,
+      "score": 73.4,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 35,
+        "seed": 89.9
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "grok-4-6",
+      "name": "Grok 4.6",
+      "vendor": "xAI",
+      "releasedAt": "2026-08-12",
+      "inputCost": 2.0,
+      "outputCost": 6.0,
+      "score": 71.4,
+      "lmsysElo": null,
+      "contextLength": 500000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 74.1
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gemini-3-7-flash",
+      "name": "Gemini 3.7 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-08-13",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 71.2,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 73.9
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "kimi-k3",
+      "name": "Kimi K3",
+      "vendor": "Moonshot AI",
+      "releasedAt": "2026-07-16",
+      "inputCost": 3.0,
+      "outputCost": 15.0,
+      "score": 69.6,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 45,
+        "seed": 80.1
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "qwen3-8-max",
+      "name": "Qwen3.8 Max",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-07-19",
+      "inputCost": 2.0,
+      "outputCost": 6.0,
+      "score": 69.6,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 71.6
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "glm-5-3-flash",
+      "name": "GLM-5.3 Flash",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-08-26",
+      "inputCost": 0.075,
+      "outputCost": 0.25,
+      "score": 69.1,
+      "lmsysElo": null,
+      "contextLength": 1310720,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 62.3
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "muse-spark-1-1",
+      "name": "Muse Spark 1.1",
+      "vendor": "Meta",
+      "releasedAt": "2026-07-09",
+      "inputCost": 0.1,
+      "outputCost": 0.2,
+      "score": 67.8,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 60.5
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gpt-5-6-terra",
+      "name": "GPT-5.6 Terra",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-07-09",
+      "inputCost": 2.0,
+      "outputCost": 12.0,
+      "score": 65.9,
+      "lmsysElo": null,
+      "contextLength": 1050000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 55,
+        "seed": 70.6
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gpt-5-6-luna",
+      "name": "GPT-5.6 Luna",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-07-09",
+      "inputCost": 0.2,
+      "outputCost": 1.2,
+      "score": 63.0,
+      "lmsysElo": null,
+      "contextLength": 1050000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 53.6
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "qwen3-8-flash-next",
+      "name": "Qwen3.8 Flash Next",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-08-26",
+      "inputCost": null,
+      "outputCost": null,
+      "score": 62.7,
+      "lmsysElo": null,
+      "priceSource": "seed",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 50,
+        "seed": 68.1
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "claude-opus-4-8",
+      "name": "Claude Opus 4.8",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-05-28",
+      "inputCost": 5.0,
+      "outputCost": 25.0,
+      "score": 62.3,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 45,
+        "seed": 69.7
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "deepseek-v4-pro-0813",
+      "name": "DeepSeek V4 Pro 0813",
+      "vendor": "DeepSeek",
+      "releasedAt": "2026-08-13",
+      "inputCost": 0.5795,
+      "outputCost": 1.7384,
+      "score": 61.7,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 75,
+        "seed": 56
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gpt-5-5",
+      "name": "GPT-5.5",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-04-23",
+      "inputCost": 10.0,
+      "outputCost": 50.0,
+      "score": 61.5,
+      "lmsysElo": null,
+      "contextLength": 1050000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 35,
+        "seed": 72.8
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "deepseek-v4-flash-0731",
+      "name": "DeepSeek V4 Flash 0731",
+      "vendor": "DeepSeek",
+      "releasedAt": "2026-07-31",
+      "inputCost": 0.065,
+      "outputCost": 0.18,
+      "score": 58.6,
+      "lmsysElo": null,
+      "contextLength": 1310720,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 95,
+        "seed": 43
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "claude-opus-4-7",
+      "name": "Claude Opus 4.7",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-04-16",
+      "inputCost": 5.0,
+      "outputCost": 25.0,
+      "score": 58.4,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 45,
+        "seed": 64.2
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "grok-4-5",
+      "name": "Grok 4.5",
+      "vendor": "xAI",
+      "releasedAt": "2026-07-08",
+      "inputCost": 2.0,
+      "outputCost": 6.0,
+      "score": 58.3,
+      "lmsysElo": null,
+      "contextLength": 500000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 55.5
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "glm-5-2",
+      "name": "GLM-5.2",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-06-16",
+      "inputCost": 0.075,
+      "outputCost": 0.25,
+      "score": 58.2,
+      "lmsysElo": null,
+      "contextLength": 1310720,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 85,
+        "seed": 46.7
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "claude-sonnet-5",
+      "name": "Claude Sonnet 5",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-06-30",
+      "inputCost": 2.0,
+      "outputCost": 10.0,
+      "score": 54.8,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 55,
+        "seed": 54.7
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gemini-3-6-flash",
+      "name": "Gemini 3.6 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-07-21",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 54.5,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 50
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gemini-3-5-flash",
+      "name": "Gemini 3.5 Flash",
+      "vendor": "Google",
+      "releasedAt": "2026-05-19",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "score": 53.0,
+      "lmsysElo": null,
+      "contextLength": 1048576,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 47.9
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "gpt-5-4",
+      "name": "GPT-5.4",
+      "vendor": "OpenAI",
+      "releasedAt": "2026-03-05",
+      "inputCost": 10.0,
+      "outputCost": 50.0,
+      "score": 50.5,
+      "lmsysElo": null,
+      "contextLength": 1050000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 35,
+        "seed": 57.2
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "qwen3-8-27-b",
+      "name": "Qwen3.8 27 B",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-08-14",
+      "inputCost": 2.0,
+      "outputCost": 6.0,
+      "score": 49.6,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 65,
+        "seed": 43
+      },
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "claude-opus-4-6",
+      "name": "Claude Opus 4.6",
+      "vendor": "Anthropic",
+      "releasedAt": "2026-02-05",
+      "inputCost": 5.0,
+      "outputCost": 25.0,
+      "score": 47.3,
+      "lmsysElo": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreSource": "seed+price",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "price": 45,
+        "seed": 48.3
+      },
+      "updatedAt": "2026-09-05"
+    }
+  ]
+}
