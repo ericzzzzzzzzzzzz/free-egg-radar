@@ -30,6 +30,7 @@ OPENROUTER_API = "https://openrouter.ai/api/v1/models"
 LMSYS_API_URL = "https://huggingface.co/api/spaces/lmarena-ai/chatbot-arena-leaderboard/tree/main"
 LMSYS_DOWNLOAD_URL = "https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/resolve/main/"
 SEED_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "models_seed.json")
+LIVEBENCH_SEED_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "livebench_seed.json")
 
 
 class ModelRankingScraper(BaseScraper):
@@ -37,33 +38,81 @@ class ModelRankingScraper(BaseScraper):
 
     def scrape(self) -> List[Dict[str, Any]]:
         """抓取多来源数据并返回综合评分后的模型榜单。"""
-        # 1. 加载种子数据（性能分数兜底）
-        seed_models = self._load_seed_models()
-        print(f"[模型榜] 种子数据: {len(seed_models)} 个模型")
+        # 1. 加载 LiveBench 种子数据（最新的无污染基准，优先使用）
+        livebench_seed = self._load_livebench_seed()
+        print(f"[模型榜] LiveBench 种子数据: {len(livebench_seed)} 个模型")
 
-        # 2. 从 LMSYS 获取 ELO 分数（最有公信力，直接使用正确 URL）
+        # 2. 加载旧种子数据（性能分数兜底）
+        seed_models = self._load_seed_models()
+        print(f"[模型榜] 旧种子数据: {len(seed_models)} 个模型")
+
+        # 3. 从 LMSYS 获取 ELO 分数（盲测数据，可能过时）
         lmsys_data = self._fetch_lmsys_data()
 
-        # 3. 从 LiveBench 获取 Global Average（无污染基准）
+        # 4. 从 LiveBench 网站获取最新数据（如果能获取到的话）
         livebench_data = {}
         try:
             lb_scraper = LiveBenchScraper()
             livebench_data = lb_scraper.scrape()
         except Exception as e:
-            print(f"[模型榜] LiveBench 获取失败（将使用其他来源兜底）: {e}")
+            print(f"[模型榜] LiveBench 网站获取失败（将使用种子数据）: {e}")
 
-        # 4. 从 OpenRouter 获取最新价格
+        # 5. 从 OpenRouter 获取最新价格
         openrouter_models = self._fetch_openrouter_models()
 
-        # 5. 合并多来源数据，计算综合分
+        # 6. 合并多来源数据，计算综合分
+        # 优先使用 LiveBench 种子数据中的模型，旧种子数据作为补充
+        primary_models = livebench_seed if livebench_seed else seed_models
         models = self._merge_and_score(
-            seed_models, lmsys_data, livebench_data, openrouter_models
+            primary_models, lmsys_data, livebench_data, openrouter_models
         )
 
-        # 6. 按综合分降序排列
+        # 7. 按综合分降序排列
         models.sort(key=lambda m: m.get("score", 0), reverse=True)
 
         return models
+
+    def _load_livebench_seed(self) -> List[Dict[str, Any]]:
+        """加载 LiveBench 种子数据（最新的无污染基准）。"""
+        try:
+            with open(LIVEBENCH_SEED_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            models = data.get("models", [])
+            # 转换为统一格式
+            result = []
+            for m in models:
+                name = m.get("name", "")
+                # 去掉 Effort 后缀，统一模型名
+                clean_name = name
+                for suffix in [" Max Effort", " xHigh Effort", " High Effort", " High", " Thinking"]:
+                    if clean_name.endswith(suffix):
+                        clean_name = clean_name[:-len(suffix)]
+                        break
+                
+                model = {
+                    "name": clean_name,
+                    "original_name": name,
+                    "vendor": self._extract_vendor(clean_name),
+                    "releaseDate": data.get("version", "2026-06-25"),
+                    "score": m.get("overall", 0),
+                    "livebenchScore": m.get("overall"),
+                    "livebenchReasoning": m.get("reasoning"),
+                    "livebenchCoding": m.get("coding"),
+                    "livebenchMath": m.get("mathematics"),
+                    "livebenchDataAnalysis": m.get("data_analysis"),
+                    "livebenchLanguage": m.get("language"),
+                    "livebenchInstructionFollowing": m.get("instruction_following"),
+                    "cost": m.get("cost"),
+                    "inputCost": None,
+                    "outputCost": None,
+                    "contextLength": None,
+                    "lmsysElo": None,
+                }
+                result.append(model)
+            return result
+        except Exception as e:
+            print(f"[模型榜] 加载 LiveBench 种子数据失败: {e}")
+            return []
 
     def _load_seed_models(self) -> List[Dict[str, Any]]:
         """加载种子模型数据（包含性能分数）。"""
@@ -289,7 +338,7 @@ class ModelRankingScraper(BaseScraper):
         openrouter_models: Dict[str, Dict],
     ) -> List[Dict]:
         """合并多来源数据，计算综合分（动态权重）。
-        优先使用 LMSYS 中的真实模型数据，种子数据作为补充。
+        优先使用 LiveBench 种子数据（最新无污染基准），LMSYS 作为补充。
         """
         today = date.today().isoformat()
         lb_scraper = LiveBenchScraper()
@@ -301,65 +350,66 @@ class ModelRankingScraper(BaseScraper):
 
         merged = []
         sources_used = set()
-        used_lmsys_names = set()
+        used_names = set()
 
-        # 1. 优先使用 LMSYS 中的真实模型（按 ELO 降序，取前 30 个）
-        lmsys_sorted = sorted(lmsys_data.values(), key=lambda x: x.get("elo", 0), reverse=True)
-        for lmsys_model in lmsys_sorted[:30]:
-            name = lmsys_model.get("name", "")
-            if not name or name in used_lmsys_names:
+        # 1. 优先使用种子数据中的模型（LiveBench 最新数据，包含 35 个最新模型）
+        for m in seed_models:
+            name = m.get("name", "")
+            if not name or name in used_names:
                 continue
-            used_lmsys_names.add(name)
+            used_names.add(name)
 
-            model = {
-                "name": name,
-                "vendor": self._extract_vendor(name),
-                "releaseDate": today,
-                "contextLength": None,
-                "inputCost": None,
-                "outputCost": None,
-                "lmsysElo": lmsys_model.get("elo"),
-                "livebenchScore": None,
-                "score": 0,
-                "scoreBreakdown": {},
-                "scoreSource": "",
-                "updatedAt": today,
-            }
-            sources_used.add("lmsys")
+            model = dict(m)  # 复制种子数据（已包含 LiveBench 分数）
+
+            # 如果种子数据已有 LiveBench 分数，标记来源
+            if model.get("livebenchScore"):
+                sources_used.add("livebench")
+
+            # 尝试匹配 LMSYS ELO 分数（作为补充，可能过时）
+            lmsys_match = self._fuzzy_match_model(name, lmsys_data)
+            if lmsys_match and lmsys_match.get("elo"):
+                model["lmsysElo"] = lmsys_match["elo"]
+                sources_used.add("lmsys")
+            else:
+                model["lmsysElo"] = model.get("lmsysElo")
+
+            # 如果种子数据没有 LiveBench 分数，尝试从 LiveBench 网站获取
+            if not model.get("livebenchScore"):
+                lb_match = lb_scraper.find_model(name, livebench_data)
+                if lb_match and lb_match.get("global_average"):
+                    model["livebenchScore"] = lb_match["global_average"]
+                    model["livebenchReasoning"] = lb_match.get("reasoning")
+                    model["livebenchCoding"] = lb_match.get("coding")
+                    sources_used.add("livebench")
 
             # 匹配 OpenRouter 最新价格
             or_model = self._find_openrouter_match(name, openrouter_models)
             if or_model:
-                model["inputCost"] = or_model.get("inputCost")
-                model["outputCost"] = or_model.get("outputCost")
+                model["inputCost"] = or_model.get("inputCost", model.get("inputCost"))
+                model["outputCost"] = or_model.get("outputCost", model.get("outputCost"))
                 if or_model.get("contextLength"):
                     model["contextLength"] = or_model["contextLength"]
                 model["priceUpdatedAt"] = today
                 model["priceSource"] = "openrouter"
                 sources_used.add("openrouter")
             else:
-                model["priceSource"] = "unknown"
-
-            # 匹配 LiveBench
-            lb_match = lb_scraper.find_model(name, livebench_data)
-            if lb_match and lb_match.get("global_average"):
-                model["livebenchScore"] = lb_match["global_average"]
-                model["livebenchReasoning"] = lb_match.get("reasoning")
-                model["livebenchCoding"] = lb_match.get("coding")
-                sources_used.add("livebench")
+                model["priceSource"] = model.get("priceSource", "unknown")
 
             # 计算综合分
+            seed_score = m.get("score", 50)  # LiveBench overall 分数
             lmsys_score = self._normalize_elo(model.get("lmsysElo"), elo_min, elo_max)
-            lb_score = model.get("livebenchScore")
+            lb_score = model.get("livebenchScore")  # 已经是 0-100 范围
             price_score = self._score_price(model.get("inputCost"), model.get("outputCost"))
 
-            weights = {"lmsys": 0.50, "livebench": 0.25, "price": 0.25}
+            # 动态权重：LiveBench 最高（最新无污染基准），LMSYS 次之，价格和种子补充
+            weights = {"livebench": 0.45, "lmsys": 0.25, "price": 0.15, "seed": 0.15}
             available = {}
-            if lmsys_score is not None:
-                available["lmsys"] = lmsys_score
             if lb_score is not None:
                 available["livebench"] = lb_score
+            if lmsys_score is not None:
+                available["lmsys"] = lmsys_score
             available["price"] = price_score
+            available["seed"] = seed_score
 
             total_weight = sum(weights[k] for k in available.keys())
             final_score = 0
@@ -369,61 +419,67 @@ class ModelRankingScraper(BaseScraper):
 
             model["score"] = final_score
             model["scoreBreakdown"] = {
-                "lmsys": lmsys_score,
                 "livebench": lb_score,
+                "lmsys": lmsys_score,
                 "price": price_score,
+                "seed": seed_score,
             }
             model["scoreSource"] = "+".join(sorted(available.keys()))
+            model["updatedAt"] = today
 
             merged.append(model)
 
-        # 2. 如果 LMSYS 模型不足 30 个，用种子数据补充
+        # 2. 如果种子模型不足 30 个，用 LMSYS 数据补充
         if len(merged) < 30:
-            for m in seed_models:
+            lmsys_sorted = sorted(lmsys_data.values(), key=lambda x: x.get("elo", 0), reverse=True)
+            for lmsys_model in lmsys_sorted:
                 if len(merged) >= 30:
                     break
-                name = m.get("name", "")
-                # 跳过已经在 LMSYS 中的模型
+                name = lmsys_model.get("name", "")
+                if not name or name in used_names:
+                    continue
+                # 跳过与已有模型相似的
                 if any(self._names_similar(name, mm["name"]) for mm in merged):
                     continue
+                used_names.add(name)
 
-                model = dict(m)
-                lmsys_match = self._fuzzy_match_model(name, lmsys_data)
-                if lmsys_match and lmsys_match.get("elo"):
-                    model["lmsysElo"] = lmsys_match["elo"]
-                    sources_used.add("lmsys")
-                else:
-                    model["lmsysElo"] = None
+                model = {
+                    "name": name,
+                    "vendor": self._extract_vendor(name),
+                    "releaseDate": today,
+                    "contextLength": None,
+                    "inputCost": None,
+                    "outputCost": None,
+                    "lmsysElo": lmsys_model.get("elo"),
+                    "livebenchScore": None,
+                    "score": 0,
+                    "scoreBreakdown": {},
+                    "scoreSource": "",
+                    "updatedAt": today,
+                }
+                sources_used.add("lmsys")
 
-                lb_match = lb_scraper.find_model(name, livebench_data)
-                if lb_match and lb_match.get("global_average"):
-                    model["livebenchScore"] = lb_match["global_average"]
-                    sources_used.add("livebench")
-                else:
-                    model["livebenchScore"] = None
-
+                # 匹配 OpenRouter 价格
                 or_model = self._find_openrouter_match(name, openrouter_models)
                 if or_model:
-                    model["inputCost"] = or_model.get("inputCost", model.get("inputCost"))
-                    model["outputCost"] = or_model.get("outputCost", model.get("outputCost"))
+                    model["inputCost"] = or_model.get("inputCost")
+                    model["outputCost"] = or_model.get("outputCost")
+                    if or_model.get("contextLength"):
+                        model["contextLength"] = or_model["contextLength"]
                     model["priceSource"] = "openrouter"
                     sources_used.add("openrouter")
                 else:
-                    model["priceSource"] = model.get("priceSource", "seed")
+                    model["priceSource"] = "unknown"
 
-                seed_score = m.get("score", 50)
+                # 计算综合分
                 lmsys_score = self._normalize_elo(model.get("lmsysElo"), elo_min, elo_max)
-                lb_score = model.get("livebenchScore")
                 price_score = self._score_price(model.get("inputCost"), model.get("outputCost"))
 
-                weights = {"lmsys": 0.40, "livebench": 0.30, "price": 0.15, "seed": 0.15}
+                weights = {"lmsys": 0.60, "price": 0.40}
                 available = {}
                 if lmsys_score is not None:
                     available["lmsys"] = lmsys_score
-                if lb_score is not None:
-                    available["livebench"] = lb_score
                 available["price"] = price_score
-                available["seed"] = seed_score
 
                 total_weight = sum(weights[k] for k in available.keys())
                 final_score = 0
@@ -434,12 +490,9 @@ class ModelRankingScraper(BaseScraper):
                 model["score"] = final_score
                 model["scoreBreakdown"] = {
                     "lmsys": lmsys_score,
-                    "livebench": lb_score,
                     "price": price_score,
-                    "seed": seed_score,
                 }
                 model["scoreSource"] = "+".join(sorted(available.keys()))
-                model["updatedAt"] = today
 
                 merged.append(model)
 
@@ -447,7 +500,7 @@ class ModelRankingScraper(BaseScraper):
         merged.sort(key=lambda x: x.get("score", 0), reverse=True)
 
         print(f"[模型榜] 数据来源: {', '.join(sorted(sources_used)) or 'seed only'}")
-        print(f"[模型榜] 最终模型数: {len(merged)} (LMSYS 真实模型: {len(used_lmsys_names)})")
+        print(f"[模型榜] 最终模型数: {len(merged)} (LiveBench 种子: {min(len(seed_models), len(used_names))})")
         return merged
 
     @staticmethod
