@@ -51,47 +51,47 @@ body {
   position: relative;
 }
 
-/* 极光背景光晕 - 左上（青绿） */
+/* 极光背景光晕 - 左上（柔和青绿渐变） */
 body::before {
   content: '';
   position: fixed;
-  top: -300px;
-  left: -150px;
-  width: 1000px;
-  height: 900px;
+  top: -200px;
+  left: -100px;
+  width: 1200px;
+  height: 1000px;
   background:
-    radial-gradient(ellipse at 40% 30%, rgba(0, 212, 170, 0.22) 0%, transparent 45%),
-    radial-gradient(ellipse at 70% 50%, rgba(74, 222, 128, 0.18) 0%, transparent 40%),
-    radial-gradient(ellipse at 30% 70%, rgba(16, 185, 129, 0.14) 0%, transparent 45%);
+    radial-gradient(ellipse at 35% 40%, rgba(16, 70, 56, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse at 65% 55%, rgba(22, 90, 70, 0.1) 0%, transparent 55%),
+    radial-gradient(ellipse at 45% 70%, rgba(30, 110, 85, 0.06) 0%, transparent 60%);
   pointer-events: none;
   z-index: 0;
-  animation: aurora1 20s ease-in-out infinite alternate;
+  animation: aurora1 30s ease-in-out infinite alternate;
 }
-/* 极光背景光晕 - 右下（琥珀+青绿） */
+/* 极光背景光晕 - 右下（柔和绿+淡琥珀） */
 body::after {
   content: '';
   position: fixed;
-  bottom: -250px;
-  right: -150px;
-  width: 950px;
-  height: 850px;
+  bottom: -200px;
+  right: -100px;
+  width: 1100px;
+  height: 950px;
   background:
-    radial-gradient(ellipse at 60% 40%, rgba(74, 222, 128, 0.18) 0%, transparent 45%),
-    radial-gradient(ellipse at 30% 60%, rgba(0, 212, 170, 0.15) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 70%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
+    radial-gradient(ellipse at 55% 45%, rgba(22, 85, 65, 0.12) 0%, transparent 60%),
+    radial-gradient(ellipse at 35% 60%, rgba(18, 75, 58, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 65% 70%, rgba(251, 191, 36, 0.03) 0%, transparent 55%);
   pointer-events: none;
   z-index: 0;
-  animation: aurora2 25s ease-in-out infinite alternate;
+  animation: aurora2 35s ease-in-out infinite alternate;
 }
 @keyframes aurora1 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.8; }
-  50% { transform: translate(40px, 20px) scale(1.08); opacity: 1; }
-  100% { transform: translate(-20px, 40px) scale(0.95); opacity: 0.85; }
+  0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
+  50% { transform: translate(15px, 10px) scale(1.04); opacity: 1; }
+  100% { transform: translate(-10px, 15px) scale(0.97); opacity: 0.75; }
 }
 @keyframes aurora2 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-  50% { transform: translate(-30px, -20px) scale(1.05); opacity: 0.9; }
-  100% { transform: translate(20px, -30px) scale(0.97); opacity: 0.75; }
+  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+  50% { transform: translate(-12px, -10px) scale(1.03); opacity: 0.85; }
+  100% { transform: translate(10px, -12px) scale(0.98); opacity: 0.65; }
 }
 
 .container { max-width: 980px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 1; }
