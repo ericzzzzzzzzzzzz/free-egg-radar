@@ -1,0 +1,233 @@
+"""模型榜抓取器：多来源公开数据综合评分自动更新
+
+数据源（按公信力排序）：
+1. LMSYS Chatbot Arena - 盲测 ELO 分数（最有公信力，HuggingFace 公开数据）
+2. OpenRouter API - 最新价格（公开 API，无需 key）
+3. 种子数据 - 多家公开榜单综合分（兜底）
+
+综合评分公式：
+- LMSYS ELO 归一化（0-100）× 60%
+- 价格合理性分（0-100）× 20%
+- 种子性能分（0-100）× 20%
+
+产出：site/data/models.json（按综合分降序排列的模型榜单）
+"""
+
+import json
+import os
+from datetime import date
+from typing import List, Dict, Any, Optional
+
+from scrapers.base import BaseScraper
+from scrapers.lmsys import LMSYSScraper
+
+OPENROUTER_API = "https://openrouter.ai/api/v1/models"
+SEED_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "models_seed.json")
+
+
+class ModelRankingScraper(BaseScraper):
+    name = "model-ranking"
+
+    def scrape(self) -> List[Dict[str, Any]]:
+        """抓取多来源数据并返回综合评分后的模型榜单。"""
+        # 1. 加载种子数据（性能分数兜底）
+        seed_models = self._load_seed_models()
+        print(f"[模型榜] 种子数据: {len(seed_models)} 个模型")
+
+        # 2. 从 LMSYS 获取 ELO 分数（最有公信力）
+        lmsys_data = {}
+        try:
+            lmsys_scraper = LMSYSScraper()
+            lmsys_data = lmsys_scraper.scrape()
+        except Exception as e:
+            print(f"[模型榜] LMSYS 获取失败（将使用种子数据兜底）: {e}")
+
+        # 3. 从 OpenRouter 获取最新价格
+        openrouter_models = self._fetch_openrouter_models()
+
+        # 4. 合并多来源数据，计算综合分
+        models = self._merge_and_score(seed_models, lmsys_data, openrouter_models)
+
+        # 5. 按综合分降序排列
+        models.sort(key=lambda m: m.get("score", 0), reverse=True)
+
+        return models
+
+    def _load_seed_models(self) -> List[Dict[str, Any]]:
+        """加载种子模型数据（包含性能分数）。"""
+        try:
+            with open(SEED_FILE, "r", encoding="utf-8") as f:
+                data = json.load(f)
+            return data.get("models", [])
+        except Exception as e:
+            print(f"[模型榜] 加载种子数据失败: {e}")
+            return []
+
+    def _fetch_openrouter_models(self) -> Dict[str, Dict[str, Any]]:
+        """从 OpenRouter API 获取模型列表和价格，返回以模型名为 key 的字典。"""
+        try:
+            resp = self._get(OPENROUTER_API)
+            resp.raise_for_status()
+            data = resp.json().get("data", [])
+
+            models = {}
+            for m in data:
+                name = m.get("name", "")
+                pricing = m.get("pricing") or {}
+                prompt = pricing.get("prompt")
+                completion = pricing.get("completion")
+                ctx = m.get("context_length")
+
+                input_cost = self._parse_price(prompt)
+                output_cost = self._parse_price(completion)
+
+                models[name.lower()] = {
+                    "name": name,
+                    "inputCost": input_cost,
+                    "outputCost": output_cost,
+                    "contextLength": ctx,
+                    "id": m.get("id", ""),
+                }
+            return models
+        except Exception as e:
+            print(f"[模型榜] OpenRouter API 获取失败: {e}")
+            return {}
+
+    @staticmethod
+    def _parse_price(price_str) -> Optional[float]:
+        """将 OpenRouter 价格字符串转换为美元/百万 Token。"""
+        if price_str is None:
+            return None
+        try:
+            return round(float(price_str) * 1_000_000, 4)
+        except (ValueError, TypeError):
+            return None
+
+    def _merge_and_score(
+        self,
+        seed_models: List[Dict],
+        lmsys_data: Dict[str, Dict],
+        openrouter_models: Dict[str, Dict],
+    ) -> List[Dict]:
+        """合并多来源数据，计算综合分。"""
+        today = date.today().isoformat()
+        lmsys_scraper = LMSYSScraper()
+
+        # 计算 LMSYS ELO 的归一化范围
+        elo_values = [v.get("elo") for v in lmsys_data.values() if v.get("elo")]
+        elo_min = min(elo_values) if elo_values else 1000
+        elo_max = max(elo_values) if elo_values else 1300
+
+        merged = []
+        sources_used = set()
+
+        for m in seed_models:
+            name = m.get("name", "")
+            model = dict(m)  # 复制种子数据
+
+            # 1. 匹配 LMSYS ELO 分数
+            lmsys_match = lmsys_scraper.find_model(name, lmsys_data)
+            if lmsys_match and lmsys_match.get("elo"):
+                model["lmsysElo"] = lmsys_match["elo"]
+                model["lmsysRank"] = lmsys_match.get("rank")
+                sources_used.add("lmsys")
+            else:
+                model["lmsysElo"] = None
+
+            # 2. 匹配 OpenRouter 最新价格
+            or_model = self._find_openrouter_match(name, openrouter_models)
+            if or_model:
+                model["inputCost"] = or_model.get("inputCost", model.get("inputCost"))
+                model["outputCost"] = or_model.get("outputCost", model.get("outputCost"))
+                if or_model.get("contextLength"):
+                    model["contextLength"] = or_model["contextLength"]
+                model["priceUpdatedAt"] = today
+                model["priceSource"] = "openrouter"
+                sources_used.add("openrouter")
+            else:
+                model["priceSource"] = model.get("priceSource", "seed")
+
+            # 3. 计算综合分
+            seed_score = m.get("score", 50)
+            lmsys_score = self._normalize_elo(model.get("lmsysElo"), elo_min, elo_max)
+            price_score = self._score_price(model.get("inputCost"), model.get("outputCost"))
+
+            # 加权综合：LMSYS 60% + 价格 20% + 种子 20%
+            if lmsys_score is not None:
+                final_score = round(lmsys_score * 0.6 + price_score * 0.2 + seed_score * 0.2, 1)
+                model["scoreSource"] = "lmsys+price+seed"
+            else:
+                final_score = round(seed_score * 0.7 + price_score * 0.3, 1)
+                model["scoreSource"] = "seed+price"
+
+            model["score"] = final_score
+            model["scoreBreakdown"] = {
+                "lmsys": lmsys_score,
+                "price": price_score,
+                "seed": seed_score,
+            }
+            model["updatedAt"] = today
+
+            merged.append(model)
+
+        print(f"[模型榜] 数据来源: {', '.join(sorted(sources_used)) or 'seed only'}")
+        return merged
+
+    @staticmethod
+    def _normalize_elo(elo: Optional[float], elo_min: float, elo_max: float) -> Optional[float]:
+        """将 LMSYS ELO 分数归一化到 0-100。"""
+        if elo is None or elo_max <= elo_min:
+            return None
+        normalized = ((elo - elo_min) / (elo_max - elo_min)) * 100
+        return round(max(0, min(100, normalized)), 1)
+
+    @staticmethod
+    def _score_price(input_cost: Optional[float], output_cost: Optional[float]) -> float:
+        """根据价格计算合理性分数（越便宜分越高，0-100）。"""
+        if input_cost is None and output_cost is None:
+            return 50  # 未知价格给中值
+
+        # 用混合价格（输入:输出 = 3:1）
+        ic = input_cost if input_cost is not None else 0
+        oc = output_cost if output_cost is not None else 0
+        blended = (ic * 3 + oc) / 4
+
+        # 价格越低分越高
+        if blended <= 0.1:
+            return 95
+        if blended <= 0.5:
+            return 85
+        if blended <= 1:
+            return 75
+        if blended <= 3:
+            return 65
+        if blended <= 5:
+            return 55
+        if blended <= 10:
+            return 45
+        if blended <= 20:
+            return 35
+        return 25
+
+    @staticmethod
+    def _find_openrouter_match(name: str, openrouter_models: Dict[str, Dict]) -> Optional[Dict]:
+        """在 OpenRouter 模型中模糊匹配种子模型名。"""
+        if not openrouter_models:
+            return None
+
+        name_lower = name.lower().replace(" ", "-").replace(".", "-")
+
+        # 精确匹配
+        if name_lower in openrouter_models:
+            return openrouter_models[name_lower]
+
+        # 模糊匹配
+        keywords = [k for k in name_lower.replace("-", " ").split() if len(k) > 2]
+        if not keywords:
+            return None
+
+        for or_name, or_model in openrouter_models.items():
+            if all(k in or_name for k in keywords):
+                return or_model
+
+        return None
