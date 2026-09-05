@@ -1,10 +1,10 @@
 """LMSYS Chatbot Arena 抓取器（公开 ELO 分数，最有公信力的盲测榜单）
 
 数据源（按优先级）：
-1. 第三方归档 API：https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text
-   （免费、无需 key、自动更新 LMSYS 数据）
-2. HuggingFace 原始数据：https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/raw/main/data/leaderboard.json
-   （GitHub Actions 海外可访问）
+1. HuggingFace 原始数据：https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard/raw/main/results.pkl
+   （GitHub Actions 海外可访问，pkl 格式）
+2. 第三方归档 API：https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text
+   （免费、无需 key、自动更新 LMSYS 数据，可能限流）
 3. LMSYS 官方 API：https://leaderboard.lmsys.org/v1/get_arena_leaderboard
 
 产出：以模型名为 key 的 ELO 分数字典。
@@ -13,6 +13,8 @@ LMSYS Chatbot Arena 是最有公信力的 LLM 盲测榜单，通过用户两两�
 """
 
 import re
+import io
+import pickle
 import time
 from typing import Dict, Optional
 
@@ -21,19 +23,22 @@ from scrapers.base import BaseScraper
 # 数据源列表（按优先级）
 DATA_SOURCES = [
     {
+        "name": "huggingface_pkl",
+        "url": "https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard/raw/main/results.pkl",
+        "timeout": 30,
+        "format": "pkl",
+    },
+    {
         "name": "third_party_api",
         "url": "https://api.wulong.dev/arena-ai-leaderboards/v1/leaderboard?name=text",
         "timeout": 15,
-    },
-    {
-        "name": "huggingface",
-        "url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard/raw/main/data/leaderboard.json",
-        "timeout": 30,
+        "format": "json",
     },
     {
         "name": "official_api",
         "url": "https://leaderboard.lmsys.org/v1/get_arena_leaderboard",
         "timeout": 15,
+        "format": "json",
     },
 ]
 
@@ -55,9 +60,14 @@ class LMSYSScraper(BaseScraper):
                     resp = self._get(source["url"], timeout=source["timeout"])
 
                 resp.raise_for_status()
-                data = resp.json()
 
-                models = self._parse_data(data)
+                # 根据格式解析数据
+                if source["format"] == "pkl":
+                    models = self._parse_pkl(resp.content)
+                else:
+                    data = resp.json()
+                    models = self._parse_json(data)
+
                 if models:
                     print(f"[LMSYS] 数据源 {source['name']} 成功，获取到 {len(models)} 个模型")
                     return models
@@ -70,11 +80,82 @@ class LMSYSScraper(BaseScraper):
         print("[LMSYS] 所有数据源均失败，将使用种子数据兜底")
         return {}
 
-    def _parse_data(self, data) -> Dict[str, Dict]:
-        """解析不同格式的 LMSYS 数据。"""
+    def _parse_pkl(self, content: bytes) -> Dict[str, Dict]:
+        """解析 LMSYS pkl 数据文件。"""
+        try:
+            data = pickle.loads(content)
+        except Exception as e:
+            print(f"[LMSYS] pkl 解析失败: {e}")
+            return {}
+
         models = {}
 
-        # 格式 1: 第三方 API 返回的格式
+        # pkl 数据可能是 DataFrame 或字典
+        # 尝试常见的格式
+        if hasattr(data, "to_dict"):
+            # pandas DataFrame
+            try:
+                records = data.to_dict("records")
+                for m in records:
+                    name = m.get("Model") or m.get("model") or ""
+                    if not name:
+                        continue
+                    elo = m.get("Arena Elo") or m.get("elo") or m.get("Elo")
+                    rank = m.get("Rank") or m.get("rank")
+                    votes = m.get("Votes") or m.get("votes")
+                    organization = m.get("Organization") or m.get("organization") or ""
+
+                    normalized_name = self._normalize_name(name)
+                    models[normalized_name] = {
+                        "name": name,
+                        "elo": elo,
+                        "rank": rank,
+                        "votes": votes,
+                        "organization": organization,
+                    }
+            except Exception as e:
+                print(f"[LMSYS] DataFrame 转换失败: {e}")
+        elif isinstance(data, dict):
+            # 字典格式
+            for key, value in data.items():
+                if isinstance(value, dict) and "elo" in value:
+                    name = value.get("name") or key
+                    normalized_name = self._normalize_name(name)
+                    models[normalized_name] = {
+                        "name": name,
+                        "elo": value.get("elo"),
+                        "rank": value.get("rank"),
+                        "votes": value.get("votes"),
+                        "organization": value.get("organization", ""),
+                    }
+        elif isinstance(data, list):
+            # 列表格式
+            for m in data:
+                if not isinstance(m, dict):
+                    continue
+                name = m.get("Model") or m.get("model") or m.get("name") or ""
+                if not name:
+                    continue
+                elo = m.get("Arena Elo") or m.get("elo") or m.get("Elo") or m.get("score")
+                rank = m.get("Rank") or m.get("rank")
+                votes = m.get("Votes") or m.get("votes")
+                organization = m.get("Organization") or m.get("organization") or ""
+
+                normalized_name = self._normalize_name(name)
+                models[normalized_name] = {
+                    "name": name,
+                    "elo": elo,
+                    "rank": rank,
+                    "votes": votes,
+                    "organization": organization,
+                }
+
+        return models
+
+    def _parse_json(self, data) -> Dict[str, Dict]:
+        """解析不同格式的 LMSYS JSON 数据。"""
+        models = {}
+
         if isinstance(data, dict) and "leaderboard" in data:
             model_list = data["leaderboard"]
         elif isinstance(data, dict) and "data" in data:
@@ -100,7 +181,6 @@ class LMSYSScraper(BaseScraper):
             if not name:
                 continue
 
-            # 提取 ELO 分数（字段名可能不同）
             elo = (
                 m.get("Arena Elo")
                 or m.get("elo")
@@ -110,7 +190,6 @@ class LMSYSScraper(BaseScraper):
                 or m.get("elo_rating")
             )
 
-            # 有些数据中 elo 是字符串，需要提取数字
             if isinstance(elo, str):
                 num_match = re.search(r"[\d.]+", elo)
                 if num_match:
@@ -131,9 +210,7 @@ class LMSYSScraper(BaseScraper):
                 or ""
             )
 
-            # 归一化模型名
             normalized_name = self._normalize_name(name)
-
             models[normalized_name] = {
                 "name": name,
                 "elo": elo,
@@ -159,11 +236,9 @@ class LMSYSScraper(BaseScraper):
 
         normalized = self._normalize_name(name)
 
-        # 精确匹配
         if normalized in models:
             return models[normalized]
 
-        # 模糊匹配
         keywords = [k for k in normalized.split("-") if len(k) > 2]
         if not keywords:
             return None
