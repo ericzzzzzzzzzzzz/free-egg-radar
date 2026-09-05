@@ -120,6 +120,7 @@ class ModelRankingScraper(BaseScraper):
             print(f"[模型榜] LMSYS pkl 解析成功，类型: {type(battle_info)}")
 
             # 4. 提取 text 类别的模型 ELO 分数
+            import pandas as pd
             lmsys_data = {}
             if isinstance(battle_info, dict) and "text" in battle_info:
                 text_data = battle_info["text"]
