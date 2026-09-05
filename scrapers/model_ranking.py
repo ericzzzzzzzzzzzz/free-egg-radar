@@ -174,7 +174,7 @@ class ModelRankingScraper(BaseScraper):
 
     @staticmethod
     def _fuzzy_match_model(name: str, data_dict: Dict[str, Dict]) -> Optional[Dict]:
-        """模糊匹配模型名（精确匹配优先，然后关键词匹配，最后子字符串匹配）。"""
+        """模糊匹配模型名（精确匹配优先，然后子字符串匹配，最后关键词匹配）。"""
         if not name or not data_dict:
             return None
 
@@ -188,14 +188,26 @@ class ModelRankingScraper(BaseScraper):
         if name_norm in data_dict:
             return data_dict[name_norm]
 
-        # 2. 关键词匹配（至少匹配 2 个关键词，且名称长度相似）
-        # 提取关键词（去掉常见的版本号和厂商名）
+        # 2. 子字符串匹配（一个名称包含另一个，且长度差异不大）
+        for key, value in data_dict.items():
+            data_name = value.get("name", key)
+            data_norm = normalize(data_name)
+            if name_norm in data_norm or data_norm in name_norm:
+                len_ratio = min(len(name_norm), len(data_norm)) / max(len(name_norm), len(data_norm))
+                if len_ratio > 0.7:
+                    return value
+
+        # 3. 关键词匹配（保留版本号，至少匹配 2 个关键词）
         def extract_keywords(s):
-            # 去掉常见的版本号格式
+            # 保留版本号（如 3.5、5.3），但去掉单独的数字
             import re
-            s = re.sub(r'\d+\.\d+', '', s)  # 去掉 3.5 等
-            s = re.sub(r'\d+', '', s)  # 去掉所有数字
+            # 先提取版本号（如 3.5）
+            versions = re.findall(r'\d+\.\d+', s)
+            # 去掉所有数字和点
+            s = re.sub(r'[\d.]+', ' ', s)
             words = [w for w in s.split() if len(w) > 1]
+            # 加上版本号作为关键词
+            words.extend(versions)
             return set(words) if words else {s}
 
         name_keywords = extract_keywords(name_norm)
@@ -212,18 +224,18 @@ class ModelRankingScraper(BaseScraper):
             common = name_keywords & data_keywords
             score = len(common)
 
-            # 额外加分：一个名称包含另一个（且长度差异不大）
-            if name_norm in data_norm or data_norm in name_norm:
-                len_ratio = min(len(name_norm), len(data_norm)) / max(len(name_norm), len(data_norm))
-                if len_ratio > 0.6:
-                    score += 3
+            # 版本号匹配额外加分
+            name_versions = {v for v in name_keywords if '.' in v}
+            data_versions = {v for v in data_keywords if '.' in v}
+            if name_versions & data_versions:
+                score += 2
 
             # 长度相似度加分
             len_diff = abs(len(name_norm) - len(data_norm))
             if len_diff < 3:
                 score += 1
 
-            if score > best_score and score >= 2:
+            if score > best_score and score >= 3:
                 best_score = score
                 best_match = value
 
