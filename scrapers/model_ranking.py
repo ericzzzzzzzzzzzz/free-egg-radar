@@ -27,7 +27,8 @@ from scrapers.base import BaseScraper
 from scrapers.livebench import LiveBenchScraper
 
 OPENROUTER_API = "https://openrouter.ai/api/v1/models"
-LMSYS_HF_URL = "https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard/raw/main/results.pkl"
+LMSYS_API_URL = "https://huggingface.co/api/spaces/lmarena-ai/chatbot-arena-leaderboard/tree/main"
+LMSYS_DOWNLOAD_URL = "https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/resolve/main/"
 SEED_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "models_seed.json")
 
 
@@ -75,69 +76,80 @@ class ModelRankingScraper(BaseScraper):
             return []
 
     def _fetch_lmsys_data(self) -> Dict[str, Dict[str, Any]]:
-        """从 LMSYS Chatbot Arena 获取 ELO 分数（直接使用正确 URL，不依赖 lmsys.py）。"""
+        """从 LMSYS Chatbot Arena 获取 ELO 分数（参考 arena-catalog 项目的正确方式）。"""
         try:
-            print(f"[模型榜] 从 LMSYS 获取 ELO 分数: {LMSYS_HF_URL}")
-            # 直接使用 requests，不通过 BaseScraper._get()，避免 URL 被修改
-            resp = requests.get(LMSYS_HF_URL, timeout=30, allow_redirects=True)
-            print(f"[模型榜] LMSYS 响应状态: {resp.status_code}, 最终 URL: {resp.url}")
+            # 1. 通过 HuggingFace API 获取空间中的文件列表
+            print(f"[模型榜] 获取 LMSYS 文件列表: {LMSYS_API_URL}")
+            resp = requests.get(LMSYS_API_URL, timeout=30)
+            print(f"[模型榜] LMSYS API 响应状态: {resp.status_code}")
+            resp.raise_for_status()
+
+            file_data = resp.json()
+            pkl_files = [f["path"] for f in file_data if f.get("type") == "file" and ".pkl" in f.get("path", "")]
+            print(f"[模型榜] 找到 pkl 文件: {pkl_files}")
+
+            if not pkl_files:
+                print("[模型榜] 未找到 pkl 文件")
+                return {}
+
+            # 2. 下载最新的 pkl 文件（使用 resolve/main/）
+            latest_file = pkl_files[-1]
+            download_url = LMSYS_DOWNLOAD_URL + latest_file
+            print(f"[模型榜] 下载 LMSYS 数据: {download_url}")
+            resp = requests.get(download_url, timeout=60, allow_redirects=True)
+            print(f"[模型榜] 下载响应状态: {resp.status_code}, 最终 URL: {resp.url}")
             resp.raise_for_status()
             print(f"[模型榜] LMSYS 数据下载成功，大小: {len(resp.content)} 字节")
 
-            # 解析 pkl 文件
-            data = pickle.loads(resp.content)
-            print(f"[模型榜] LMSYS pkl 解析成功，类型: {type(data)}")
+            # 3. 解析 pkl 文件（pandas DataFrame）
+            import pandas as pd
+            battle_info = pd.read_pickle(io.BytesIO(resp.content))
+            print(f"[模型榜] LMSYS pkl 解析成功，类型: {type(battle_info)}")
 
-            # 提取模型名和 ELO 分数
+            # 4. 提取 text 类别的模型 ELO 分数
             lmsys_data = {}
-            models_list = []
-
-            if isinstance(data, dict):
-                # 可能是 {"model": [...], "elo": [...]} 格式
-                if "model" in data and "elo" in data:
-                    models_list = list(zip(data["model"], data["elo"]))
-                elif "models" in data:
-                    models_list = data["models"]
-                else:
-                    # 尝试遍历 dict
-                    for k, v in data.items():
-                        if isinstance(v, (int, float)):
-                            models_list.append((k, v))
-            elif isinstance(data, list):
-                models_list = data
-            elif hasattr(data, "iterrows"):
-                # pandas DataFrame
-                for _, row in data.iterrows():
-                    model = row.get("model") or row.get("Model") or row.iloc[0]
-                    elo = row.get("elo") or row.get("ELO") or row.get("rating") or row.iloc[1]
-                    if model and elo:
-                        models_list.append((model, elo))
-
-            for item in models_list:
-                if isinstance(item, (list, tuple)) and len(item) >= 2:
-                    model_name = str(item[0]).strip()
-                    elo = float(item[1]) if item[1] is not None else None
-                elif isinstance(item, dict):
-                    model_name = str(item.get("model") or item.get("name") or "").strip()
-                    elo = item.get("elo") or item.get("rating") or item.get("score")
-                    if elo is not None:
-                        elo = float(elo)
-                else:
-                    continue
-
-                if model_name and elo is not None and elo > 0:
-                    key = model_name.lower().replace(" ", "").replace("-", "").replace(".", "")
-                    lmsys_data[key] = {
-                        "name": model_name,
-                        "elo": elo,
-                        "source": "lmsys",
-                    }
+            if isinstance(battle_info, dict) and "text" in battle_info:
+                text_data = battle_info["text"]
+                for category, category_data in text_data.items():
+                    if "style_control" in category:
+                        continue  # 跳过 style_control 类别
+                    if "leaderboard_table_df" in category_data:
+                        df = category_data["leaderboard_table_df"]
+                        if hasattr(df, "iterrows"):
+                            for _, row in df.iterrows():
+                                model_name = str(row.get("model") or row.get("model_name") or row.index[0]).strip()
+                                rating = row.get("rating")
+                                if model_name and rating is not None and pd.notna(rating):
+                                    elo = float(rating)
+                                    if elo > 0:
+                                        key = model_name.lower().replace(" ", "").replace("-", "").replace(".", "").replace("_", "")
+                                        lmsys_data[key] = {
+                                            "name": model_name,
+                                            "elo": elo,
+                                            "source": "lmsys",
+                                        }
+            elif hasattr(battle_info, "iterrows"):
+                # 直接是 DataFrame
+                for _, row in battle_info.iterrows():
+                    model_name = str(row.get("model") or row.get("model_name") or "").strip()
+                    rating = row.get("rating")
+                    if model_name and rating is not None and pd.notna(rating):
+                        elo = float(rating)
+                        if elo > 0:
+                            key = model_name.lower().replace(" ", "").replace("-", "").replace(".", "").replace("_", "")
+                            lmsys_data[key] = {
+                                "name": model_name,
+                                "elo": elo,
+                                "source": "lmsys",
+                            }
 
             print(f"[模型榜] LMSYS ELO 数据: {len(lmsys_data)} 个模型")
             return lmsys_data
 
         except Exception as e:
             print(f"[模型榜] LMSYS 获取失败（将使用其他来源兜底）: {e}")
+            import traceback
+            traceback.print_exc()
             return {}
 
     @staticmethod
