@@ -174,7 +174,7 @@ class ModelRankingScraper(BaseScraper):
 
     @staticmethod
     def _fuzzy_match_model(name: str, data_dict: Dict[str, Dict]) -> Optional[Dict]:
-        """简单模糊匹配模型名（去掉空格/点号/横线，关键词匹配）。"""
+        """模糊匹配模型名（精确匹配优先，然后关键词匹配，最后子字符串匹配）。"""
         if not name or not data_dict:
             return None
 
@@ -188,21 +188,17 @@ class ModelRankingScraper(BaseScraper):
         if name_norm in data_dict:
             return data_dict[name_norm]
 
-        # 2. 子字符串匹配（一个名称包含另一个）
-        for key, value in data_dict.items():
-            data_name = value.get("name", key)
-            data_norm = normalize(data_name)
-            if name_norm in data_norm or data_norm in name_norm:
-                # 额外检查：至少有一个共同关键词
-                name_parts = set(name_norm.split())
-                data_parts = set(data_norm.split())
-                if name_parts & data_parts or len(name_norm) > 5:
-                    return value
+        # 2. 关键词匹配（至少匹配 2 个关键词，且名称长度相似）
+        # 提取关键词（去掉常见的版本号和厂商名）
+        def extract_keywords(s):
+            # 去掉常见的版本号格式
+            import re
+            s = re.sub(r'\d+\.\d+', '', s)  # 去掉 3.5 等
+            s = re.sub(r'\d+', '', s)  # 去掉所有数字
+            words = [w for w in s.split() if len(w) > 1]
+            return set(words) if words else {s}
 
-        # 3. 关键词匹配（至少匹配 1 个关键词，且名称长度相似）
-        name_keywords = set(name_norm.split())
-        if not name_keywords:
-            name_keywords = {name_norm}
+        name_keywords = extract_keywords(name_norm)
 
         best_match = None
         best_score = 0
@@ -210,24 +206,24 @@ class ModelRankingScraper(BaseScraper):
         for key, value in data_dict.items():
             data_name = value.get("name", key)
             data_norm = normalize(data_name)
-            data_keywords = set(data_norm.split())
-            if not data_keywords:
-                data_keywords = {data_norm}
+            data_keywords = extract_keywords(data_norm)
 
             # 计算匹配分数
             common = name_keywords & data_keywords
             score = len(common)
 
-            # 额外加分：一个名称包含另一个
+            # 额外加分：一个名称包含另一个（且长度差异不大）
             if name_norm in data_norm or data_norm in name_norm:
-                score += 3
+                len_ratio = min(len(name_norm), len(data_norm)) / max(len(name_norm), len(data_norm))
+                if len_ratio > 0.6:
+                    score += 3
 
             # 长度相似度加分
             len_diff = abs(len(name_norm) - len(data_norm))
-            if len_diff < 5:
+            if len_diff < 3:
                 score += 1
 
-            if score > best_score and score >= 1:
+            if score > best_score and score >= 2:
                 best_score = score
                 best_match = value
 
