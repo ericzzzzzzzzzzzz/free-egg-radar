@@ -524,17 +524,48 @@ class ModelRankingScraper(BaseScraper):
         if not openrouter_models:
             return None
 
-        name_lower = name.lower().replace(" ", "-").replace(".", "-")
+        def normalize(s):
+            # 去掉厂商前缀（如 qwen/、google/）
+            if "/" in s:
+                s = s.split("/", 1)[1]
+            # 去掉日期后缀（如 -2507、-20250701）
+            import re
+            s = re.sub(r'-\d{4}$', '', s)  # 去掉 -2507
+            s = re.sub(r'-\d{8}$', '', s)  # 去掉 -20250701
+            return s.lower().replace(" ", "-").replace("_", "-")
 
-        if name_lower in openrouter_models:
-            return openrouter_models[name_lower]
+        name_norm = normalize(name)
 
-        keywords = [k for k in name_lower.replace("-", " ").split() if len(k) > 2]
+        # 1. 精确匹配（去掉厂商前缀和日期后缀后）
+        for or_name, or_model in openrouter_models.items():
+            or_norm = normalize(or_name)
+            if or_norm == name_norm:
+                return or_model
+
+        # 2. 子字符串匹配（一个名称包含另一个）
+        for or_name, or_model in openrouter_models.items():
+            or_norm = normalize(or_name)
+            if name_norm in or_norm or or_norm in name_norm:
+                len_ratio = min(len(name_norm), len(or_norm)) / max(len(name_norm), len(or_norm))
+                if len_ratio > 0.6:
+                    return or_model
+
+        # 3. 关键词匹配（至少匹配 2 个关键词）
+        keywords = [k for k in name_norm.replace("-", " ").split() if len(k) > 2]
         if not keywords:
             return None
 
-        for or_name, or_model in openrouter_models.items():
-            if all(k in or_name for k in keywords):
-                return or_model
+        best_match = None
+        best_score = 0
 
-        return None
+        for or_name, or_model in openrouter_models.items():
+            or_norm = normalize(or_name)
+            or_keywords = set(or_norm.replace("-", " ").split())
+            common = set(keywords) & or_keywords
+            score = len(common)
+
+            if score > best_score and score >= 2:
+                best_score = score
+                best_match = or_model
+
+        return best_match
