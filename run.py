@@ -66,6 +66,24 @@ def run_fetch(cfg: dict) -> list:
             scraped.extend(GroqScraper().scrape())
         except Exception as e:
             print(f"[抓取] Groq 失败: {e}")
+    if sources.get("baidu-qianfan", {}).get("enabled", True):
+        try:
+            from scrapers.baidu_qianfan import BaiduQianfanScraper
+            scraped.extend(BaiduQianfanScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] 百度千帆失败: {e}")
+    if sources.get("tencent-hunyuan", {}).get("enabled", True):
+        try:
+            from scrapers.tencent_hunyuan import TencentHunyuanScraper
+            scraped.extend(TencentHunyuanScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] 腾讯混元失败: {e}")
+    if sources.get("aliyun-bailian", {}).get("enabled", True):
+        try:
+            from scrapers.aliyun_bailian import AliyunBailianScraper
+            scraped.extend(AliyunBailianScraper().scrape())
+        except Exception as e:
+            print(f"[抓取] 阿里云百炼失败: {e}")
     return scraped
 
 
