@@ -15,6 +15,14 @@ sources:
     enabled: true      # OpenRouter 官方 API（免费模型池，全球）
   siliconflow:
     enabled: true      # 硅基流动官方定价页（免费模型，国内）
+  cohere:
+    enabled: true      # Cohere 定价页（Trial 免费层，全球）
+  gemini:
+    enabled: true      # Google Gemini API 文档（Free Tier，全球）
+  mistral:
+    enabled: true      # Mistral La Plateforme 文档（免费层，全球）
+  groq:
+    enabled: true      # Groq API/文档（所有模型免费 RPM，全球）
 
 # LLM 解析（把公告/线报文本转成结构化条目）
 # 默认关闭；配置 SILICONFLOW_API_KEY 环境变量后自动启用
