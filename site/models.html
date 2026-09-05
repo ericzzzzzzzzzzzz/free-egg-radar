@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0816">
+<title>模型榜 · LLM 天梯 · FreeEgg Radar</title>
+<meta name="description" content="多家公开榜单的大模型综合分天梯——谁最能打，一榜看全。价格为 OpenRouter 标准参考价。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 44'%3E%3Cellipse cx='16' cy='26' rx='14' ry='16' fill='%23e0b64e'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='14' fill='%23f5d78e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css?v=11">
+<style>
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+.model-card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  animation: cardIn 0.4s ease backwards;
+}
+.model-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-green), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.model-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card), 0 8px 32px rgba(0, 212, 170, 0.15);
+}
+.model-card:hover::before { opacity: 1; }
+.model-rank {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  opacity: 0.9;
+}
+.model-card.top1 .model-rank { background: linear-gradient(135deg, var(--gold-bright), var(--gold)); -webkit-background-clip: text; background-clip: text; font-size: 32px; }
+.model-card.top2 .model-rank { background: linear-gradient(135deg, var(--silver-bright), var(--silver)); -webkit-background-clip: text; background-clip: text; font-size: 30px; }
+.model-card.top3 .model-rank { background: linear-gradient(135deg, var(--copper-bright), var(--copper)); -webkit-background-clip: text; background-clip: text; font-size: 28px; }
+.model-name { font-size: 16px; font-weight: 700; color: var(--text); padding-right: 50px; line-height: 1.4; }
+.model-vendor { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 5px; }
+.model-vendor::before { content: '◆'; font-size: 8px; color: var(--neon-cyan); opacity: 0.8; }
+.model-pricing {
+  display: flex;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+}
+.price-item { flex: 1; text-align: center; }
+.price-label { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.5px; }
+.price-value { font-size: 15px; font-weight: 700; color: var(--neon-cyan); margin-top: 2px; }
+.price-value.output { color: var(--neon-green); }
+.model-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.model-score-label { font-size: 11px; color: var(--text-faint); }
+.model-score {
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.model-date { font-size: 11px; color: var(--text-faint); }
+.model-hero { padding: 40px 0 24px; }
+.model-hero-title {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, var(--neon-cyan) 50%, var(--neon-green) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.model-hero-sub { color: var(--text-dim); font-size: 14px; margin-top: 12px; line-height: 1.7; }
+.model-hero-meta { color: var(--text-faint); font-size: 12px; margin-top: 14px; display: flex; align-items: center; gap: 6px; }
+.model-hero-meta::before { content: '📊'; font-size: 11px; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">跳到主要内容</a>
+
+<header class="topnav">
+  <div class="container topnav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-egg" aria-hidden="true">
+        <svg width="20" height="27" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#e0b64e"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#f5d78e"/></svg>
+      </span>
+      <span class="brand-name">FreeEgg Radar</span>
+      <span class="brand-sub">赛博鸡蛋 · 自动化情报站</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html">鸡蛋榜</a>
+      <a href="models.html" style="color: var(--neon-cyan);">模型榜</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <section class="model-hero">
+    <div class="container">
+      <p class="eyebrow">LLM LEADERBOARD · 大模型天梯</p>
+      <h1 class="model-hero-title">谁最能打，一榜看全</h1>
+      <p class="model-hero-sub">综合多家公开榜单的模型性能天梯——LMSYS Chatbot Arena 盲测 ELO（60%）+ 价格合理性（20%）+ 公开榜单共识（20%）。<br>输入/输出为 OpenRouter 标准参考价（美元/百万 Token），每天自动抓取更新。</p>
+      <p class="model-hero-meta" id="model-updated-at"></p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="filterbar">
+      <div class="fgroup" role="group" aria-label="厂商筛选" id="vendor-filters">
+        <span class="flabel">厂商</span>
+      </div>
+      <label class="fsearch">
+        <span class="visually-hidden">搜索</span>
+        <input type="search" id="model-filter-q" placeholder="搜模型名 / 厂商…" autocomplete="off">
+      </label>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="model-grid" id="model-grid">
+        <div class="empty">加载中…</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 FreeEgg 赛博鸡蛋 All Rights Reserved.</p>
+    <p class="footer-tip">模型性能分参考多家公开榜单共识，价格为 OpenRouter 标准参考价，仅供参考。</p>
+  </div>
+</footer>
+
+<script src="js/models.js?v=11"></script>
+</body>
+</html>
