@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a0816">
+<title>FreeEgg Radar · AI 厂商福利情报站</title>
+<meta name="description" content="自动抓取、自动评分、自动更新的 AI 厂商免费福利情报站：聚合各家免费 Token、积分与 API 额度。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 44'%3E%3Cellipse cx='16' cy='26' rx='14' ry='16' fill='%23e0b64e'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='14' fill='%23f5d78e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到主要内容</a>
+
+<header class="topnav">
+  <div class="container topnav-inner">
+    <a class="brand" href="#/">
+      <span class="brand-egg" aria-hidden="true">
+        <svg width="20" height="27" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#e0b64e"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#f5d78e"/></svg>
+      </span>
+      <span class="brand-name">FreeEgg Radar</span>
+      <span class="brand-sub">赛博鸡蛋 · 自动化情报站</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="#ranking">鸡蛋榜</a>
+      <a href="#recycle">过期蛋</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-logo" aria-hidden="true">
+        <svg width="88" height="120" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#e0b64e"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#f5d78e"/></svg>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow">AI 厂商福利情报站 · 全自动</p>
+        <h1 class="hero-title">每天领走你的<br>赛博鸡蛋</h1>
+        <p class="hero-sub">自动抓取各大 AI 厂商的免费 Token、积分与 API 额度，<br>自动评分排序，过期自动下榜。今天这窝，趁热！</p>
+        <dl class="hero-stats">
+          <div class="stat"><span class="stat-egg" aria-hidden="true"><svg width="20" height="27" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#e0b64e"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#f5d78e"/></svg></span><div class="stat-text"><dt>金蛋</dt><dd id="stat-gold" class="num">–</dd></div></div>
+          <div class="stat"><span class="stat-egg" aria-hidden="true"><svg width="20" height="27" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#aab4be"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#d4dae0"/></svg></span><div class="stat-text"><dt>银蛋</dt><dd id="stat-silver" class="num">–</dd></div></div>
+          <div class="stat"><span class="stat-egg" aria-hidden="true"><svg width="20" height="27" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#d98e63"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#ecc0a0"/></svg></span><div class="stat-text"><dt>铜蛋</dt><dd id="stat-copper" class="num">–</dd></div></div>
+        </dl>
+        <p class="hero-meta" id="updated-at"></p>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="filterbar">
+      <button class="chip filter-toggle" id="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-advanced">筛选</button>
+      <div class="filter-advanced" id="filter-advanced" hidden>
+        <div class="fgroup" role="group" aria-label="等级筛选">
+          <span class="flabel">等级</span>
+          <button class="chip" data-v="gold">金蛋</button>
+          <button class="chip" data-v="silver">银蛋</button>
+          <button class="chip" data-v="copper">铜蛋</button>
+        </div>
+        <div class="fgroup" role="group" aria-label="时限筛选">
+          <span class="flabel">时限</span>
+          <button class="chip" data-v="limited">限时</button>
+          <button class="chip" data-v="longterm">长期</button>
+        </div>
+        <div class="fgroup fsort" role="group" aria-label="类别筛选">
+          <span class="flabel">类别</span>
+          <button class="chip" data-v="token">Token</button>
+          <button class="chip" data-v="credits">积分</button>
+          <button class="chip" data-v="api-quota">API 额度</button>
+        </div>
+      </div>
+      <label class="fsearch">
+        <span class="visually-hidden">搜索</span>
+        <input type="search" id="filter-q" placeholder="搜标题 / 厂商…" autocomplete="off">
+      </label>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <p id="grid-status" class="visually-hidden" role="status"></p>
+      <div id="egg-grid" class="egg-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" id="ranking">
+    <div class="container">
+      <header class="section-head">
+        <p class="eyebrow">Leaderboard</p>
+        <h2>鸡蛋榜</h2>
+        <p class="section-sub">按蛋力分排行，过期蛋没有上榜资格，仅展示前 10 名。</p>
+      </header>
+      <div id="ranking-list" class="ranking"></div>
+    </div>
+  </section>
+
+  <section class="section" id="recycle">
+    <div class="container">
+      <details class="recycle" id="recycle-details">
+        <summary>
+          <span class="recycle-title"><span class="eyebrow">Expired</span><h2>过期蛋</h2></span>
+          <span class="recycle-meta"><span id="recycle-count" class="num">0</span> 个过期蛋 · <span class="when-open">点击收起</span><span class="when-closed">点击展开</span></span>
+        </summary>
+        <p class="section-sub">这些蛋已经过了最佳赏味期，别再捡了。按过期时间倒序。</p>
+        <div id="recycle-list" class="recycle-list"></div>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 FreeEgg Radar · 自动抓取 · 自动评分 · 自动更新</p>
+    <p class="footer-tip">福利活动信息来自各厂商官方公开页面，以官方为准；自动条目未人工实测。</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lightbox-close" type="button" aria-label="关闭">×</button>
+  <img id="lightbox-img" alt="放大查看">
+</div>
+
+<script src="js/app.js"></script>
+</body>
+</html>
