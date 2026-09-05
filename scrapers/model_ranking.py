@@ -17,14 +17,16 @@
 
 import json
 import os
+import pickle
+import io
 from datetime import date
 from typing import List, Dict, Any, Optional
 
 from scrapers.base import BaseScraper
-from scrapers.lmsys import LMSYSScraper
 from scrapers.livebench import LiveBenchScraper
 
 OPENROUTER_API = "https://openrouter.ai/api/v1/models"
+LMSYS_HF_URL = "https://huggingface.co/spaces/lmarena-ai/chatbot-arena-leaderboard/raw/main/results.pkl"
 SEED_FILE = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data", "models_seed.json")
 
 
@@ -37,13 +39,8 @@ class ModelRankingScraper(BaseScraper):
         seed_models = self._load_seed_models()
         print(f"[模型榜] 种子数据: {len(seed_models)} 个模型")
 
-        # 2. 从 LMSYS 获取 ELO 分数（最有公信力）
-        lmsys_data = {}
-        try:
-            lmsys_scraper = LMSYSScraper()
-            lmsys_data = lmsys_scraper.scrape()
-        except Exception as e:
-            print(f"[模型榜] LMSYS 获取失败（将使用其他来源兜底）: {e}")
+        # 2. 从 LMSYS 获取 ELO 分数（最有公信力，直接使用正确 URL）
+        lmsys_data = self._fetch_lmsys_data()
 
         # 3. 从 LiveBench 获取 Global Average（无污染基准）
         livebench_data = {}
@@ -75,6 +72,115 @@ class ModelRankingScraper(BaseScraper):
         except Exception as e:
             print(f"[模型榜] 加载种子数据失败: {e}")
             return []
+
+    def _fetch_lmsys_data(self) -> Dict[str, Dict[str, Any]]:
+        """从 LMSYS Chatbot Arena 获取 ELO 分数（直接使用正确 URL，不依赖 lmsys.py）。"""
+        try:
+            print(f"[模型榜] 从 LMSYS 获取 ELO 分数: {LMSYS_HF_URL}")
+            resp = self._get(LMSYS_HF_URL, timeout=30)
+            resp.raise_for_status()
+            print(f"[模型榜] LMSYS 数据下载成功，大小: {len(resp.content)} 字节")
+
+            # 解析 pkl 文件
+            data = pickle.loads(resp.content)
+            print(f"[模型榜] LMSYS pkl 解析成功，类型: {type(data)}")
+
+            # 提取模型名和 ELO 分数
+            lmsys_data = {}
+            models_list = []
+
+            if isinstance(data, dict):
+                # 可能是 {"model": [...], "elo": [...]} 格式
+                if "model" in data and "elo" in data:
+                    models_list = list(zip(data["model"], data["elo"]))
+                elif "models" in data:
+                    models_list = data["models"]
+                else:
+                    # 尝试遍历 dict
+                    for k, v in data.items():
+                        if isinstance(v, (int, float)):
+                            models_list.append((k, v))
+            elif isinstance(data, list):
+                models_list = data
+            elif hasattr(data, "iterrows"):
+                # pandas DataFrame
+                for _, row in data.iterrows():
+                    model = row.get("model") or row.get("Model") or row.iloc[0]
+                    elo = row.get("elo") or row.get("ELO") or row.get("rating") or row.iloc[1]
+                    if model and elo:
+                        models_list.append((model, elo))
+
+            for item in models_list:
+                if isinstance(item, (list, tuple)) and len(item) >= 2:
+                    model_name = str(item[0]).strip()
+                    elo = float(item[1]) if item[1] is not None else None
+                elif isinstance(item, dict):
+                    model_name = str(item.get("model") or item.get("name") or "").strip()
+                    elo = item.get("elo") or item.get("rating") or item.get("score")
+                    if elo is not None:
+                        elo = float(elo)
+                else:
+                    continue
+
+                if model_name and elo is not None and elo > 0:
+                    key = model_name.lower().replace(" ", "").replace("-", "").replace(".", "")
+                    lmsys_data[key] = {
+                        "name": model_name,
+                        "elo": elo,
+                        "source": "lmsys",
+                    }
+
+            print(f"[模型榜] LMSYS ELO 数据: {len(lmsys_data)} 个模型")
+            return lmsys_data
+
+        except Exception as e:
+            print(f"[模型榜] LMSYS 获取失败（将使用其他来源兜底）: {e}")
+            return {}
+
+    @staticmethod
+    def _fuzzy_match_model(name: str, data_dict: Dict[str, Dict]) -> Optional[Dict]:
+        """简单模糊匹配模型名（去掉空格/点号/横线，关键词匹配）。"""
+        if not name or not data_dict:
+            return None
+
+        # 标准化模型名
+        def normalize(s):
+            return s.lower().replace(" ", "").replace("-", "").replace(".", "").replace("_", "")
+
+        name_norm = normalize(name)
+
+        # 1. 精确匹配
+        if name_norm in data_dict:
+            return data_dict[name_norm]
+
+        # 2. 关键词匹配（至少匹配 2 个关键词）
+        name_keywords = set(name_norm.split())
+        if not name_keywords:
+            name_keywords = {name_norm}
+
+        best_match = None
+        best_score = 0
+
+        for key, value in data_dict.items():
+            data_name = value.get("name", key)
+            data_norm = normalize(data_name)
+            data_keywords = set(data_norm.split())
+            if not data_keywords:
+                data_keywords = {data_norm}
+
+            # 计算匹配分数
+            common = name_keywords & data_keywords
+            score = len(common)
+
+            # 额外加分：一个名称包含另一个
+            if name_norm in data_norm or data_norm in name_norm:
+                score += 2
+
+            if score > best_score and score >= 2:
+                best_score = score
+                best_match = value
+
+        return best_match
 
     def _fetch_openrouter_models(self) -> Dict[str, Dict[str, Any]]:
         """从 OpenRouter API 获取模型列表和价格，返回以模型名为 key 的字典。"""
@@ -125,7 +231,6 @@ class ModelRankingScraper(BaseScraper):
     ) -> List[Dict]:
         """合并多来源数据，计算综合分（动态权重）。"""
         today = date.today().isoformat()
-        lmsys_scraper = LMSYSScraper()
         lb_scraper = LiveBenchScraper()
 
         # 计算 LMSYS ELO 的归一化范围
@@ -140,11 +245,10 @@ class ModelRankingScraper(BaseScraper):
             name = m.get("name", "")
             model = dict(m)  # 复制种子数据
 
-            # 1. 匹配 LMSYS ELO 分数
-            lmsys_match = lmsys_scraper.find_model(name, lmsys_data)
+            # 1. 匹配 LMSYS ELO 分数（简单模糊匹配）
+            lmsys_match = self._fuzzy_match_model(name, lmsys_data)
             if lmsys_match and lmsys_match.get("elo"):
                 model["lmsysElo"] = lmsys_match["elo"]
-                model["lmsysRank"] = lmsys_match.get("rank")
                 sources_used.add("lmsys")
             else:
                 model["lmsysElo"] = None
