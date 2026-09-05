@@ -3,32 +3,12 @@
   "source": "性能分参考多家公开榜单共识，价格为 OpenRouter 标准参考价（美元/百万 Token），自动更新",
   "models": [
     {
-      "name": "glm-4.5",
-      "vendor": "Zhipu",
-      "releaseDate": "2026-09-05",
-      "contextLength": 1310720,
-      "inputCost": 0.075,
-      "outputCost": 0.25,
-      "lmsysElo": 1429.0835090080654,
-      "livebenchScore": null,
-      "score": 91.1,
-      "scoreBreakdown": {
-        "lmsys": 94.1,
-        "livebench": null,
-        "price": 85
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceUpdatedAt": "2026-09-05",
-      "priceSource": "openrouter"
-    },
-    {
       "name": "deepseek-v3.1",
       "vendor": "Deepseek",
       "releaseDate": "2026-09-05",
-      "contextLength": 1048576,
-      "inputCost": 0.22,
-      "outputCost": 0.66,
+      "contextLength": 163840,
+      "inputCost": 0.27,
+      "outputCost": 1.0,
       "lmsysElo": 1417.7252859443245,
       "livebenchScore": null,
       "score": 89.8,
@@ -63,6 +43,26 @@
       "priceSource": "openrouter"
     },
     {
+      "name": "deepseek-v3.1-thinking",
+      "vendor": "Deepseek",
+      "releaseDate": "2026-09-05",
+      "contextLength": 163840,
+      "inputCost": 0.27,
+      "outputCost": 1.0,
+      "lmsysElo": 1412.9126325308996,
+      "livebenchScore": null,
+      "score": 89.3,
+      "scoreBreakdown": {
+        "lmsys": 91.5,
+        "livebench": null,
+        "price": 85
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
+    },
+    {
       "name": "qwen3-30b-a3b-instruct-2507",
       "vendor": "Qwen",
       "releaseDate": "2026-09-05",
@@ -83,17 +83,17 @@
       "priceSource": "openrouter"
     },
     {
-      "name": "deepseek-r1-0528",
-      "vendor": "Deepseek",
+      "name": "glm-4.5",
+      "vendor": "Zhipu",
       "releaseDate": "2026-09-05",
-      "contextLength": 163840,
-      "inputCost": 0.5,
-      "outputCost": 2.15,
-      "lmsysElo": 1424.3669811230845,
+      "contextLength": 131072,
+      "inputCost": 0.6,
+      "outputCost": 2.2,
+      "lmsysElo": 1429.0835090080654,
       "livebenchScore": null,
-      "score": 87.2,
+      "score": 87.7,
       "scoreBreakdown": {
-        "lmsys": 93.3,
+        "lmsys": 94.1,
         "livebench": null,
         "price": 75
       },
@@ -143,19 +143,19 @@
       "priceSource": "openrouter"
     },
     {
-      "name": "deepseek-v3-0324",
-      "vendor": "Deepseek",
+      "name": "gemini-2.5-flash",
+      "vendor": "Google",
       "releaseDate": "2026-09-05",
-      "contextLength": 163840,
-      "inputCost": 0.25,
-      "outputCost": 1.0,
-      "lmsysElo": 1376.6457671463797,
+      "contextLength": 1048576,
+      "inputCost": 0.3,
+      "outputCost": 2.5,
+      "lmsysElo": 1408.8813986353036,
       "livebenchScore": null,
       "score": 85.5,
       "scoreBreakdown": {
-        "lmsys": 85.7,
+        "lmsys": 90.8,
         "livebench": null,
-        "price": 85
+        "price": 75
       },
       "scoreSource": "lmsys+price",
       "updatedAt": "2026-09-05",
@@ -166,9 +166,9 @@
       "name": "gemini-2.5-pro",
       "vendor": "Google",
       "releaseDate": "2026-09-05",
-      "contextLength": 131072,
-      "inputCost": 2.0,
-      "outputCost": 12.0,
+      "contextLength": 1048576,
+      "inputCost": 1.25,
+      "outputCost": 10.0,
       "lmsysElo": 1466.2449319357888,
       "livebenchScore": null,
       "score": 85.0,
@@ -183,37 +183,17 @@
       "priceSource": "openrouter"
     },
     {
-      "name": "gemini-2.5-flash",
-      "vendor": "Google",
+      "name": "mistral-medium-2508",
+      "vendor": "Mistral",
       "releaseDate": "2026-09-05",
-      "contextLength": 1048576,
-      "inputCost": 0.75,
-      "outputCost": 3.75,
-      "lmsysElo": 1408.8813986353036,
+      "contextLength": 262144,
+      "inputCost": 1.5,
+      "outputCost": 7.5,
+      "lmsysElo": 1433.4008835768732,
       "livebenchScore": null,
-      "score": 82.2,
+      "score": 84.8,
       "scoreBreakdown": {
-        "lmsys": 90.8,
-        "livebench": null,
-        "price": 65
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceUpdatedAt": "2026-09-05",
-      "priceSource": "openrouter"
-    },
-    {
-      "name": "gpt-5-old",
-      "vendor": "Openai",
-      "releaseDate": "2026-09-05",
-      "contextLength": 4095,
-      "inputCost": 1.0,
-      "outputCost": 2.0,
-      "lmsysElo": 1405.8885541662894,
-      "livebenchScore": null,
-      "score": 81.9,
-      "scoreBreakdown": {
-        "lmsys": 90.3,
+        "lmsys": 94.7,
         "livebench": null,
         "price": 65
       },
@@ -241,25 +221,6 @@
       "updatedAt": "2026-09-05",
       "priceUpdatedAt": "2026-09-05",
       "priceSource": "openrouter"
-    },
-    {
-      "name": "mistral-medium-2508",
-      "vendor": "Mistral",
-      "releaseDate": "2026-09-05",
-      "contextLength": null,
-      "inputCost": null,
-      "outputCost": null,
-      "lmsysElo": 1433.4008835768732,
-      "livebenchScore": null,
-      "score": 79.8,
-      "scoreBreakdown": {
-        "lmsys": 94.7,
-        "livebench": null,
-        "price": 50
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceSource": "unknown"
     },
     {
       "name": "grok-4-0709",
@@ -319,6 +280,65 @@
       "priceSource": "unknown"
     },
     {
+      "name": "kimi-k2-0711-preview",
+      "vendor": "Unknown",
+      "releaseDate": "2026-09-05",
+      "contextLength": 131072,
+      "inputCost": 0.57,
+      "outputCost": 2.3,
+      "lmsysElo": 1379.3329635518317,
+      "livebenchScore": null,
+      "score": 79.1,
+      "scoreBreakdown": {
+        "lmsys": 86.1,
+        "livebench": null,
+        "price": 65
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
+    },
+    {
+      "name": "deepseek-r1-0528",
+      "vendor": "Deepseek",
+      "releaseDate": "2026-09-05",
+      "contextLength": null,
+      "inputCost": null,
+      "outputCost": null,
+      "lmsysElo": 1424.3669811230845,
+      "livebenchScore": null,
+      "score": 78.9,
+      "scoreBreakdown": {
+        "lmsys": 93.3,
+        "livebench": null,
+        "price": 50
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceSource": "unknown"
+    },
+    {
+      "name": "gpt-5-mini-high",
+      "vendor": "Openai",
+      "releaseDate": "2026-09-05",
+      "contextLength": 400000,
+      "inputCost": 0.75,
+      "outputCost": 4.5,
+      "lmsysElo": 1377.0750011160362,
+      "livebenchScore": null,
+      "score": 78.8,
+      "scoreBreakdown": {
+        "lmsys": 85.7,
+        "livebench": null,
+        "price": 65
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
+    },
+    {
       "name": "grok-3-preview-02-24",
       "vendor": "Xai",
       "releaseDate": "2026-09-05",
@@ -376,74 +396,17 @@
       "priceSource": "unknown"
     },
     {
-      "name": "claude-opus-4-1-20250805-thinking-16k",
-      "vendor": "Anthropic",
-      "releaseDate": "2026-09-05",
-      "contextLength": null,
-      "inputCost": null,
-      "outputCost": null,
-      "lmsysElo": 1416.5721133786938,
-      "livebenchScore": null,
-      "score": 78.1,
-      "scoreBreakdown": {
-        "lmsys": 92.1,
-        "livebench": null,
-        "price": 50
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceSource": "unknown"
-    },
-    {
-      "name": "gpt-4.5-preview-2025-02-27",
+      "name": "gpt-5-old",
       "vendor": "Openai",
       "releaseDate": "2026-09-05",
       "contextLength": null,
       "inputCost": null,
       "outputCost": null,
-      "lmsysElo": 1415.63200046145,
-      "livebenchScore": null,
-      "score": 77.9,
-      "scoreBreakdown": {
-        "lmsys": 91.9,
-        "livebench": null,
-        "price": 50
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceSource": "unknown"
-    },
-    {
-      "name": "deepseek-v3.1-thinking",
-      "vendor": "Deepseek",
-      "releaseDate": "2026-09-05",
-      "contextLength": null,
-      "inputCost": null,
-      "outputCost": null,
-      "lmsysElo": 1412.9126325308996,
-      "livebenchScore": null,
-      "score": 77.7,
-      "scoreBreakdown": {
-        "lmsys": 91.5,
-        "livebench": null,
-        "price": 50
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceSource": "unknown"
-    },
-    {
-      "name": "claude-opus-4-1-20250805",
-      "vendor": "Anthropic",
-      "releaseDate": "2026-09-05",
-      "contextLength": null,
-      "inputCost": null,
-      "outputCost": null,
-      "lmsysElo": 1406.3414807646886,
+      "lmsysElo": 1405.8885541662894,
       "livebenchScore": null,
       "score": 76.9,
       "scoreBreakdown": {
-        "lmsys": 90.4,
+        "lmsys": 90.3,
         "livebench": null,
         "price": 50
       },
@@ -471,6 +434,26 @@
       "priceSource": "unknown"
     },
     {
+      "name": "claude-opus-4-1-20250805-thinking-16k",
+      "vendor": "Anthropic",
+      "releaseDate": "2026-09-05",
+      "contextLength": 1000000,
+      "inputCost": 5.0,
+      "outputCost": 25.0,
+      "lmsysElo": 1416.5721133786938,
+      "livebenchScore": null,
+      "score": 76.4,
+      "scoreBreakdown": {
+        "lmsys": 92.1,
+        "livebench": null,
+        "price": 45
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
+    },
+    {
       "name": "hunyuan-t1-20250711",
       "vendor": "Tencent",
       "releaseDate": "2026-09-05",
@@ -488,6 +471,46 @@
       "scoreSource": "lmsys+price",
       "updatedAt": "2026-09-05",
       "priceSource": "unknown"
+    },
+    {
+      "name": "gpt-4.1-2025-04-14",
+      "vendor": "Openai",
+      "releaseDate": "2026-09-05",
+      "contextLength": 1047576,
+      "inputCost": 2.0,
+      "outputCost": 8.0,
+      "lmsysElo": 1380.652017373763,
+      "livebenchScore": null,
+      "score": 75.9,
+      "scoreBreakdown": {
+        "lmsys": 86.3,
+        "livebench": null,
+        "price": 55
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
+    },
+    {
+      "name": "claude-opus-4-1-20250805",
+      "vendor": "Anthropic",
+      "releaseDate": "2026-09-05",
+      "contextLength": 1000000,
+      "inputCost": 5.0,
+      "outputCost": 25.0,
+      "lmsysElo": 1406.3414807646886,
+      "livebenchScore": null,
+      "score": 75.3,
+      "scoreBreakdown": {
+        "lmsys": 90.4,
+        "livebench": null,
+        "price": 45
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
     },
     {
       "name": "qwen-vl-max-2025-08-13",
@@ -509,51 +532,13 @@
       "priceSource": "unknown"
     },
     {
-      "name": "gpt-4.1-2025-04-14",
-      "vendor": "Openai",
+      "name": "deepseek-v3-0324",
+      "vendor": "Deepseek",
       "releaseDate": "2026-09-05",
       "contextLength": null,
       "inputCost": null,
       "outputCost": null,
-      "lmsysElo": 1380.652017373763,
-      "livebenchScore": null,
-      "score": 74.2,
-      "scoreBreakdown": {
-        "lmsys": 86.3,
-        "livebench": null,
-        "price": 50
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceSource": "unknown"
-    },
-    {
-      "name": "kimi-k2-0711-preview",
-      "vendor": "Unknown",
-      "releaseDate": "2026-09-05",
-      "contextLength": null,
-      "inputCost": null,
-      "outputCost": null,
-      "lmsysElo": 1379.3329635518317,
-      "livebenchScore": null,
-      "score": 74.1,
-      "scoreBreakdown": {
-        "lmsys": 86.1,
-        "livebench": null,
-        "price": 50
-      },
-      "scoreSource": "lmsys+price",
-      "updatedAt": "2026-09-05",
-      "priceSource": "unknown"
-    },
-    {
-      "name": "gpt-5-mini-high",
-      "vendor": "Openai",
-      "releaseDate": "2026-09-05",
-      "contextLength": null,
-      "inputCost": null,
-      "outputCost": null,
-      "lmsysElo": 1377.0750011160362,
+      "lmsysElo": 1376.6457671463797,
       "livebenchScore": null,
       "score": 73.8,
       "scoreBreakdown": {
@@ -564,6 +549,26 @@
       "scoreSource": "lmsys+price",
       "updatedAt": "2026-09-05",
       "priceSource": "unknown"
+    },
+    {
+      "name": "gpt-4.5-preview-2025-02-27",
+      "vendor": "Openai",
+      "releaseDate": "2026-09-05",
+      "contextLength": 128000,
+      "inputCost": 10.0,
+      "outputCost": 30.0,
+      "lmsysElo": 1415.63200046145,
+      "livebenchScore": null,
+      "score": 72.9,
+      "scoreBreakdown": {
+        "lmsys": 91.9,
+        "livebench": null,
+        "price": 35
+      },
+      "scoreSource": "lmsys+price",
+      "updatedAt": "2026-09-05",
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter"
     },
     {
       "name": "gpt-5-chat",
