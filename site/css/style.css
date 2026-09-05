@@ -1,21 +1,22 @@
-/* FreeEgg Radar 样式 v3：霓虹极光 · 玻璃拟态 · 赛博未来 */
+/* FreeEgg Radar 样式 v6：青绿智能生态风 · 玻璃拟态 · 极光渐变 */
 :root {
-  --bg: #2e2c52;
-  --bg-2: #36345e;
-  --card: rgba(58, 56, 92, 0.45);
-  --card-solid: #3a385c;
-  --card-hover: rgba(68, 64, 104, 0.6);
-  --border: rgba(255, 255, 255, 0.16);
-  --border-strong: rgba(255, 255, 255, 0.26);
-  --text: #f8faff;
-  --text-dim: #c8cde8;
-  --text-faint: #98a0c0;
+  --bg: #0d241e;
+  --bg-2: #102e26;
+  --card: rgba(20, 50, 42, 0.55);
+  --card-solid: #14322a;
+  --card-hover: rgba(26, 60, 50, 0.7);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.18);
+  --text: #f0fdf8;
+  --text-dim: #a8d5c5;
+  --text-faint: #6ba894;
 
-  /* 霓虹极光主色 */
-  --neon-purple: #a855f7;
-  --neon-cyan: #06b6d4;
-  --neon-pink: #ec4899;
-  --neon-green: #10b981;
+  /* 青绿智能生态主色 */
+  --neon-cyan: #00d4aa;
+  --neon-green: #4ade80;
+  --neon-emerald: #10b981;
+  --amber: #fbbf24;
+  --amber-bright: #fde68a;
 
   /* 金/银/铜蛋 */
   --gold: #fbbf24;
@@ -28,11 +29,11 @@
   --copper-bright: #fed7aa;
   --copper-glow: rgba(251, 146, 60, 0.4);
 
-  --accent: var(--neon-purple);
-  --accent-2: var(--neon-cyan);
+  --accent: var(--neon-cyan);
+  --accent-2: var(--neon-green);
   --radius: 16px;
   --radius-sm: 10px;
-  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.4);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -41,7 +42,7 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    linear-gradient(160deg, #3a3868 0%, #2e2c52 25%, #34325e 55%, #28264a 100%);
+    linear-gradient(160deg, #12352c 0%, #0d241e 30%, #102e26 60%, #0a1f1a 100%);
   color: var(--text);
   font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
   line-height: 1.6;
@@ -50,7 +51,7 @@ body {
   position: relative;
 }
 
-/* 极光背景光晕 - 左上 */
+/* 极光背景光晕 - 左上（青绿） */
 body::before {
   content: '';
   position: fixed;
@@ -59,14 +60,14 @@ body::before {
   width: 1000px;
   height: 900px;
   background:
-    radial-gradient(ellipse at 40% 30%, rgba(168, 85, 247, 0.3) 0%, transparent 45%),
-    radial-gradient(ellipse at 70% 50%, rgba(6, 182, 212, 0.25) 0%, transparent 40%),
-    radial-gradient(ellipse at 30% 70%, rgba(236, 72, 153, 0.18) 0%, transparent 45%);
+    radial-gradient(ellipse at 40% 30%, rgba(0, 212, 170, 0.22) 0%, transparent 45%),
+    radial-gradient(ellipse at 70% 50%, rgba(74, 222, 128, 0.18) 0%, transparent 40%),
+    radial-gradient(ellipse at 30% 70%, rgba(16, 185, 129, 0.14) 0%, transparent 45%);
   pointer-events: none;
   z-index: 0;
   animation: aurora1 20s ease-in-out infinite alternate;
 }
-/* 极光背景光晕 - 右下 */
+/* 极光背景光晕 - 右下（琥珀+青绿） */
 body::after {
   content: '';
   position: fixed;
@@ -75,9 +76,9 @@ body::after {
   width: 950px;
   height: 850px;
   background:
-    radial-gradient(ellipse at 60% 40%, rgba(6, 182, 212, 0.25) 0%, transparent 45%),
-    radial-gradient(ellipse at 30% 60%, rgba(168, 85, 247, 0.22) 0%, transparent 40%),
-    radial-gradient(ellipse at 70% 70%, rgba(16, 185, 129, 0.15) 0%, transparent 40%);
+    radial-gradient(ellipse at 60% 40%, rgba(74, 222, 128, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse at 30% 60%, rgba(0, 212, 170, 0.15) 0%, transparent 40%),
+    radial-gradient(ellipse at 70% 70%, rgba(251, 191, 36, 0.1) 0%, transparent 40%);
   pointer-events: none;
   z-index: 0;
   animation: aurora2 25s ease-in-out infinite alternate;
@@ -104,20 +105,20 @@ a:hover { color: #fff; text-decoration: none; }
 }
 
 .skip-link {
-  position: absolute; left: -999px; top: 0; background: var(--neon-purple); color: #fff;
+  position: absolute; left: -999px; top: 0; background: var(--neon-cyan); color: #fff;
   padding: 8px 14px; border-radius: 0 0 8px 0; z-index: 999;
 }
 .skip-link:focus { left: 0; }
 
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-purple), var(--neon-cyan)); border-radius: 4px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, var(--neon-cyan), var(--neon-green)); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #c084fc, #22d3ee); }
 
 /* ========== 顶栏 ========== */
 .topnav {
   position: sticky; top: 0; z-index: 50;
-  background: rgba(46, 44, 82, 0.55);
+  background: rgba(13, 36, 30, 0.6);
   backdrop-filter: blur(24px) saturate(2);
   -webkit-backdrop-filter: blur(24px) saturate(2);
   border-bottom: 1px solid var(--border);
@@ -128,7 +129,7 @@ a:hover { color: #fff; text-decoration: none; }
 .brand:hover .brand-egg { transform: rotate(-8deg) scale(1.08); }
 .brand-name {
   font-weight: 800; font-size: 16px; letter-spacing: 0.3px;
-  background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -140,7 +141,7 @@ a:hover { color: #fff; text-decoration: none; }
 }
 .nav-links a::after {
   content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px;
-  background: linear-gradient(90deg, var(--neon-purple), var(--neon-cyan));
+  background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
   transition: width 0.25s; border-radius: 1px;
 }
 .nav-links a:hover { color: var(--text); }
@@ -152,7 +153,7 @@ a:hover { color: #fff; text-decoration: none; }
 .hero-logo { flex-shrink: 0; position: relative; }
 .hero-logo::before {
   content: ''; position: absolute; inset: -24px;
-  background: radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, rgba(168, 85, 247, 0.1) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, rgba(0, 212, 170, 0.1) 50%, transparent 70%);
   border-radius: 50%; z-index: -1;
 }
 .hero-logo svg { filter: drop-shadow(0 0 24px rgba(251, 191, 36, 0.4)); animation: float 4s ease-in-out infinite; }
@@ -177,7 +178,7 @@ a:hover { color: #fff; text-decoration: none; }
 }
 .hero-title {
   font-size: 34px; line-height: 1.2; font-weight: 800; letter-spacing: 0.5px;
-  background: linear-gradient(135deg, #fff 0%, var(--neon-purple) 50%, var(--neon-cyan) 100%);
+  background: linear-gradient(135deg, #fff 0%, var(--neon-cyan) 50%, var(--neon-green) 100%);
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -217,9 +218,9 @@ a:hover { color: #fff; text-decoration: none; }
   background: rgba(255,255,255,0.06); transform: translateY(-1px);
 }
 .chip.active {
-  background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
   color: #fff; border-color: transparent; font-weight: 700;
-  box-shadow: 0 2px 16px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 2px 16px rgba(0, 212, 170, 0.4);
 }
 .filter-advanced {
   display: flex; gap: 16px; flex-wrap: wrap; width: 100%;
@@ -240,7 +241,7 @@ a:hover { color: #fff; text-decoration: none; }
   font-family: inherit; transition: all 0.2s;
 }
 .fsearch input::placeholder { color: var(--text-faint); }
-.fsearch input:focus { border-color: var(--neon-purple); background: rgba(255,255,255,0.06); box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.12); }
+.fsearch input:focus { border-color: var(--neon-cyan); background: rgba(255,255,255,0.06); box-shadow: 0 0 0 3px rgba(0, 212, 170, 0.12); }
 @media (max-width: 560px) {
   .fsearch { margin-left: 0; width: 100%; }
   .fsearch input { width: 100%; }
@@ -272,7 +273,7 @@ a:hover { color: #fff; text-decoration: none; }
 }
 .egg-card::before {
   content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, transparent, var(--neon-purple), var(--neon-cyan), transparent);
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-green), transparent);
   opacity: 0; transition: opacity 0.3s;
 }
 .egg-card:hover {
@@ -354,7 +355,7 @@ a:hover { color: #fff; text-decoration: none; }
   background: var(--card-hover); border-color: var(--border-strong);
   transform: translateX(4px);
 }
-.rank-item:hover::before { background: linear-gradient(180deg, var(--neon-purple), var(--neon-cyan)); }
+.rank-item:hover::before { background: linear-gradient(180deg, var(--neon-cyan), var(--neon-green)); }
 .rank-item.top1::before { background: linear-gradient(180deg, var(--gold-bright), var(--gold)); }
 .rank-item.top2::before { background: linear-gradient(180deg, var(--silver-bright), var(--silver)); }
 .rank-item.top3::before { background: linear-gradient(180deg, var(--copper-bright), var(--copper)); }
@@ -370,7 +371,7 @@ a:hover { color: #fff; text-decoration: none; }
 .rank-sub { font-size: 12px; color: var(--text-faint); margin-top: 2px; }
 .rank-score {
   font-size: 18px; font-weight: 800; flex-shrink: 0;
-  background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
   -webkit-background-clip: text; -webkit-text-fill-color: transparent;
   background-clip: text;
 }
@@ -400,11 +401,11 @@ a:hover { color: #fff; text-decoration: none; }
 }
 @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 .modal {
-  background: linear-gradient(180deg, #4a4878, #3a3860);
+  background: linear-gradient(180deg, #1a4a3e, #14382e);
   border: 1px solid var(--border-strong); border-radius: 20px;
   max-width: 580px; width: 100%; max-height: 82vh; overflow-y: auto;
   padding: 24px; position: relative;
-  box-shadow: 0 24px 80px rgba(0,0,0,0.35), 0 0 80px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4), 0 0 80px rgba(0, 212, 170, 0.15);
   animation: modalIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 @keyframes modalIn {
@@ -430,13 +431,13 @@ a:hover { color: #fff; text-decoration: none; }
 .modal-actions { margin-top: 20px; display: flex; gap: 10px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--border); }
 .btn {
   display: inline-flex; align-items: center; gap: 6px;
-  background: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
+  background: linear-gradient(135deg, var(--neon-cyan), var(--neon-green));
   color: #fff; font-weight: 700;
   border-radius: 10px; padding: 10px 20px; font-size: 14px;
   border: none; cursor: pointer; transition: all 0.2s;
-  box-shadow: 0 2px 16px rgba(168, 85, 247, 0.4);
+  box-shadow: 0 2px 16px rgba(0, 212, 170, 0.4);
 }
-.btn:hover { background: linear-gradient(135deg, #c084fc, #22d3ee); transform: translateY(-1px); box-shadow: 0 4px 24px rgba(168, 85, 247, 0.5); color: #fff; }
+.btn:hover { background: linear-gradient(135deg, #c084fc, #22d3ee); transform: translateY(-1px); box-shadow: 0 4px 24px rgba(0, 212, 170, 0.5); color: #fff; }
 .btn-ghost {
   background: rgba(255,255,255,0.04); color: var(--text-dim);
   border: 1px solid var(--border); padding: 10px 16px; box-shadow: none;
