@@ -31,14 +31,22 @@ jobs:
 
       - name: 强制更新 lmsys.py（确保使用最新版本）
         run: |
-          echo "当前文件大小:"
+          echo "当前 git log:"
+          git log --oneline -5
+          echo "当前 lmsys.py 行数:"
           wc -l scrapers/lmsys.py
-          echo "当前 URL:"
-          grep -n "huggingface" scrapers/lmsys.py || echo "未找到"
-          echo "用 sed 强制替换 URL:"
-          sed -i 's|lmarena-ai/arena-leaderboard|lmarena-ai/chatbot-arena-leaderboard|g' scrapers/lmsys.py
-          echo "替换后 URL:"
-          grep -n "huggingface" scrapers/lmsys.py || echo "未找到"
+          echo "用 Python 强制替换 URL:"
+          python -c "
+import re
+with open('scrapers/lmsys.py', 'r', encoding='utf-8') as f:
+    content = f.read()
+content = content.replace('lmarena-ai/arena-leaderboard', 'lmarena-ai/chatbot-arena-leaderboard')
+with open('scrapers/lmsys.py', 'w', encoding='utf-8') as f:
+    f.write(content)
+print('替换完成')
+"
+          echo "替换后检查:"
+          grep -n "huggingface" scrapers/lmsys.py || echo "仍未找到"
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
