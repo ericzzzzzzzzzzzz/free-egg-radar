@@ -42,7 +42,7 @@ html { scroll-behavior: smooth; }
 
 body {
   background:
-    linear-gradient(160deg, #12352c 0%, #0d241e 30%, #102e26 60%, #0a1f1a 100%);
+    linear-gradient(180deg, #102a23 0%, #0e251f 40%, #0c221c 70%, #0a1f1a 100%);
   color: var(--text);
   font-family: 'PingFang SC', 'Microsoft YaHei', 'Segoe UI', Arial, sans-serif;
   line-height: 1.6;
@@ -51,48 +51,7 @@ body {
   position: relative;
 }
 
-/* 极光背景光晕 - 左上（柔和青绿渐变） */
-body::before {
-  content: '';
-  position: fixed;
-  top: -200px;
-  left: -100px;
-  width: 1200px;
-  height: 1000px;
-  background:
-    radial-gradient(ellipse at 35% 40%, rgba(16, 70, 56, 0.14) 0%, transparent 60%),
-    radial-gradient(ellipse at 65% 55%, rgba(22, 90, 70, 0.1) 0%, transparent 55%),
-    radial-gradient(ellipse at 45% 70%, rgba(30, 110, 85, 0.06) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-  animation: aurora1 30s ease-in-out infinite alternate;
-}
-/* 极光背景光晕 - 右下（柔和绿+淡琥珀） */
-body::after {
-  content: '';
-  position: fixed;
-  bottom: -200px;
-  right: -100px;
-  width: 1100px;
-  height: 950px;
-  background:
-    radial-gradient(ellipse at 55% 45%, rgba(22, 85, 65, 0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 35% 60%, rgba(18, 75, 58, 0.08) 0%, transparent 55%),
-    radial-gradient(ellipse at 65% 70%, rgba(251, 191, 36, 0.03) 0%, transparent 55%);
-  pointer-events: none;
-  z-index: 0;
-  animation: aurora2 35s ease-in-out infinite alternate;
-}
-@keyframes aurora1 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.7; }
-  50% { transform: translate(15px, 10px) scale(1.04); opacity: 1; }
-  100% { transform: translate(-10px, 15px) scale(0.97); opacity: 0.75; }
-}
-@keyframes aurora2 {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-  50% { transform: translate(-12px, -10px) scale(1.03); opacity: 0.85; }
-  100% { transform: translate(10px, -12px) scale(0.98); opacity: 0.65; }
-}
+/* 背景光晕已移除，改用干净的线性渐变 */
 
 .container { max-width: 980px; margin: 0 auto; padding: 0 18px; position: relative; z-index: 1; }
 
