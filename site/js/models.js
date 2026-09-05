@@ -130,8 +130,9 @@
       // 数据来源标签
       var sourceTags = '';
       if (m.lmsysElo) sourceTags += '<span class="tag" style="color:#34d399;border-color:rgba(52,211,153,0.3);background:rgba(52,211,153,0.06);">LMSYS</span>';
+      if (m.livebenchScore) sourceTags += '<span class="tag" style="color:#a78bfa;border-color:rgba(167,139,250,0.3);background:rgba(167,139,250,0.06);">LiveBench</span>';
       if (m.priceSource === 'openrouter') sourceTags += '<span class="tag" style="color:#06b6d4;border-color:rgba(6,182,212,0.3);background:rgba(6,182,212,0.06);">OpenRouter</span>';
-      if (!m.lmsysElo && m.priceSource !== 'openrouter') sourceTags += '<span class="tag">Seed</span>';
+      if (!m.lmsysElo && !m.livebenchScore && m.priceSource !== 'openrouter') sourceTags += '<span class="tag">Seed</span>';
 
       html += '<article class="model-card' + rankClass + '" style="animation-delay:' + (i * 0.03) + 's">';
       html += '<div class="model-rank">' + (i + 1) + '</div>';
