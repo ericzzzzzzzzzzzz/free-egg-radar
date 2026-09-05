@@ -31,9 +31,14 @@ jobs:
 
       - name: 强制更新 lmsys.py（确保使用最新版本）
         run: |
-          curl -sL "https://raw.githubusercontent.com/ericzzzzzzzzzzzz/free-egg-radar/main/scrapers/lmsys.py" -o scrapers/lmsys.py
-          echo "下载完成，检查 URL:"
-          grep -n "huggingface" scrapers/lmsys.py || echo "未找到 huggingface URL"
+          echo "当前文件大小:"
+          wc -l scrapers/lmsys.py
+          echo "当前 URL:"
+          grep -n "huggingface" scrapers/lmsys.py || echo "未找到"
+          echo "用 sed 强制替换 URL:"
+          sed -i 's|lmarena-ai/arena-leaderboard|lmarena-ai/chatbot-arena-leaderboard|g' scrapers/lmsys.py
+          echo "替换后 URL:"
+          grep -n "huggingface" scrapers/lmsys.py || echo "未找到"
 
       - name: 抓取 + 评分 + 生成
         run: python run.py --dry-run
