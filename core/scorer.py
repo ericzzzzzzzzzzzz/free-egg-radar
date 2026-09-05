@@ -10,10 +10,34 @@ from typing import Optional
 # 各子项打分函数，全部输出 0-100
 
 
-def score_quota(quota: Optional[float], unit: str = "token") -> float:
-    """额度量级分。quota 为数字（token/积分/次数），unit 决定量级换算。"""
+def score_quota(quota, unit: str = "token") -> float:
+    """额度量级分。quota 为数字（token/积分/次数）或字符串（如"100万tokens"、"20元"），unit 决定量级换算。"""
     if quota is None:
         return 50  # 未标注额度，给中值
+    # 字符串解析：提取数字并处理万/亿单位
+    if isinstance(quota, str):
+        import re
+        q = quota.strip()
+        # 提取数字
+        m = re.search(r'([\d.]+)', q)
+        if not m:
+            return 50
+        num = float(m.group(1))
+        # 处理单位
+        if '亿' in q:
+            num *= 1e8
+        elif '万' in q:
+            num *= 1e4
+        elif '千' in q:
+            num *= 1e3
+        # 货币单位（元/美元）按 1元≈1万tokens 估算
+        if '元' in q or '¥' in q or '￥' in q:
+            num *= 1e4
+            unit = "token"
+        elif '$' in q or '美元' in q or 'usd' in q.lower():
+            num *= 7e4  # 1美元≈7万tokens
+            unit = "token"
+        quota = num
     if unit == "token":
         if quota >= 1e8:
             return 100
