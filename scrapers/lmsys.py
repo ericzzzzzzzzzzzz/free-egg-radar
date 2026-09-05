@@ -27,7 +27,7 @@ DATA_SOURCES = [
     },
     {
         "name": "huggingface",
-        "url": "https://huggingface.co/spaces/lmsys/chatbot-arena-leaderboard/raw/main/data/leaderboard.json",
+        "url": "https://huggingface.co/spaces/lmarena-ai/arena-leaderboard/raw/main/data/leaderboard.json",
         "timeout": 30,
     },
     {
