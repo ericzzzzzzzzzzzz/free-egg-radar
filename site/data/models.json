@@ -25,28 +25,6 @@
       "updatedAt": "2026-09-05"
     },
     {
-      "id": "glm-5-3",
-      "name": "GLM-5.3",
-      "vendor": "Z.ai",
-      "releasedAt": "2026-08-18",
-      "inputCost": 0.075,
-      "outputCost": 0.25,
-      "score": 88.1,
-      "lmsysElo": 1429.0835090080654,
-      "livebenchScore": null,
-      "contextLength": 1310720,
-      "priceUpdatedAt": "2026-09-05",
-      "priceSource": "openrouter",
-      "scoreBreakdown": {
-        "lmsys": 94.1,
-        "livebench": null,
-        "price": 85,
-        "seed": 75.4
-      },
-      "scoreSource": "lmsys+price+seed",
-      "updatedAt": "2026-09-05"
-    },
-    {
       "id": "gemini-3-8-flash",
       "name": "Gemini 3.8 Flash",
       "vendor": "Google",
@@ -64,28 +42,6 @@
         "livebench": null,
         "price": 65,
         "seed": 79
-      },
-      "scoreSource": "lmsys+price+seed",
-      "updatedAt": "2026-09-05"
-    },
-    {
-      "id": "glm-5-2",
-      "name": "GLM-5.2",
-      "vendor": "Z.ai",
-      "releasedAt": "2026-06-16",
-      "inputCost": 0.075,
-      "outputCost": 0.25,
-      "score": 82.0,
-      "lmsysElo": 1429.0835090080654,
-      "livebenchScore": null,
-      "contextLength": 1310720,
-      "priceUpdatedAt": "2026-09-05",
-      "priceSource": "openrouter",
-      "scoreBreakdown": {
-        "lmsys": 94.1,
-        "livebench": null,
-        "price": 85,
-        "seed": 46.7
       },
       "scoreSource": "lmsys+price+seed",
       "updatedAt": "2026-09-05"
@@ -110,6 +66,28 @@
         "seed": 73.9
       },
       "scoreSource": "lmsys+price+seed",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "glm-5-3",
+      "name": "GLM-5.3",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-08-18",
+      "inputCost": 0.075,
+      "outputCost": 0.25,
+      "score": 80.2,
+      "lmsysElo": null,
+      "livebenchScore": null,
+      "contextLength": 1310720,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "livebench": null,
+        "price": 85,
+        "seed": 75.4
+      },
+      "scoreSource": "price+seed",
       "updatedAt": "2026-09-05"
     },
     {
@@ -333,25 +311,25 @@
       "updatedAt": "2026-09-05"
     },
     {
-      "id": "qwen3-8-27-b",
-      "name": "Qwen3.8 27 B",
-      "vendor": "Alibaba",
-      "releasedAt": "2026-08-14",
-      "inputCost": 2.0,
-      "outputCost": 6.0,
-      "score": 68.9,
-      "lmsysElo": 1342.167437107052,
+      "id": "glm-5-2",
+      "name": "GLM-5.2",
+      "vendor": "Z.ai",
+      "releasedAt": "2026-06-16",
+      "inputCost": 0.075,
+      "outputCost": 0.25,
+      "score": 65.8,
+      "lmsysElo": null,
       "livebenchScore": null,
-      "contextLength": 1000000,
+      "contextLength": 1310720,
       "priceUpdatedAt": "2026-09-05",
       "priceSource": "openrouter",
       "scoreBreakdown": {
-        "lmsys": 80.1,
+        "lmsys": null,
         "livebench": null,
-        "price": 65,
-        "seed": 43
+        "price": 85,
+        "seed": 46.7
       },
-      "scoreSource": "lmsys+price+seed",
+      "scoreSource": "price+seed",
       "updatedAt": "2026-09-05"
     },
     {
@@ -590,6 +568,28 @@
         "livebench": null,
         "price": 45,
         "seed": 64.2
+      },
+      "scoreSource": "price+seed",
+      "updatedAt": "2026-09-05"
+    },
+    {
+      "id": "qwen3-8-27-b",
+      "name": "Qwen3.8 27 B",
+      "vendor": "Alibaba",
+      "releasedAt": "2026-08-14",
+      "inputCost": 2.0,
+      "outputCost": 6.0,
+      "score": 54.0,
+      "lmsysElo": null,
+      "livebenchScore": null,
+      "contextLength": 1000000,
+      "priceUpdatedAt": "2026-09-05",
+      "priceSource": "openrouter",
+      "scoreBreakdown": {
+        "lmsys": null,
+        "livebench": null,
+        "price": 65,
+        "seed": 43
       },
       "scoreSource": "price+seed",
       "updatedAt": "2026-09-05"
