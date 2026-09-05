@@ -164,6 +164,9 @@ class ModelRankingScraper(BaseScraper):
                             }
 
             print(f"[模型榜] LMSYS ELO 数据: {len(lmsys_data)} 个模型")
+            # 调试：打印前 20 个模型名
+            sample_names = list(lmsys_data.values())[:20]
+            print(f"[模型榜] LMSYS 模型名样本: {[v['name'] for v in sample_names]}")
             return lmsys_data
 
         except Exception as e:
@@ -309,6 +312,7 @@ class ModelRankingScraper(BaseScraper):
             if lmsys_match and lmsys_match.get("elo"):
                 model["lmsysElo"] = lmsys_match["elo"]
                 sources_used.add("lmsys")
+                print(f"[模型榜] LMSYS 匹配: {name} -> {lmsys_match['name']} (ELO={lmsys_match['elo']:.1f})")
             else:
                 model["lmsysElo"] = None
 
