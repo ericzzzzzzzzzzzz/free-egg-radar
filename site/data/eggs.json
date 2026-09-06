@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-06T00:13+00:00",
+  "version": "2026-09-05T19:49+08:00",
   "stats": {
     "gold": 6,
     "silver": 15,
@@ -142,13 +142,13 @@
       "source": "seed"
     },
     {
-      "id": "openrouter-free-2026-09-06",
+      "id": "openrouter-free-2026-09-05",
       "title": "OpenRouter 免费模型池（22 款 $0 模型）",
       "vendor": "OpenRouter",
       "category": "api-quota",
       "score": 72.5,
       "summary": "官方 API 实时探测：当前 22 款模型输入/输出均免费",
-      "content": "OpenRouter 聚合网关免费模型池，由官方公开 API 自动探测（2026-09-06 快照）。\n\n- 免费模型数：**22 款**（pricing 均为 $0）\n- 代表模型：inclusionAI: Ling 3.0 Flash Sante (free)、inclusionAI: Ling 3.0 Flash Fin (free)、Dots Studio: Dots3-Note Preview (free)、LiquidAI: LFM2.5-2.6B (free)、NVIDIA: Nemotron 3.5 Lightning (free)、Thinking Machines: Inkling Small (free)、Poolside: Laguna S 2.1 (free)、Thinking Machines: Inkling (free)、Poolside: Laguna XS 2.1 (free)、Cohere: North Mini Code (free)、Z.ai: GLM 5.2 (free)、NVIDIA: Nemotron 3.5 Content Safety (free) 等 22 款\n- 接入：OpenAI 兼容 API，注册创建 Key 后调用 `:free` 后缀模型\n\n使用步骤：\n\n1. 打开 [OpenRouter 免费模型页](https://openrouter.ai/models?max_price=0) 筛选 Free\n2. 注册并创建 API Key\n3. 调用标注 Free 的模型即可\n\n**注意**：免费模型上下架频繁，额度与限速以模型页实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "content": "OpenRouter 聚合网关免费模型池，由官方公开 API 自动探测（2026-09-05 快照）。\n\n- 免费模型数：**22 款**（pricing 均为 $0）\n- 代表模型：inclusionAI: Ling 3.0 Flash Sante (free)、inclusionAI: Ling 3.0 Flash Fin (free)、Dots Studio: Dots3-Note Preview (free)、LiquidAI: LFM2.5-2.6B (free)、NVIDIA: Nemotron 3.5 Lightning (free)、Thinking Machines: Inkling Small (free)、Poolside: Laguna S 2.1 (free)、Thinking Machines: Inkling (free)、Poolside: Laguna XS 2.1 (free)、Cohere: North Mini Code (free)、Z.ai: GLM 5.2 (free)、NVIDIA: Nemotron 3.5 Content Safety (free) 等 22 款\n- 接入：OpenAI 兼容 API，注册创建 Key 后调用 `:free` 后缀模型\n\n使用步骤：\n\n1. 打开 [OpenRouter 免费模型页](https://openrouter.ai/models?max_price=0) 筛选 Free\n2. 注册并创建 API Key\n3. 调用标注 Free 的模型即可\n\n**注意**：免费模型上下架频繁，额度与限速以模型页实时标注为准；本条目由自动抓取生成，未人工实测。",
       "link": "https://openrouter.ai/models?max_price=0",
       "tags": {
         "duration": "longterm",
@@ -156,18 +156,18 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "openrouter"
     },
     {
-      "id": "siliconflow-free-2026-09-06",
+      "id": "siliconflow-free-2026-09-05",
       "title": "硅基流动免费模型（20 款）",
       "vendor": "硅基流动",
       "category": "api-quota",
       "score": 72.5,
       "summary": "官方定价页实时探测：20 款模型标注免费",
-      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-09-06 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**20 款**，含 Qwen/Qwen3-ASR-1.7B、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR、FunAudioLLM/SenseVoiceSmall、Qwen/Qwen3-8B 等 20 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-09-05 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**20 款**，含 Qwen/Qwen3-ASR-1.7B、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR、FunAudioLLM/SenseVoiceSmall、Qwen/Qwen3-8B 等 20 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
       "link": "https://siliconflow.cn/pricing",
       "tags": {
         "duration": "longterm",
@@ -175,8 +175,8 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "siliconflow"
     },
     {
@@ -199,13 +199,13 @@
       "source": "seed"
     },
     {
-      "id": "cohere-trial-2026-09-06",
+      "id": "cohere-trial-2026-09-05",
       "title": "Cohere Trial 免费层（注册即取 API Key）",
       "vendor": "Cohere",
       "category": "api-quota",
       "score": 68.5,
       "summary": "注册即获 Trial API Key，所有模型免费调用，限速 10 RPM",
-      "content": "Cohere 官方定价页自动探测（2026-09-06 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed Semantic、Embed Rerank\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
+      "content": "Cohere 官方定价页自动探测（2026-09-05 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed Semantic、Embed Rerank\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
       "link": "https://cohere.com/pricing",
       "tags": {
         "duration": "longterm",
@@ -213,18 +213,18 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "cohere"
     },
     {
-      "id": "gemini-free-2026-09-06",
-      "title": "Google Gemini API 免费层（15 款模型）",
+      "id": "gemini-free-2026-09-05",
+      "title": "Google Gemini API 免费层（4 款模型）",
       "vendor": "Google Gemini",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "Google AI Studio 注册即取 API Key，gemini-api、gemini-api-model-table、gemini-api-hovercard-button、gemini-api-hovercard、gemini-api-table-font-color、gemini-api-model-font 等 15 款 免费调用",
-      "content": "Google Gemini API 官方文档自动探测（2026-09-06 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-api、gemini-api-model-table、gemini-api-hovercard-button、gemini-api-hovercard、gemini-api-table-font-color、gemini-api-model-font 等 15 款\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "Google AI Studio 注册即取 API Key，gemini-2.0-flash、gemini-1.5-flash、gemini-1.5-flash-8b、gemini-embedding-001 免费调用",
+      "content": "Google Gemini API 官方文档自动探测（2026-09-05 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-2.0-flash、gemini-1.5-flash、gemini-1.5-flash-8b、gemini-embedding-001\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://ai.google.dev/gemini-api/docs/models",
       "tags": {
         "duration": "longterm",
@@ -232,18 +232,18 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "gemini"
     },
     {
-      "id": "mistral-free-2026-09-06",
-      "title": "Mistral La Plateforme 免费层（12 款模型）",
+      "id": "mistral-free-2026-09-05",
+      "title": "Mistral La Plateforme 免费层（5 款模型）",
       "vendor": "Mistral AI",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "注册即取 API Key，mistral-medium-2508、mistral-small-2506、mistral-small-creative、mistral-ocr-2505、mistral-medium-2505 等 12 款 免费调用，限速",
-      "content": "Mistral AI 官方文档自动探测（2026-09-06 快照）。\n\n- **免费层**：La Plateforme 免费层，注册即可使用\n- **覆盖模型**：mistral-medium-2508、mistral-small-2506、mistral-small-creative、mistral-ocr-2505、mistral-medium-2505 等 12 款\n- **速率限制**：免费层有限速（约 2 RPM），适合评估和原型开发\n- **功能**：Chat Completion、Embedding、Function Calling 等\n\n使用步骤：\n\n1. 打开 [Mistral Console](https://console.mistral.ai/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Mistral API（OpenAI 兼容格式）即可\n\n**注意**：免费层有速率限制，超出后需等待重置或升级；模型清单和免费政策以 [官方文档](https://docs.mistral.ai/getting-started/models/) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "注册即取 API Key，mistral-small-latest、mistral-medium-latest、mistral-large-latest、codestral-latest、embedding-v3 免费调用，限速",
+      "content": "Mistral AI 官方文档自动探测（2026-09-05 快照）。\n\n- **免费层**：La Plateforme 免费层，注册即可使用\n- **覆盖模型**：mistral-small-latest、mistral-medium-latest、mistral-large-latest、codestral-latest、embedding-v3\n- **速率限制**：免费层有限速（约 2 RPM），适合评估和原型开发\n- **功能**：Chat Completion、Embedding、Function Calling 等\n\n使用步骤：\n\n1. 打开 [Mistral Console](https://console.mistral.ai/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Mistral API（OpenAI 兼容格式）即可\n\n**注意**：免费层有速率限制，超出后需等待重置或升级；模型清单和免费政策以 [官方文档](https://docs.mistral.ai/getting-started/models/) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://docs.mistral.ai/getting-started/models/",
       "tags": {
         "duration": "longterm",
@@ -251,18 +251,18 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "mistral"
     },
     {
-      "id": "groq-free-2026-09-06",
-      "title": "Groq 免费模型池（22 款模型 · 高速推理）",
+      "id": "groq-free-2026-09-05",
+      "title": "Groq 免费模型池（6 款模型 · 高速推理）",
       "vendor": "Groq",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "注册即取 API Key，llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、gemma2-9b-it 等 22 款 免费调用，LPU 高速推理",
-      "content": "Groq 官方 API/文档自动探测（2026-09-06 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、gemma2-9b-it 等 22 款\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "注册即取 API Key，llama-3.3-70b-versatile、llama-3.1-8b-instant、mixtral-8x7b-32768、gemma2-9b-it、llama-guard-3-8b、whisper-large-v3 免费调用，LPU 高速推理",
+      "content": "Groq 官方 API/文档自动探测（2026-09-05 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.3-70b-versatile、llama-3.1-8b-instant、mixtral-8x7b-32768、gemma2-9b-it、llama-guard-3-8b、whisper-large-v3\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://console.groq.com/docs/models",
       "tags": {
         "duration": "longterm",
@@ -270,8 +270,8 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "groq"
     },
     {
@@ -351,13 +351,13 @@
       "source": "seed"
     },
     {
-      "id": "tencent-hunyuan-free-2026-09-06",
+      "id": "tencent-hunyuan-free-2026-09-05",
       "title": "腾讯混元首次开通送免费体验额度",
       "vendor": "腾讯云混元",
       "category": "token",
       "score": 64.0,
       "summary": "首次开通即获免费资源包，Hunyuan-a13b、Hunyuan-role-latest、Hunyuan-translation 等模型共 100 万 tokens，有效期 1 年",
-      "content": "腾讯云混元官方定价文档自动探测（2026-09-06 快照）。\n\n- **免费福利**：首次开通混元大模型服务后，系统自动发放免费体验额度\n- **覆盖模型**：Hunyuan-a13b、Hunyuan-role-latest、Hunyuan-translation\n- **免费额度**：共 **100 万 tokens**（共享消耗）\n- **有效期**：自开通服务之日起 **1 年**，未使用完过期作废\n- **获取条件**：腾讯云账号 + 个人实名认证，首次点击「立即使用」\n- **计费方式**：后付费，优先扣减免费资源包，超出后按量计费\n\n使用步骤：\n\n1. 打开 [腾讯云混元控制台](https://console.cloud.tencent.com/hunyuan) 登录\n2. 完成个人实名认证\n3. 首次单击「立即使用」开通服务，系统自动发放免费资源包\n4. 调用混元 API（OpenAI 兼容格式）即可，优先扣减免费额度\n\n**注意**：免费额度仅限首次开通，1 年有效期；资源包共享消耗，用完后按量计费。本条目由自动抓取生成，未人工实测。",
+      "content": "腾讯云混元官方定价文档自动探测（2026-09-05 快照）。\n\n- **免费福利**：首次开通混元大模型服务后，系统自动发放免费体验额度\n- **覆盖模型**：Hunyuan-a13b、Hunyuan-role-latest、Hunyuan-translation\n- **免费额度**：共 **100 万 tokens**（共享消耗）\n- **有效期**：自开通服务之日起 **1 年**，未使用完过期作废\n- **获取条件**：腾讯云账号 + 个人实名认证，首次点击「立即使用」\n- **计费方式**：后付费，优先扣减免费资源包，超出后按量计费\n\n使用步骤：\n\n1. 打开 [腾讯云混元控制台](https://console.cloud.tencent.com/hunyuan) 登录\n2. 完成个人实名认证\n3. 首次单击「立即使用」开通服务，系统自动发放免费资源包\n4. 调用混元 API（OpenAI 兼容格式）即可，优先扣减免费额度\n\n**注意**：免费额度仅限首次开通，1 年有效期；资源包共享消耗，用完后按量计费。本条目由自动抓取生成，未人工实测。",
       "link": "https://cloud.tencent.com/document/product/1729/97731",
       "tags": {
         "duration": "limited",
@@ -365,18 +365,18 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "tencent-hunyuan"
     },
     {
-      "id": "aliyun-bailian-free-2026-09-06",
+      "id": "aliyun-bailian-free-2026-09-05",
       "title": "阿里云百炼多款模型送免费额度（25 款）",
       "vendor": "阿里云百炼",
       "category": "token",
       "score": 64.0,
       "summary": "开通即送每模型免费额度，qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款，有效期 90 天",
-      "content": "阿里云百炼官方定价文档自动探测（2026-09-06 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
+      "content": "阿里云百炼官方定价文档自动探测（2026-09-05 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://help.aliyun.com/zh/model-studio/billing-for-model-studio",
       "tags": {
         "duration": "limited",
@@ -384,8 +384,8 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "aliyun-bailian"
     },
     {
@@ -446,13 +446,13 @@
       "source": "seed"
     },
     {
-      "id": "baidu-qianfan-voucher-2026-09-06",
+      "id": "baidu-qianfan-voucher-2026-09-05",
       "title": "百度千帆新用户送 20 元代金券",
       "vendor": "百度千帆",
       "category": "credits",
       "score": 58.0,
       "summary": "实名认证即送 20 元代金券，全平台无门槛使用，有效期 1 个月",
-      "content": "百度千帆官方定价页自动探测（2026-09-06 快照）。\n\n- **免费福利**：新用户实名认证后即送 **20 元代金券**\n- **使用范围**：全平台无门槛使用（模型服务、应用开发、组件广场等）\n- **有效期**：自发放之日起 **1 个月**\n- **覆盖模型**：文心一言（ERNIE）系列、 Llama、Qwen、DeepSeek 等主流模型\n- **获取条件**：注册百度智能云账号 + 完成实名认证\n\n使用步骤：\n\n1. 打开 [百度千帆控制台](https://console.bce.baidu.com/qianfan/overview) 注册并登录\n2. 完成实名认证（个人/企业均可）\n3. 系统自动发放 20 元代金券，在「费用中心 → 代金券」查看\n4. 调用千帆 API 时自动抵扣\n\n**注意**：代金券有效期 1 个月，过期作废；仅限新用户首次实名认证。本条目由自动抓取生成，未人工实测。",
+      "content": "百度千帆官方定价页自动探测（2026-09-05 快照）。\n\n- **免费福利**：新用户实名认证后即送 **20 元代金券**\n- **使用范围**：全平台无门槛使用（模型服务、应用开发、组件广场等）\n- **有效期**：自发放之日起 **1 个月**\n- **覆盖模型**：文心一言（ERNIE）系列、 Llama、Qwen、DeepSeek 等主流模型\n- **获取条件**：注册百度智能云账号 + 完成实名认证\n\n使用步骤：\n\n1. 打开 [百度千帆控制台](https://console.bce.baidu.com/qianfan/overview) 注册并登录\n2. 完成实名认证（个人/企业均可）\n3. 系统自动发放 20 元代金券，在「费用中心 → 代金券」查看\n4. 调用千帆 API 时自动抵扣\n\n**注意**：代金券有效期 1 个月，过期作废；仅限新用户首次实名认证。本条目由自动抓取生成，未人工实测。",
       "link": "https://cloud.baidu.com/doc/WENXINWORKSHOP/s/Blfmc9dlf",
       "tags": {
         "duration": "limited",
@@ -460,8 +460,8 @@
       },
       "expired": false,
       "expiry_date": null,
-      "published_at": "2026-09-06",
-      "updated_at": "2026-09-06",
+      "published_at": "2026-09-05",
+      "updated_at": "2026-09-05",
       "source": "baidu-qianfan"
     },
     {
