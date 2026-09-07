@@ -1,11 +1,11 @@
 {
-  "version": "2026-09-06T12:10+00:00",
+  "version": "2026-09-07T00:13+00:00",
   "stats": {
-    "gold": 6,
+    "gold": 5,
     "silver": 15,
     "copper": 8,
-    "total": 29,
-    "expired": 8
+    "total": 28,
+    "expired": 9
   },
-  "updated_at": "2026-09-06T12:10+00:00"
+  "updated_at": "2026-09-07T00:13+00:00"
 }
