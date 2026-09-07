@@ -137,11 +137,38 @@
       if (m.priceSource === 'openrouter') sourceTags += '<span class="tag" style="color:#06b6d4;border-color:rgba(6,182,212,0.3);background:rgba(6,182,212,0.06);">OpenRouter</span>';
       if (!m.lmsysElo && !m.livebenchScore && m.priceSource !== 'openrouter') sourceTags += '<span class="tag">Seed</span>';
 
+      // 趋势标签
+      var trendTag = '';
+      if (m.trend) {
+        var t = m.trend;
+        if (t.isNew) {
+          trendTag = '<span class="tag trend-new">NEW 新上榜</span>';
+        } else if (t.rankChange > 0) {
+          trendTag = '<span class="tag trend-up">↑ ' + t.rankChange + '</span>';
+        } else if (t.rankChange < 0) {
+          trendTag = '<span class="tag trend-down">↓ ' + Math.abs(t.rankChange) + '</span>';
+        } else {
+          trendTag = '<span class="tag trend-stable">— 持平</span>';
+        }
+      }
+
+      // 在榜天数
+      var daysTag = '';
+      if (m.trend && m.trend.daysOnList) {
+        daysTag = '<span class="tag trend-days">在榜 ' + m.trend.daysOnList + ' 天</span>';
+      }
+
       html += '<article class="model-card' + rankClass + '" style="animation-delay:' + (i * 0.03) + 's">';
       html += '<div class="model-rank">' + (i + 1) + '</div>';
+      if (trendTag) html += '<div class="model-trend">' + trendTag + '</div>';
       html += '<div class="model-name">' + escapeHtml(displayName) + '</div>';
       html += '<div class="model-vendor">' + escapeHtml(m.vendor || '未知') + '</div>';
-      if (sourceTags) html += '<div class="egg-tags" style="margin-top:-4px;">' + sourceTags + '</div>';
+      if (sourceTags || daysTag) {
+        html += '<div class="egg-tags" style="margin-top:-4px;">';
+        html += sourceTags;
+        if (daysTag) html += daysTag;
+        html += '</div>';
+      }
       html += '<div class="model-pricing">';
       html += '<div class="price-item"><div class="price-label">输入</div><div class="price-value">' + inputCost + '</div></div>';
       html += '<div class="price-item"><div class="price-label">输出</div><div class="price-value output">' + outputCost + '</div></div>';
