@@ -1,10 +1,11 @@
 # FreeEgg Radar · 赛博鸡蛋自动化情报站
 
 自动抓取各大 AI 厂商的免费 Token / 积分 / API 额度，自动评分排序、自动更新、过期自动下榜。
+另有**模型榜**（多来源综合性能天梯）与**云主机榜**（各家云厂商免费试用 + 价格对比）。
 **零成本**：GitHub Actions（云端定时）+ EdgeOne Pages（腾讯云免费托管，免备案）+ 硅基流动免费模型（可选 AI 解析）。
 
 ```
-抓取（定时） → 自动评分（蛋力分公式） → 生成 JSON → 提交回仓库 → EdgeOne Pages 自动部署 → 手机/电脑随时看
+抓取（定时） → 自动评分（蛋力分/模型分/云主机分） → 生成 JSON → 提交回仓库 → EdgeOne Pages 自动部署 → 手机/电脑随时看
 ```
 
 ## 一键部署（约 20 分钟）
@@ -69,19 +70,22 @@ Windows 上想完全本地自动化：任务计划程序 → 创建基本任务 
    ▼
 抓取器  openrouter（官方 API，免费模型池）
          siliconflow（官方定价页，免费模型）
+         cloud_vm（云主机：14家厂商免费试用+价格，种子+自动探测）
    │
    ▼
 评分引擎  蛋力分 = 额度量级40% + 长期性20% + 门槛15% + 时效15% + 来源可信10%
+         模型分 = LiveBench 45% + LMSYS 25% + 价格 15% + 榜单共识 15%
+         云主机分 = 免费力度30% + 价格30% + 配置15% + 门槛10% + 续费15%
    │
    ▼
-生成器   site/data/eggs.json + meta.json
+生成器   site/data/eggs.json + models.json + clouds.json + meta.json
    │
    ▼
 发布     EdgeOne Pages（推荐，GitHub push 自动部署，免备案国内加速）
          └ 备选：七牛云 Kodo（对象存储上传）/ 腾讯云 COS
    │
    ▼
-静态站点  FreeEgg Radar（手机/电脑直接访问）
+静态站点  FreeEgg Radar（手机/电脑直接访问：鸡蛋榜 + 模型榜 + 云主机榜）
 ```
 
 ## 目录结构
