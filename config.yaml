@@ -31,6 +31,8 @@ sources:
     enabled: true      # 阿里云百炼（多模型免费额度90天，国内）
   model-ranking:
     enabled: true      # 模型榜（OpenRouter价格+种子性能分，自动更新）
+  cloud-vm:
+    enabled: true      # 云主机榜（15家厂商免费试用+价格对比，种子+自动探测）
 
 # LLM 解析（把公告/线报文本转成结构化条目）
 # 默认关闭；配置 SILICONFLOW_API_KEY 环境变量后自动启用
