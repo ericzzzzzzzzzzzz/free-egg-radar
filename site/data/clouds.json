@@ -1,0 +1,679 @@
+{
+  "version": "2026-09-08",
+  "updatedAt": "2026-09-07T19:23:31Z",
+  "source": "调研汇总：厂商官网活动页/官方价格文档/公开报道，见各条目 url",
+  "note": "云主机价格与活动为低频变化信息，种子数据为基础，GitHub Actions 每日尝试自动抓取更新",
+  "vendorCount": 14,
+  "planCount": 27,
+  "probeSources": [
+    "腾讯云轻量价格文档",
+    "华为云国际免费套餐"
+  ],
+  "clouds": [
+    {
+      "vendor": "阿里云",
+      "vendor_en": "Aliyun",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "ECS 免费试用",
+          "category": "free_trial",
+          "config": "2核4G 3M",
+          "trial": "新用户免费试用 3 个月",
+          "trial_days": 90,
+          "price_year": null,
+          "price_month": null,
+          "verify": "实名认证",
+          "renewal": "试用结束后享新用户优惠价",
+          "url": "https://free.aliyun.com/",
+          "score": 57.8,
+          "scoreBreakdown": {
+            "free": 70,
+            "price": 40,
+            "config": 62,
+            "threshold": 80,
+            "renewal": 50
+          },
+          "freeTag": "免费3个月"
+        },
+        {
+          "name": "轻量应用服务器 秒杀",
+          "category": "deal",
+          "config": "2核2G 40GB ESSD 200M峰值带宽",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 38,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "秒杀价仅首年，每日10点/15点抢购",
+          "url": "https://www.aliyun.com/activity",
+          "score": 57.4,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 90,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 60
+          },
+          "freeTag": "限时优惠"
+        },
+        {
+          "name": "弹性计算 2核2G",
+          "category": "deal",
+          "config": "2核2G 3M固定带宽 不限流量",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 99,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "续费同价，可续2次（约3年297元），活动至2027年3月",
+          "url": "https://www.aliyun.com/activity",
+          "score": 55.9,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 65,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 100
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "腾讯云",
+      "vendor_en": "Tencent Cloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "Lighthouse 免费试用（个人）",
+          "category": "free_trial",
+          "config": "2核2G",
+          "trial": "新用户免费试用 1 个月",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "实名认证，无需绑卡",
+          "renewal": "个人试用门槛最低",
+          "url": "https://cloud.tencent.com/act/pro/lhsale",
+          "score": 52.4,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 56,
+            "threshold": 80,
+            "renewal": 50
+          },
+          "freeTag": "免费1个月"
+        },
+        {
+          "name": "Lighthouse 免费试用（企业）",
+          "category": "free_trial",
+          "config": "4核8G 12M 180G SSD",
+          "trial": "企业新用户免费试用 1 个月",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "企业认证",
+          "renewal": "企业试用配置最高",
+          "url": "https://cloud.tencent.com/act/pro/lhsale",
+          "score": 55.1,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 94,
+            "threshold": 50,
+            "renewal": 50
+          },
+          "freeTag": "免费1个月"
+        },
+        {
+          "name": "轻量应用服务器 秒杀",
+          "category": "deal",
+          "config": "2核2G 40GB SSD",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 38,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "秒杀价仅首年",
+          "url": "https://cloud.tencent.com/act/pro/lhsale",
+          "score": 57.4,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 90,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 60
+          },
+          "freeTag": "限时优惠"
+        },
+        {
+          "name": "轻量应用服务器 2核2G 4M",
+          "category": "deal",
+          "config": "2核2G 4M 月流量400G",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 99,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "活动价约8元/月",
+          "url": "https://cloud.tencent.com/act/pro/lhsale",
+          "score": 48.4,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 65,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        },
+        {
+          "name": "轻量应用服务器 4核4G",
+          "category": "deal",
+          "config": "4核4G 3M",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 109,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "1.4折，限1个",
+          "url": "https://cloud.tencent.com/act/pro/lhsale",
+          "score": 47.8,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 50,
+            "config": 82,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "华为云",
+      "vendor_en": "Huawei Cloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "免费试用",
+          "category": "free_trial",
+          "config": "2核2G 2M 40G",
+          "trial": "新用户免费试用 1 个月",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "实名认证，无需绑卡",
+          "renewal": "2025年后注册用户部分产品免费12个月",
+          "url": "https://www.huaweicloud.com/",
+          "score": 52.4,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 56,
+            "threshold": 80,
+            "renewal": 50
+          },
+          "freeTag": "免费1个月"
+        },
+        {
+          "name": "L实例 2核2G",
+          "category": "deal",
+          "config": "2核2G 2M 系统盘40G",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 36,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "828采购季活动价",
+          "url": "https://www.huaweicloud.com/",
+          "score": 55.9,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 90,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "百度智能云",
+      "vendor_en": "Baidu AI Cloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "免费试用",
+          "category": "free_trial",
+          "config": "1核2G 1M",
+          "trial": "新用户免费试用 1 个月",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "实名认证，无需绑卡",
+          "renewal": null,
+          "url": "https://cloud.baidu.com/",
+          "score": 49.4,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 46,
+            "threshold": 80,
+            "renewal": 40
+          },
+          "freeTag": "免费1个月"
+        }
+      ]
+    },
+    {
+      "vendor": "火山引擎",
+      "vendor_en": "Volcengine",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "免费试用",
+          "category": "free_trial",
+          "config": "2核4G 5M",
+          "trial": "新用户免费试用 1 个月",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "实名认证",
+          "renewal": null,
+          "url": "https://www.volcengine.com/",
+          "score": 51.8,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 62,
+            "threshold": 80,
+            "renewal": 40
+          },
+          "freeTag": "免费1个月"
+        },
+        {
+          "name": "新人特惠 1核2G",
+          "category": "deal",
+          "config": "1核2G 1M",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 60,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "新人特惠价",
+          "url": "https://www.volcengine.com/",
+          "score": 52.9,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 85,
+            "config": 46,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        },
+        {
+          "name": "新人特惠 2核4G",
+          "category": "deal",
+          "config": "2核4G 1M",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 86,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "新人特惠价",
+          "url": "https://www.volcengine.com/",
+          "score": 49.3,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 65,
+            "config": 62,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "京东云",
+      "vendor_en": "JD Cloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "免费试用",
+          "category": "free_trial",
+          "config": "2核2G 3M",
+          "trial": "新用户免费试用 30 天",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "企业认证",
+          "renewal": "80+款云产品免费试用",
+          "url": "https://developer.jdcloud.com/topics/4432",
+          "score": 49.4,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 56,
+            "threshold": 50,
+            "renewal": 50
+          },
+          "freeTag": "免费1个月"
+        },
+        {
+          "name": "轻量云主机 秒杀",
+          "category": "deal",
+          "config": "2核2G 3M 200GB月流量",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 68,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "支持5天无理由退款，398元/3年",
+          "url": "https://www.jdcloud.com/",
+          "score": 51.4,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 75,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        },
+        {
+          "name": "轻量云主机 2核4G",
+          "category": "deal",
+          "config": "2核4G 5M",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 158,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "528元/3年，试用后续费享4折",
+          "url": "https://www.jdcloud.com/",
+          "score": 44.8,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 50,
+            "config": 62,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "UCloud",
+      "vendor_en": "UCloud",
+      "region": "全球（含中国香港/东南亚/欧美）",
+      "plans": [
+        {
+          "name": "轻量云 新客专属",
+          "category": "deal",
+          "config": "2核2G 4M 月流量1000G 40G SSD",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 59,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "新客专属套餐",
+          "url": "https://www.ucloud.cn/",
+          "score": 54.4,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 85,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        },
+        {
+          "name": "全球轻量应用云主机",
+          "category": "deal",
+          "config": "轻量配置",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 82,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "覆盖中国香港/东南亚/欧美，32国自建机房",
+          "url": "https://www.ucloud.cn/",
+          "score": 44.5,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 65,
+            "config": 30,
+            "threshold": 70,
+            "renewal": 50
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "天翼云",
+      "vendor_en": "China Telecom Cloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "轻量云主机",
+          "category": "deal",
+          "config": "2核2G 3M",
+          "trial": null,
+          "trial_days": 0,
+          "price_year": 61,
+          "price_month": null,
+          "verify": "新用户",
+          "renewal": "618大促价，3年新老同享",
+          "url": "https://www.ctyun.cn/",
+          "score": 56.6,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 75,
+            "config": 56,
+            "threshold": 70,
+            "renewal": 85
+          },
+          "freeTag": "限时优惠"
+        }
+      ]
+    },
+    {
+      "vendor": "青云",
+      "vendor_en": "QingCloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "云服务器",
+          "category": "info",
+          "config": "待补充",
+          "trial": "活动以官网为准",
+          "trial_days": 0,
+          "price_year": null,
+          "price_month": null,
+          "verify": "以官网要求为准",
+          "renewal": null,
+          "url": "https://www.qingcloud.com/",
+          "score": 37.0,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 40,
+            "config": 40,
+            "threshold": 70,
+            "renewal": 40
+          },
+          "freeTag": "参考"
+        }
+      ]
+    },
+    {
+      "vendor": "移动云",
+      "vendor_en": "China Mobile Cloud",
+      "region": "中国大陆",
+      "plans": [
+        {
+          "name": "云主机",
+          "category": "info",
+          "config": "待补充",
+          "trial": "活动以官网为准",
+          "trial_days": 0,
+          "price_year": null,
+          "price_month": null,
+          "verify": "以官网要求为准",
+          "renewal": null,
+          "url": "https://ecloud.10086.cn/",
+          "score": 37.0,
+          "scoreBreakdown": {
+            "free": 20,
+            "price": 40,
+            "config": 40,
+            "threshold": 70,
+            "renewal": 40
+          },
+          "freeTag": "参考"
+        }
+      ]
+    },
+    {
+      "vendor": "甲骨文",
+      "vendor_en": "Oracle Cloud",
+      "region": "全球（含亚太）",
+      "plans": [
+        {
+          "name": "Always Free 永久免费",
+          "category": "free_forever",
+          "config": "Ampere A1 2 OCPU + 12GB 内存",
+          "trial": "永久免费（Always Free）",
+          "trial_days": 36500,
+          "price_year": 0,
+          "price_month": 0,
+          "verify": "注册+绑卡验证（不扣费）",
+          "renewal": "免费磁盘200G，最多4台实例；2026-06-15起配额减半",
+          "url": "https://www.oracle.com/cloud/free/",
+          "score": 83.9,
+          "scoreBreakdown": {
+            "free": 100,
+            "price": 100,
+            "config": 66,
+            "threshold": 65,
+            "renewal": 50
+          },
+          "freeTag": "永久免费"
+        },
+        {
+          "name": "新用户试用",
+          "category": "free_trial",
+          "config": "全产品线",
+          "trial": "新账号 30 天 $300 免费额度",
+          "trial_days": 30,
+          "price_year": null,
+          "price_month": null,
+          "verify": "注册+绑卡",
+          "renewal": "30天后仍可继续使用 Always Free 套餐",
+          "url": "https://www.oracle.com/cloud/free/",
+          "score": 47.0,
+          "scoreBreakdown": {
+            "free": 55,
+            "price": 40,
+            "config": 30,
+            "threshold": 65,
+            "renewal": 50
+          },
+          "freeTag": "免费1个月"
+        }
+      ]
+    },
+    {
+      "vendor": "AWS",
+      "vendor_en": "Amazon Web Services",
+      "region": "全球",
+      "plans": [
+        {
+          "name": "Free Tier 免费套餐",
+          "category": "free_tier",
+          "config": "t2.micro/t3.micro 1核1G",
+          "trial": "12 个月免费，每月 750 小时",
+          "trial_days": 365,
+          "price_year": 0,
+          "price_month": 0,
+          "verify": "注册+绑卡验证（不扣费）",
+          "renewal": "750小时为所有实例共用；另含5GB S3存储等",
+          "url": "https://aws.amazon.com/free/",
+          "score": 80.5,
+          "scoreBreakdown": {
+            "free": 100,
+            "price": 100,
+            "config": 43,
+            "threshold": 65,
+            "renewal": 50
+          },
+          "freeTag": "免费层"
+        }
+      ]
+    },
+    {
+      "vendor": "Azure",
+      "vendor_en": "Microsoft Azure",
+      "region": "全球",
+      "plans": [
+        {
+          "name": "免费层",
+          "category": "free_tier",
+          "config": "B1s 1核1G",
+          "trial": "12 个月免费，每月 750 小时",
+          "trial_days": 365,
+          "price_year": 0,
+          "price_month": 0,
+          "verify": "注册+绑卡验证（不扣费）",
+          "renewal": "首30天另含 $200 信用额度",
+          "url": "https://azure.microsoft.com/free/",
+          "score": 80.5,
+          "scoreBreakdown": {
+            "free": 100,
+            "price": 100,
+            "config": 43,
+            "threshold": 65,
+            "renewal": 50
+          },
+          "freeTag": "免费层"
+        }
+      ]
+    },
+    {
+      "vendor": "Google Cloud",
+      "vendor_en": "Google Cloud",
+      "region": "全球（指定区域）",
+      "plans": [
+        {
+          "name": "Free Tier 免费层",
+          "category": "free_tier",
+          "config": "e2-micro 1核1G 30G磁盘",
+          "trial": "每月免费（长期）",
+          "trial_days": 36500,
+          "price_year": 0,
+          "price_month": 0,
+          "verify": "注册+绑卡验证（不扣费）",
+          "renewal": "每月200G流量（us-west1/us-central1/us-east1等区域）",
+          "url": "https://cloud.google.com/free",
+          "score": 80.5,
+          "scoreBreakdown": {
+            "free": 100,
+            "price": 100,
+            "config": 43,
+            "threshold": 65,
+            "renewal": 50
+          },
+          "freeTag": "免费层"
+        }
+      ]
+    }
+  ]
+}
