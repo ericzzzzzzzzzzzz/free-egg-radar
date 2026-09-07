@@ -1,0 +1,1802 @@
+[
+  {
+    "date": "2026-08-27",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.0
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 78.1
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 78.6
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 4,
+        "score": 75.3
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 5,
+        "score": 76.2
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 5,
+        "score": 75.8
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 5,
+        "score": 76.3
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 7,
+        "score": 77.0
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 9,
+        "score": 73.0
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 10,
+        "score": 75.7
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 12,
+        "score": 73.7
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 12,
+        "score": 73.9
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 14,
+        "score": 73.7
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 15,
+        "score": 72.8
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 17,
+        "score": 71.9
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 18,
+        "score": 73.8
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 18,
+        "score": 72.8
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 19,
+        "score": 73.0
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 19,
+        "score": 72.4
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 19,
+        "score": 71.3
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 20,
+        "score": 71.3
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 23,
+        "score": 70.6
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 23,
+        "score": 69.9
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 24,
+        "score": 71.0
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 27,
+        "score": 70.6
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 28,
+        "score": 69.5
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 29,
+        "score": 69.7
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 29,
+        "score": 67.6
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 29,
+        "score": 65.6
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 30,
+        "score": 70.1
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 30,
+        "score": 67.8
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 32,
+        "score": 67.6
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 32,
+        "score": 66.7
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 35,
+        "score": 63.5
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 62.0
+      }
+    ]
+  },
+  {
+    "date": "2026-08-28",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 80.6
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 77.9
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 77.0
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 5,
+        "score": 75.4
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 6,
+        "score": 76.5
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 6,
+        "score": 75.0
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 8,
+        "score": 75.3
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 8,
+        "score": 75.5
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 10,
+        "score": 74.5
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 10,
+        "score": 73.3
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 11,
+        "score": 75.5
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 12,
+        "score": 74.1
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 15,
+        "score": 73.6
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 15,
+        "score": 74.1
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 15,
+        "score": 73.6
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 17,
+        "score": 72.2
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 17,
+        "score": 72.0
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 18,
+        "score": 72.5
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 20,
+        "score": 71.4
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 21,
+        "score": 72.4
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 21,
+        "score": 70.5
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 23,
+        "score": 70.0
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 24,
+        "score": 71.0
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 24,
+        "score": 69.7
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 25,
+        "score": 70.4
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 25,
+        "score": 70.2
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 27,
+        "score": 70.2
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 27,
+        "score": 67.9
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 29,
+        "score": 68.7
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 31,
+        "score": 67.4
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 31,
+        "score": 66.9
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 32,
+        "score": 66.7
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 33,
+        "score": 67.0
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 33,
+        "score": 64.2
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 34,
+        "score": 62.1
+      }
+    ]
+  },
+  {
+    "date": "2026-08-29",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.9
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 77.7
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 2,
+        "score": 75.3
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 76.9
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 6,
+        "score": 76.0
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 6,
+        "score": 75.5
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 8,
+        "score": 76.1
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 8,
+        "score": 75.6
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 9,
+        "score": 75.0
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 11,
+        "score": 72.9
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 11,
+        "score": 73.4
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 12,
+        "score": 73.0
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 13,
+        "score": 72.9
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 13,
+        "score": 73.0
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 13,
+        "score": 72.5
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 14,
+        "score": 72.6
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 15,
+        "score": 72.8
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 16,
+        "score": 73.2
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 17,
+        "score": 71.9
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 17,
+        "score": 72.8
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 19,
+        "score": 71.6
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 20,
+        "score": 71.5
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 24,
+        "score": 70.4
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 24,
+        "score": 70.4
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 25,
+        "score": 69.3
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 25,
+        "score": 70.6
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 28,
+        "score": 69.1
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 29,
+        "score": 68.1
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 31,
+        "score": 66.9
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 31,
+        "score": 67.0
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 32,
+        "score": 67.6
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 33,
+        "score": 66.9
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 34,
+        "score": 67.3
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 35,
+        "score": 63.8
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 62.0
+      }
+    ]
+  },
+  {
+    "date": "2026-08-30",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.1
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 78.7
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 77.2
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 4,
+        "score": 76.5
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 5,
+        "score": 76.6
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 5,
+        "score": 76.2
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 6,
+        "score": 76.6
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 6,
+        "score": 75.6
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 8,
+        "score": 75.8
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 9,
+        "score": 74.3
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 11,
+        "score": 73.6
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 12,
+        "score": 73.5
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 12,
+        "score": 72.5
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 12,
+        "score": 73.3
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 13,
+        "score": 72.7
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 15,
+        "score": 72.0
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 15,
+        "score": 71.8
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 19,
+        "score": 71.8
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 20,
+        "score": 72.5
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 21,
+        "score": 71.6
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 21,
+        "score": 71.8
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 23,
+        "score": 69.7
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 24,
+        "score": 72.2
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 25,
+        "score": 70.3
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 25,
+        "score": 68.0
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 26,
+        "score": 71.3
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 27,
+        "score": 69.9
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 27,
+        "score": 69.0
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 27,
+        "score": 67.0
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 30,
+        "score": 66.6
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 31,
+        "score": 66.3
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 32,
+        "score": 67.6
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 33,
+        "score": 66.7
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 33,
+        "score": 62.4
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 35,
+        "score": 63.8
+      }
+    ]
+  },
+  {
+    "date": "2026-08-31",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 80.0
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 77.8
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 78.9
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 3,
+        "score": 76.6
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 4,
+        "score": 77.0
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 6,
+        "score": 76.8
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 7,
+        "score": 76.1
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 8,
+        "score": 75.8
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 10,
+        "score": 75.9
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 11,
+        "score": 73.1
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 11,
+        "score": 73.2
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 12,
+        "score": 74.7
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 14,
+        "score": 74.1
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 14,
+        "score": 73.5
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 15,
+        "score": 73.4
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 16,
+        "score": 73.2
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 17,
+        "score": 72.1
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 18,
+        "score": 71.8
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 18,
+        "score": 71.5
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 19,
+        "score": 72.3
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 22,
+        "score": 71.7
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 23,
+        "score": 71.3
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 23,
+        "score": 70.0
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 24,
+        "score": 71.0
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 25,
+        "score": 70.3
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 25,
+        "score": 68.5
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 26,
+        "score": 70.8
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 27,
+        "score": 67.3
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 28,
+        "score": 67.9
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 30,
+        "score": 68.3
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 31,
+        "score": 67.8
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 33,
+        "score": 63.9
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 34,
+        "score": 65.7
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 34,
+        "score": 66.3
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 63.0
+      }
+    ]
+  },
+  {
+    "date": "2026-09-01",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.9
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 78.2
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 78.5
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 3,
+        "score": 76.0
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 6,
+        "score": 76.0
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 7,
+        "score": 76.1
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 8,
+        "score": 75.3
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 9,
+        "score": 72.5
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 10,
+        "score": 76.3
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 10,
+        "score": 75.7
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 11,
+        "score": 74.5
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 11,
+        "score": 74.0
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 13,
+        "score": 74.2
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 14,
+        "score": 72.2
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 15,
+        "score": 73.7
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 18,
+        "score": 72.6
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 19,
+        "score": 71.2
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 20,
+        "score": 72.2
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 20,
+        "score": 71.9
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 20,
+        "score": 72.4
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 20,
+        "score": 69.9
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 21,
+        "score": 73.4
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 22,
+        "score": 71.2
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 23,
+        "score": 69.2
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 25,
+        "score": 70.7
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 26,
+        "score": 68.2
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 26,
+        "score": 66.7
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 27,
+        "score": 70.0
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 27,
+        "score": 66.3
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 28,
+        "score": 68.2
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 29,
+        "score": 65.2
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 31,
+        "score": 67.9
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 32,
+        "score": 63.4
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 33,
+        "score": 67.0
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 63.8
+      }
+    ]
+  },
+  {
+    "date": "2026-09-02",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.9
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 1,
+        "score": 77.3
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 78.9
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 2,
+        "score": 76.7
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 77.8
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 4,
+        "score": 76.3
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 5,
+        "score": 76.2
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 8,
+        "score": 75.8
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 9,
+        "score": 76.3
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 10,
+        "score": 74.1
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 11,
+        "score": 74.4
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 11,
+        "score": 73.9
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 14,
+        "score": 72.5
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 15,
+        "score": 73.1
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 15,
+        "score": 72.3
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 16,
+        "score": 73.4
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 17,
+        "score": 72.2
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 19,
+        "score": 72.3
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 20,
+        "score": 72.9
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 20,
+        "score": 71.7
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 23,
+        "score": 71.2
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 24,
+        "score": 70.5
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 24,
+        "score": 69.9
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 26,
+        "score": 71.2
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 26,
+        "score": 70.4
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 26,
+        "score": 69.6
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 27,
+        "score": 69.9
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 31,
+        "score": 67.9
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 31,
+        "score": 66.7
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 32,
+        "score": 67.5
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 32,
+        "score": 67.8
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 33,
+        "score": 66.7
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 33,
+        "score": 63.0
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 34,
+        "score": 63.4
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 35,
+        "score": 65.6
+      }
+    ]
+  },
+  {
+    "date": "2026-09-03",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 78.7
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 77.8
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 78.1
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 3,
+        "score": 75.3
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 5,
+        "score": 76.2
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 7,
+        "score": 77.3
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 7,
+        "score": 76.5
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 7,
+        "score": 73.7
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 9,
+        "score": 75.5
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 9,
+        "score": 72.4
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 10,
+        "score": 72.8
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 11,
+        "score": 76.3
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 11,
+        "score": 73.9
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 14,
+        "score": 73.9
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 14,
+        "score": 73.3
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 16,
+        "score": 72.6
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 16,
+        "score": 72.9
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 18,
+        "score": 72.2
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 21,
+        "score": 71.2
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 21,
+        "score": 70.8
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 22,
+        "score": 72.2
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 22,
+        "score": 72.7
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 23,
+        "score": 70.7
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 24,
+        "score": 70.9
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 25,
+        "score": 69.8
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 27,
+        "score": 69.5
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 28,
+        "score": 69.3
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 29,
+        "score": 69.4
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 31,
+        "score": 66.4
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 32,
+        "score": 67.3
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 32,
+        "score": 68.0
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 33,
+        "score": 66.4
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 34,
+        "score": 67.7
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 35,
+        "score": 64.0
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 62.8
+      }
+    ]
+  },
+  {
+    "date": "2026-09-04",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.0
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 78.8
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 77.4
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 5,
+        "score": 76.5
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 5,
+        "score": 76.3
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 5,
+        "score": 74.9
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 6,
+        "score": 75.0
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 6,
+        "score": 76.2
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 9,
+        "score": 76.0
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 9,
+        "score": 73.6
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 11,
+        "score": 73.9
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 12,
+        "score": 73.2
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 13,
+        "score": 72.8
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 14,
+        "score": 72.6
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 17,
+        "score": 72.6
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 17,
+        "score": 72.5
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 19,
+        "score": 72.1
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 20,
+        "score": 73.6
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 20,
+        "score": 72.6
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 21,
+        "score": 71.4
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 23,
+        "score": 69.3
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 24,
+        "score": 72.0
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 25,
+        "score": 72.2
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 25,
+        "score": 69.6
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 26,
+        "score": 70.7
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 26,
+        "score": 69.5
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 26,
+        "score": 70.8
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 29,
+        "score": 68.4
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 31,
+        "score": 65.1
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 32,
+        "score": 68.1
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 32,
+        "score": 66.4
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 34,
+        "score": 66.3
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 34,
+        "score": 64.1
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 35,
+        "score": 66.1
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 63.1
+      }
+    ]
+  },
+  {
+    "date": "2026-09-05",
+    "models": [
+      {
+        "name": "Gemini 3.7 Flash",
+        "rank": 1,
+        "score": 79.7
+      },
+      {
+        "name": "Muse Spark 1.3",
+        "rank": 2,
+        "score": 78.9
+      },
+      {
+        "name": "Gemini 3.8 Flash",
+        "rank": 3,
+        "score": 77.8
+      },
+      {
+        "name": "Gemini 3.6 Flash",
+        "rank": 3,
+        "score": 77.2
+      },
+      {
+        "name": "Gemini 3.5 Flash",
+        "rank": 5,
+        "score": 75.6
+      },
+      {
+        "name": "Muse Spark 1.2",
+        "rank": 6,
+        "score": 75.5
+      },
+      {
+        "name": "GPT-5.6 Luna",
+        "rank": 8,
+        "score": 76.7
+      },
+      {
+        "name": "GPT-5.6 Sol",
+        "rank": 9,
+        "score": 74.8
+      },
+      {
+        "name": "Claude Fable 5.1",
+        "rank": 10,
+        "score": 72.9
+      },
+      {
+        "name": "Grok 4.6",
+        "rank": 11,
+        "score": 75.7
+      },
+      {
+        "name": "Grok 4.5",
+        "rank": 11,
+        "score": 74.5
+      },
+      {
+        "name": "GPT-5.6 Terra",
+        "rank": 14,
+        "score": 73.8
+      },
+      {
+        "name": "Claude Fable 5",
+        "rank": 15,
+        "score": 74.4
+      },
+      {
+        "name": "GPT-6 Astra",
+        "rank": 15,
+        "score": 72.1
+      },
+      {
+        "name": "Gemini 3.1 Pro Preview",
+        "rank": 15,
+        "score": 72.2
+      },
+      {
+        "name": "Muse Spark 1.1",
+        "rank": 16,
+        "score": 72.3
+      },
+      {
+        "name": "Qwen 3.7 Max",
+        "rank": 16,
+        "score": 72.5
+      },
+      {
+        "name": "Claude 5 Opus Thinking",
+        "rank": 17,
+        "score": 73.5
+      },
+      {
+        "name": "GPT-5.4 Nano xHigh",
+        "rank": 17,
+        "score": 72.2
+      },
+      {
+        "name": "Claude Sonnet 5",
+        "rank": 18,
+        "score": 72.4
+      },
+      {
+        "name": "GPT-5.4 Thinking",
+        "rank": 20,
+        "score": 71.6
+      },
+      {
+        "name": "GPT-5.2",
+        "rank": 20,
+        "score": 71.5
+      },
+      {
+        "name": "Qwen 3.6 Plus",
+        "rank": 22,
+        "score": 73.0
+      },
+      {
+        "name": "GPT-5.2 Codex",
+        "rank": 22,
+        "score": 69.2
+      },
+      {
+        "name": "Claude 4.7 Opus Thinking",
+        "rank": 23,
+        "score": 69.9
+      },
+      {
+        "name": "Claude 4.6 Opus Thinking",
+        "rank": 26,
+        "score": 68.7
+      },
+      {
+        "name": "Claude 4.8 Opus Thinking",
+        "rank": 29,
+        "score": 69.1
+      },
+      {
+        "name": "GPT-5.5 Thinking",
+        "rank": 30,
+        "score": 68.9
+      },
+      {
+        "name": "Claude 4.6 Sonnet Thinking Medium Effort",
+        "rank": 30,
+        "score": 67.3
+      },
+      {
+        "name": "Claude 4.5 Opus Thinking",
+        "rank": 30,
+        "score": 67.7
+      },
+      {
+        "name": "Grok Build 0.1",
+        "rank": 31,
+        "score": 68.2
+      },
+      {
+        "name": "Minimax M3",
+        "rank": 31,
+        "score": 63.1
+      },
+      {
+        "name": "Gemini 3.5 Flash-Lite",
+        "rank": 34,
+        "score": 66.5
+      },
+      {
+        "name": "GPT-5.4 Mini xHigh",
+        "rank": 35,
+        "score": 66.2
+      },
+      {
+        "name": "Grok 4.3",
+        "rank": 35,
+        "score": 63.5
+      }
+    ]
+  }
+]
