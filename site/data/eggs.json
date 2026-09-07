@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-07T00:13+00:00",
+  "version": "2026-09-07T12:11+00:00",
   "stats": {
     "gold": 5,
     "silver": 15,
@@ -242,8 +242,8 @@
       "vendor": "Groq",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "注册即取 API Key，llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、gemma2-9b-it 等 22 款 免费调用，LPU 高速推理",
-      "content": "Groq 官方 API/文档自动探测（2026-09-07 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、gemma2-9b-it 等 22 款\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "注册即取 API Key，llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、llama-3.1-8b-instant-price 等 22 款 免费调用，LPU 高速推理",
+      "content": "Groq 官方 API/文档自动探测（2026-09-07 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、llama-3.1-8b-instant-price 等 22 款\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://console.groq.com/docs/models",
       "tags": {
         "duration": "longterm",
