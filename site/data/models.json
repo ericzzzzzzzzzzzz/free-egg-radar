@@ -1,36 +1,7 @@
 {
-  "version": "2026-09-07",
+  "version": "2026-09-08",
   "source": "性能分参考多家公开榜单共识，价格为 OpenRouter 标准参考价（美元/百万 Token），自动更新",
   "models": [
-    {
-      "name": "Gemini 3.7 Flash",
-      "original_name": "Gemini 3.7 Flash High",
-      "vendor": "Google",
-      "releaseDate": "2026-06-25",
-      "score": 79.7,
-      "livebenchScore": 78.8,
-      "livebenchReasoning": 87.8,
-      "livebenchCoding": 78.9,
-      "livebenchMath": 93.5,
-      "livebenchDataAnalysis": 68.0,
-      "livebenchLanguage": 85.5,
-      "livebenchInstructionFollowing": 79.9,
-      "cost": "$0.157",
-      "inputCost": 0.75,
-      "outputCost": 3.75,
-      "contextLength": 1048576,
-      "lmsysElo": 1408.8813986353036,
-      "priceUpdatedAt": "2026-09-07",
-      "priceSource": "openrouter",
-      "scoreBreakdown": {
-        "livebench": 78.8,
-        "lmsys": 90.8,
-        "price": 65,
-        "seed": 78.8
-      },
-      "scoreSource": "livebench+lmsys+price+seed",
-      "updatedAt": "2026-09-07"
-    },
     {
       "name": "Muse Spark 1.3",
       "original_name": "Muse Spark 1.3 xHigh Effort",
@@ -49,7 +20,7 @@
       "outputCost": 4.25,
       "contextLength": 1048576,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 81.6,
@@ -58,65 +29,36 @@
         "seed": 81.6
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
-      "name": "Gemini 3.8 Flash",
-      "original_name": "Gemini 3.8 Flash High",
+      "name": "Gemini 3.7 Flash",
+      "original_name": "Gemini 3.7 Flash High",
       "vendor": "Google",
       "releaseDate": "2026-06-25",
-      "score": 77.9,
-      "livebenchScore": 75.8,
-      "livebenchReasoning": 89.3,
-      "livebenchCoding": 72.5,
-      "livebenchMath": 91.6,
-      "livebenchDataAnalysis": 54.0,
-      "livebenchLanguage": 87.8,
-      "livebenchInstructionFollowing": 81.4,
-      "cost": "$0.307",
+      "score": 76.0,
+      "livebenchScore": 78.8,
+      "livebenchReasoning": 87.8,
+      "livebenchCoding": 78.9,
+      "livebenchMath": 93.5,
+      "livebenchDataAnalysis": 68.0,
+      "livebenchLanguage": 85.5,
+      "livebenchInstructionFollowing": 79.9,
+      "cost": "$0.157",
       "inputCost": 0.75,
       "outputCost": 3.75,
       "contextLength": 1048576,
-      "lmsysElo": 1408.8813986353036,
-      "priceUpdatedAt": "2026-09-07",
+      "lmsysElo": null,
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
-        "livebench": 75.8,
-        "lmsys": 90.8,
+        "livebench": 78.8,
+        "lmsys": null,
         "price": 65,
-        "seed": 75.8
+        "seed": 78.8
       },
-      "scoreSource": "livebench+lmsys+price+seed",
-      "updatedAt": "2026-09-07"
-    },
-    {
-      "name": "Gemini 3.6 Flash",
-      "original_name": "Gemini 3.6 Flash High",
-      "vendor": "Google",
-      "releaseDate": "2026-06-25",
-      "score": 76.6,
-      "livebenchScore": 73.6,
-      "livebenchReasoning": 85.1,
-      "livebenchCoding": 77.9,
-      "livebenchMath": 86.4,
-      "livebenchDataAnalysis": 63.0,
-      "livebenchLanguage": 83.9,
-      "livebenchInstructionFollowing": 75.4,
-      "cost": "$0.235",
-      "inputCost": 0.75,
-      "outputCost": 3.75,
-      "contextLength": 1048576,
-      "lmsysElo": 1408.8813986353036,
-      "priceUpdatedAt": "2026-09-07",
-      "priceSource": "openrouter",
-      "scoreBreakdown": {
-        "livebench": 73.6,
-        "lmsys": 90.8,
-        "price": 65,
-        "seed": 73.6
-      },
-      "scoreSource": "livebench+lmsys+price+seed",
-      "updatedAt": "2026-09-07"
+      "scoreSource": "livebench+price+seed",
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.6 Luna",
@@ -136,7 +78,7 @@
       "outputCost": 1.2,
       "contextLength": 1050000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 73.6,
@@ -145,7 +87,7 @@
         "seed": 73.6
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.6 Sol",
@@ -165,7 +107,7 @@
       "outputCost": 10.0,
       "contextLength": 1050000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 81.0,
@@ -174,36 +116,7 @@
         "seed": 81.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
-    },
-    {
-      "name": "Gemini 3.5 Flash",
-      "original_name": "Gemini 3.5 Flash High",
-      "vendor": "Google",
-      "releaseDate": "2026-06-25",
-      "score": 75.7,
-      "livebenchScore": 74.6,
-      "livebenchReasoning": 82.0,
-      "livebenchCoding": 78.2,
-      "livebenchMath": 88.2,
-      "livebenchDataAnalysis": 64.9,
-      "livebenchLanguage": 84.6,
-      "livebenchInstructionFollowing": 75.6,
-      "cost": "$0.249",
-      "inputCost": 1.5,
-      "outputCost": 9.0,
-      "contextLength": 1048576,
-      "lmsysElo": 1408.8813986353036,
-      "priceUpdatedAt": "2026-09-07",
-      "priceSource": "openrouter",
-      "scoreBreakdown": {
-        "livebench": 74.6,
-        "lmsys": 90.8,
-        "price": 55,
-        "seed": 74.6
-      },
-      "scoreSource": "livebench+lmsys+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Grok 4.6",
@@ -223,7 +136,7 @@
       "outputCost": 6.0,
       "contextLength": 500000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 78.0,
@@ -232,7 +145,7 @@
         "seed": 78.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Muse Spark 1.2",
@@ -252,7 +165,7 @@
       "outputCost": 4.25,
       "contextLength": 1048576,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 78.0,
@@ -261,7 +174,7 @@
         "seed": 78.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude Fable 5.1",
@@ -281,7 +194,7 @@
       "outputCost": 50.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 83.4,
@@ -290,7 +203,36 @@
         "seed": 83.4
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
+    },
+    {
+      "name": "Gemini 3.8 Flash",
+      "original_name": "Gemini 3.8 Flash High",
+      "vendor": "Google",
+      "releaseDate": "2026-06-25",
+      "score": 73.6,
+      "livebenchScore": 75.8,
+      "livebenchReasoning": 89.3,
+      "livebenchCoding": 72.5,
+      "livebenchMath": 91.6,
+      "livebenchDataAnalysis": 54.0,
+      "livebenchLanguage": 87.8,
+      "livebenchInstructionFollowing": 81.4,
+      "cost": "$0.307",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "contextLength": 1048576,
+      "lmsysElo": null,
+      "priceUpdatedAt": "2026-09-08",
+      "priceSource": "openrouter",
+      "scoreBreakdown": {
+        "livebench": 75.8,
+        "lmsys": null,
+        "price": 65,
+        "seed": 75.8
+      },
+      "scoreSource": "livebench+price+seed",
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Grok 4.5",
@@ -310,7 +252,7 @@
       "outputCost": 6.0,
       "contextLength": 500000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 75.8,
@@ -319,7 +261,7 @@
         "seed": 75.8
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude Fable 5",
@@ -339,7 +281,7 @@
       "outputCost": 50.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 83.0,
@@ -348,7 +290,7 @@
         "seed": 83.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.6 Terra",
@@ -368,7 +310,7 @@
       "outputCost": 12.0,
       "contextLength": 1050000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 77.9,
@@ -377,7 +319,7 @@
         "seed": 77.9
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Muse Spark 1.1",
@@ -397,7 +339,7 @@
       "outputCost": 4.25,
       "contextLength": 1048576,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 75.3,
@@ -406,7 +348,7 @@
         "seed": 75.3
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude 5 Opus Thinking",
@@ -426,7 +368,7 @@
       "outputCost": 25.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 80.1,
@@ -435,7 +377,7 @@
         "seed": 80.1
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-6 Astra",
@@ -455,7 +397,7 @@
       "outputCost": 50.0,
       "contextLength": 1050000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 82.2,
@@ -464,7 +406,7 @@
         "seed": 82.2
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.4 Nano xHigh",
@@ -484,7 +426,7 @@
       "outputCost": 1.25,
       "contextLength": 400000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 69.6,
@@ -493,7 +435,7 @@
         "seed": 69.6
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Gemini 3.1 Pro Preview",
@@ -513,7 +455,7 @@
       "outputCost": 12.0,
       "contextLength": 1048576,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 77.0,
@@ -522,35 +464,7 @@
         "seed": 77.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
-    },
-    {
-      "name": "Qwen 3.7 Max",
-      "original_name": "Qwen 3.7 Max",
-      "vendor": "Qwen",
-      "releaseDate": "2026-06-25",
-      "score": 72.4,
-      "livebenchScore": 73.1,
-      "livebenchReasoning": 83.3,
-      "livebenchCoding": 74.2,
-      "livebenchMath": 85.2,
-      "livebenchDataAnalysis": 71.8,
-      "livebenchLanguage": 79.7,
-      "livebenchInstructionFollowing": 74.0,
-      "cost": "$0.182",
-      "inputCost": null,
-      "outputCost": null,
-      "contextLength": null,
-      "lmsysElo": 1366.8007247276162,
-      "priceSource": "unknown",
-      "scoreBreakdown": {
-        "livebench": 73.1,
-        "lmsys": 84.1,
-        "price": 50,
-        "seed": 73.1
-      },
-      "scoreSource": "livebench+lmsys+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Qwen 3.6 Plus",
@@ -570,7 +484,7 @@
       "outputCost": 0.78,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 68.9,
@@ -579,7 +493,36 @@
         "seed": 68.9
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
+    },
+    {
+      "name": "Gemini 3.6 Flash",
+      "original_name": "Gemini 3.6 Flash High",
+      "vendor": "Google",
+      "releaseDate": "2026-06-25",
+      "score": 71.9,
+      "livebenchScore": 73.6,
+      "livebenchReasoning": 85.1,
+      "livebenchCoding": 77.9,
+      "livebenchMath": 86.4,
+      "livebenchDataAnalysis": 63.0,
+      "livebenchLanguage": 83.9,
+      "livebenchInstructionFollowing": 75.4,
+      "cost": "$0.235",
+      "inputCost": 0.75,
+      "outputCost": 3.75,
+      "contextLength": 1048576,
+      "lmsysElo": null,
+      "priceUpdatedAt": "2026-09-08",
+      "priceSource": "openrouter",
+      "scoreBreakdown": {
+        "livebench": 73.6,
+        "lmsys": null,
+        "price": 65,
+        "seed": 73.6
+      },
+      "scoreSource": "livebench+price+seed",
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude Sonnet 5",
@@ -599,7 +542,7 @@
       "outputCost": 10.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 76.0,
@@ -608,7 +551,7 @@
         "seed": 76.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.4 Thinking",
@@ -628,7 +571,7 @@
       "outputCost": 15.0,
       "contextLength": 272000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 78.0,
@@ -637,7 +580,36 @@
         "seed": 78.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
+    },
+    {
+      "name": "Gemini 3.5 Flash",
+      "original_name": "Gemini 3.5 Flash High",
+      "vendor": "Google",
+      "releaseDate": "2026-06-25",
+      "score": 70.7,
+      "livebenchScore": 74.6,
+      "livebenchReasoning": 82.0,
+      "livebenchCoding": 78.2,
+      "livebenchMath": 88.2,
+      "livebenchDataAnalysis": 64.9,
+      "livebenchLanguage": 84.6,
+      "livebenchInstructionFollowing": 75.6,
+      "cost": "$0.249",
+      "inputCost": 1.5,
+      "outputCost": 9.0,
+      "contextLength": 1048576,
+      "lmsysElo": null,
+      "priceUpdatedAt": "2026-09-08",
+      "priceSource": "openrouter",
+      "scoreBreakdown": {
+        "livebench": 74.6,
+        "lmsys": null,
+        "price": 55,
+        "seed": 74.6
+      },
+      "scoreSource": "livebench+price+seed",
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.2",
@@ -657,7 +629,7 @@
       "outputCost": 14.0,
       "contextLength": 400000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 74.6,
@@ -666,7 +638,7 @@
         "seed": 74.6
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude 4.7 Opus Thinking",
@@ -686,7 +658,7 @@
       "outputCost": 25.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 76.5,
@@ -695,7 +667,7 @@
         "seed": 76.5
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.2 Codex",
@@ -715,7 +687,7 @@
       "outputCost": 14.0,
       "contextLength": 400000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 74.0,
@@ -724,7 +696,7 @@
         "seed": 74.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude 4.8 Opus Thinking",
@@ -744,7 +716,7 @@
       "outputCost": 25.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 76.2,
@@ -753,7 +725,7 @@
         "seed": 76.2
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.5 Thinking",
@@ -773,7 +745,7 @@
       "outputCost": 180.0,
       "contextLength": 1050000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 80.2,
@@ -782,7 +754,7 @@
         "seed": 80.2
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude 4.6 Opus Thinking",
@@ -802,7 +774,7 @@
       "outputCost": 25.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 74.5,
@@ -811,7 +783,35 @@
         "seed": 74.5
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
+    },
+    {
+      "name": "Qwen 3.7 Max",
+      "original_name": "Qwen 3.7 Max",
+      "vendor": "Qwen",
+      "releaseDate": "2026-06-25",
+      "score": 68.5,
+      "livebenchScore": 73.1,
+      "livebenchReasoning": 83.3,
+      "livebenchCoding": 74.2,
+      "livebenchMath": 85.2,
+      "livebenchDataAnalysis": 71.8,
+      "livebenchLanguage": 79.7,
+      "livebenchInstructionFollowing": 74.0,
+      "cost": "$0.182",
+      "inputCost": null,
+      "outputCost": null,
+      "contextLength": null,
+      "lmsysElo": null,
+      "priceSource": "unknown",
+      "scoreBreakdown": {
+        "livebench": 73.1,
+        "lmsys": null,
+        "price": 50,
+        "seed": 73.1
+      },
+      "scoreSource": "livebench+price+seed",
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude 4.6 Sonnet Thinking Medium Effort",
@@ -831,7 +831,7 @@
       "outputCost": 15.0,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 73.0,
@@ -840,7 +840,7 @@
         "seed": 73.0
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Grok Build 0.1",
@@ -860,7 +860,7 @@
       "outputCost": 2.0,
       "contextLength": 256000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 67.8,
@@ -869,7 +869,7 @@
         "seed": 67.8
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Claude 4.5 Opus Thinking",
@@ -889,7 +889,7 @@
       "outputCost": 25.0,
       "contextLength": 200000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 72.6,
@@ -898,7 +898,7 @@
         "seed": 72.6
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "GPT-5.4 Mini xHigh",
@@ -918,7 +918,7 @@
       "outputCost": 4.5,
       "contextLength": 400000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 66.4,
@@ -927,7 +927,7 @@
         "seed": 66.4
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Gemini 3.5 Flash-Lite",
@@ -947,7 +947,7 @@
       "outputCost": 2.5,
       "contextLength": 1048576,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 63.9,
@@ -956,7 +956,7 @@
         "seed": 63.9
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Minimax M3",
@@ -984,7 +984,7 @@
         "seed": 67.3
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     },
     {
       "name": "Grok 4.3",
@@ -1004,7 +1004,7 @@
       "outputCost": 2.5,
       "contextLength": 1000000,
       "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-07",
+      "priceUpdatedAt": "2026-09-08",
       "priceSource": "openrouter",
       "scoreBreakdown": {
         "livebench": 62.3,
@@ -1013,7 +1013,7 @@
         "seed": 62.3
       },
       "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-07"
+      "updatedAt": "2026-09-08"
     }
   ]
 }
