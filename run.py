@@ -123,6 +123,33 @@ def export_model_ranking(models: list, output_dir: Path):
     print(f"[模型榜] 已导出 {len(models)} 个模型到 site/data/models.json")
 
 
+def run_cloud_vm(cfg: dict) -> dict:
+    """执行云主机抓取器，返回云主机数据（免费试用+价格对比）。"""
+    sources = cfg.get("sources", {})
+    if not sources.get("cloud-vm", {}).get("enabled", True):
+        return {}
+
+    try:
+        from scrapers.cloud_vm import scrape_clouds
+        data = scrape_clouds()
+        print(f"[云主机] {data['vendorCount']} 家厂商，{data['planCount']} 个套餐")
+        return data
+    except Exception as e:
+        print(f"[云主机] 抓取失败: {e}")
+        return {}
+
+
+def export_cloud_vm(data: dict, output_dir: Path):
+    """导出云主机数据到 site/data/clouds.json。"""
+    if not data:
+        return
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    with open(output_dir / "clouds.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"[云主机] 已导出到 site/data/clouds.json")
+
+
 def main():
     parser = argparse.ArgumentParser(description="FreeEgg Radar")
     parser.add_argument("--no-fetch", action="store_true", help="不执行网络抓取，仅本地数据")
@@ -147,6 +174,11 @@ def main():
     if not args.no_fetch:
         models = run_model_ranking(cfg)
         export_model_ranking(models, ROOT / "site" / "data")
+
+    # 云主机抓取和导出
+    if not args.no_fetch:
+        cloud_data = run_cloud_vm(cfg)
+        export_cloud_vm(cloud_data, ROOT / "site" / "data")
 
     if args.upload:
         provider = cfg.get("upload", {}).get("provider", "none")
