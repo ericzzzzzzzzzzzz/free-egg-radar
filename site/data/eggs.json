@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-08T00:13+00:00",
+  "version": "2026-09-08T12:11+00:00",
   "stats": {
     "gold": 5,
     "silver": 15,
@@ -148,7 +148,7 @@
       "category": "api-quota",
       "score": 72.5,
       "summary": "官方定价页实时探测：20 款模型标注免费",
-      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-09-08 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**20 款**，含 Qwen/Qwen3-ASR-1.7B、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR、FunAudioLLM/SenseVoiceSmall、Qwen/Qwen3-8B 等 20 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-09-08 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**20 款**，含 XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3-ASR-1.7B、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR、FunAudioLLM/SenseVoiceSmall、Qwen/Qwen3-8B 等 20 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
       "link": "https://siliconflow.cn/pricing",
       "tags": {
         "duration": "longterm",
