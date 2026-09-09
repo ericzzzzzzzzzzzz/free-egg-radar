@@ -1,0 +1,376 @@
+{
+  "version": "2026-09-09",
+  "updatedAt": "2026-09-09T06:56:44Z",
+  "source": "调研汇总：各厂商官网活动页/官方文档/公开报道，见各条目 url",
+  "note": "云办公电脑免费额度/试用为低频变化信息，种子数据为基础，GitHub Actions 每日尝试自动抓取更新",
+  "vendorCount": 10,
+  "planCount": 12,
+  "clouds": [
+    {
+      "vendor": "阿里云无影",
+      "vendor_en": "Wuying Cloud PC",
+      "region": "中国大陆",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "无影个人版免费试用",
+          "category": "free_trial",
+          "config": "云电脑1台 · 每月40核时",
+          "trial": "新客户免费试用1个月，试用额外赠送200核时（1年有效）",
+          "trial_days": 30,
+          "free_hours": 240,
+          "price_month": 14.9,
+          "price_year": null,
+          "verify": "阿里云账号（个人版手机号注册即可）",
+          "renewal": "月卡14.9元起，铂金款139.9元/月起",
+          "office": "多端登录（Windows/macOS/手机/平板），浏览器可访问，可安装办公软件",
+          "url": "https://www.aliyun.com/product/wuying/gws/personal_edition",
+          "score": 89.0,
+          "scoreBreakdown": {
+            "free": 90,
+            "price": 85,
+            "config": 90,
+            "threshold": 85,
+            "office": 95
+          },
+          "freeTag": "送240小时"
+        },
+        {
+          "name": "无影企业版新人特惠",
+          "category": "deal",
+          "config": "4核8G · 120小时/月",
+          "trial": "完成企业实名认证可申请免费体验",
+          "trial_days": 0,
+          "free_hours": 0,
+          "price_month": 19.7,
+          "price_year": null,
+          "verify": "企业实名认证",
+          "renewal": "新人专享59元/3个月（原价237元）",
+          "office": "安全便捷，多场景办公，分支门店管理",
+          "url": "https://help.aliyun.com/zh/wuying-workspace/getting-started/",
+          "score": 56.8,
+          "scoreBreakdown": {
+            "free": 15,
+            "price": 85,
+            "config": 90,
+            "threshold": 70,
+            "office": 65
+          },
+          "freeTag": "限时特惠"
+        }
+      ]
+    },
+    {
+      "vendor": "腾讯云云桌面",
+      "vendor_en": "Tencent CVD",
+      "region": "中国大陆",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "云桌面免费试用",
+          "category": "free_trial",
+          "config": "1核1G · 40G系统盘",
+          "trial": "新用户免费试用3个月（每天≤8小时，每月≤15天）",
+          "trial_days": 90,
+          "free_hours": 120,
+          "price_month": null,
+          "price_year": null,
+          "verify": "实名认证",
+          "renewal": "试用后续费享优惠",
+          "office": "浏览器/客户端多端访问，分钟级交付",
+          "url": "https://cloud.tencent.com/product/cvd",
+          "score": 67.0,
+          "scoreBreakdown": {
+            "free": 90,
+            "price": 40,
+            "config": 43,
+            "threshold": 70,
+            "office": 80
+          },
+          "freeTag": "送120小时"
+        },
+        {
+          "name": "标准S3 8核16G",
+          "category": "deal",
+          "config": "8核16G · 50G SSD+50G数据盘",
+          "trial": null,
+          "trial_days": 0,
+          "free_hours": 0,
+          "price_month": 173.25,
+          "price_year": null,
+          "verify": "实名认证",
+          "renewal": "限时特惠（原价346.5元/月）",
+          "office": "适合代码开发、设计等场景",
+          "url": "https://cloud.tencent.com/product/cvd",
+          "score": 43.2,
+          "scoreBreakdown": {
+            "free": 15,
+            "price": 40,
+            "config": 90,
+            "threshold": 70,
+            "office": 50
+          },
+          "freeTag": "限时特惠"
+        }
+      ]
+    },
+    {
+      "vendor": "华为云桌面",
+      "vendor_en": "Huawei Workspace",
+      "region": "中国大陆",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "云桌面免费试用",
+          "category": "free_trial",
+          "config": "2核4G（基础规格）",
+          "trial": "新用户免费试用30天",
+          "trial_days": 30,
+          "free_hours": 60,
+          "price_month": null,
+          "price_year": null,
+          "verify": "实名认证",
+          "renewal": "试用后按需购买",
+          "office": "鲲鹏生态，高清图形处理与低延迟传输，适合设计制造等高算力场景",
+          "url": "https://www.huaweicloud.com/product/workspace",
+          "score": 61.8,
+          "scoreBreakdown": {
+            "free": 80,
+            "price": 40,
+            "config": 62,
+            "threshold": 70,
+            "office": 50
+          },
+          "freeTag": "送60小时"
+        }
+      ]
+    },
+    {
+      "vendor": "天翼云电脑",
+      "vendor_en": "Ctyun Cloud PC",
+      "region": "中国大陆",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "政企版免费试用",
+          "category": "free_trial",
+          "config": "云电脑（政企版）",
+          "trial": "基础功能默认开通，附加功能（翼加密/应用市场）免费试用90天",
+          "trial_days": 90,
+          "free_hours": 0,
+          "price_month": null,
+          "price_year": null,
+          "verify": "注册账号（租户）",
+          "renewal": "试用版与旗舰版功能一致，不限制管控桌面数",
+          "office": "复杂外设兼容好，适合政企多外设场景",
+          "url": "https://www.ctyun.cn/",
+          "score": 61.0,
+          "scoreBreakdown": {
+            "free": 90,
+            "price": 40,
+            "config": 30,
+            "threshold": 75,
+            "office": 50
+          },
+          "freeTag": "免费90天"
+        }
+      ]
+    },
+    {
+      "vendor": "移动云电脑",
+      "vendor_en": "China Mobile Cloud PC",
+      "region": "中国大陆",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "云电脑免费体验",
+          "category": "free_trial",
+          "config": "4核8G 信创型/办公型",
+          "trial": "4C8G云电脑免费体验1个月",
+          "trial_days": 30,
+          "free_hours": 60,
+          "price_month": 30,
+          "price_year": null,
+          "verify": "注册账号",
+          "renewal": "功能费约30元/月起，套餐含一体机设备可选",
+          "office": "多端同步，数据云端存储，办公娱乐一体",
+          "url": "https://ecloud.10086.cn/",
+          "score": 82.2,
+          "scoreBreakdown": {
+            "free": 80,
+            "price": 85,
+            "config": 90,
+            "threshold": 75,
+            "office": 80
+          },
+          "freeTag": "送60小时"
+        }
+      ]
+    },
+    {
+      "vendor": "AWS WorkSpaces",
+      "vendor_en": "Amazon WorkSpaces",
+      "region": "全球",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "WorkSpaces Free Tier",
+          "category": "free_tier",
+          "config": "2个标准AutoStop桌面 · 40小时/月",
+          "trial": "免费3个月，2个标准桌面每月合计40小时",
+          "trial_days": 90,
+          "free_hours": 120,
+          "price_month": null,
+          "price_year": null,
+          "verify": "注册+绑卡验证（不扣费），新账号另有$200抵用金",
+          "renewal": "超过免费额度后按套餐计费（约$5/月起）",
+          "office": "Windows/Linux桌面，多端访问，任意操作系统",
+          "url": "https://aws.amazon.com/workspaces/",
+          "score": 67.5,
+          "scoreBreakdown": {
+            "free": 100,
+            "price": 40,
+            "config": 30,
+            "threshold": 60,
+            "office": 80
+          },
+          "freeTag": "免费层"
+        }
+      ]
+    },
+    {
+      "vendor": "顺网云电脑",
+      "vendor_en": "Shunwang Cloud PC",
+      "region": "中国大陆",
+      "category": "consumer",
+      "categoryLabel": "消费级云电脑",
+      "plans": [
+        {
+          "name": "新用户免费时长",
+          "category": "free_trial",
+          "config": "顶配显卡（RTX 2060S-5080）",
+          "trial": "新用户注册送30分钟+兑换码SWY888领30分钟=75分钟，任务签到升级累计可领30天",
+          "trial_days": 1,
+          "free_hours": 1.25,
+          "price_month": 24.9,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "24小时畅玩卡24.9元/月（约1元/小时）；数据盘价格低",
+          "office": "登录即用，千款软件/游戏免下载，私人云数据盘，电脑/手机/平板多端",
+          "url": "https://cpc.icloud.cn/",
+          "score": 68.8,
+          "scoreBreakdown": {
+            "free": 45,
+            "price": 85,
+            "config": 90,
+            "threshold": 85,
+            "office": 65
+          },
+          "freeTag": "送75分钟"
+        }
+      ]
+    },
+    {
+      "vendor": "海马云",
+      "vendor_en": "Haima Cloud",
+      "region": "中国大陆",
+      "category": "consumer",
+      "categoryLabel": "消费级云电脑",
+      "plans": [
+        {
+          "name": "注册送180小时",
+          "category": "free_trial",
+          "config": "云电脑（高性能配置可选）",
+          "trial": "新用户注册送180小时+任务兑换额外时长",
+          "trial_days": 30,
+          "free_hours": 180,
+          "price_month": 20.9,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "62.9元/95小时（约0.66元/小时）",
+          "office": "多端登录，可办公可游戏，画质/延迟表现均衡",
+          "url": "https://www.haima.com/",
+          "score": 86.8,
+          "scoreBreakdown": {
+            "free": 90,
+            "price": 85,
+            "config": 90,
+            "threshold": 85,
+            "office": 80
+          },
+          "freeTag": "送180小时"
+        }
+      ]
+    },
+    {
+      "vendor": "网易云游戏",
+      "vendor_en": "NetEase Cloud Game",
+      "region": "中国大陆",
+      "category": "consumer",
+      "categoryLabel": "消费级云电脑",
+      "plans": [
+        {
+          "name": "每日免费时长",
+          "category": "free_trial",
+          "config": "云电脑（通用配置）",
+          "trial": "每日免费时长约1-2小时，签到/任务可累计",
+          "trial_days": 1,
+          "free_hours": 1.5,
+          "price_month": null,
+          "price_year": null,
+          "verify": "网易账号/手机号",
+          "renewal": "包月套餐按需购买",
+          "office": "多端登录，游戏为主、轻办公可用",
+          "url": "https://cg.163.com/",
+          "score": 49.2,
+          "scoreBreakdown": {
+            "free": 45,
+            "price": 40,
+            "config": 30,
+            "threshold": 85,
+            "office": 70
+          },
+          "freeTag": "送90分钟"
+        }
+      ]
+    },
+    {
+      "vendor": "极云普惠云电脑",
+      "vendor_en": "Jiyun Cloud PC",
+      "region": "中国大陆",
+      "category": "consumer",
+      "categoryLabel": "消费级云电脑",
+      "plans": [
+        {
+          "name": "每天免费1小时",
+          "category": "free_trial",
+          "config": "云电脑（高配置）",
+          "trial": "每天免费30分钟，关注公众号+30分钟=每天1小时",
+          "trial_days": 365,
+          "free_hours": 1,
+          "price_month": 3,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "会员仅3元/月",
+          "office": "配置较高，适合日常办公+轻度娱乐",
+          "url": "https://www.ji-cloud.cn/",
+          "score": 82.8,
+          "scoreBreakdown": {
+            "free": 100,
+            "price": 100,
+            "config": 30,
+            "threshold": 85,
+            "office": 65
+          },
+          "freeTag": "每天免费1小时"
+        }
+      ]
+    }
+  ]
+}
