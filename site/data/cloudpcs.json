@@ -1,10 +1,10 @@
 {
   "version": "2026-09-09",
-  "updatedAt": "2026-09-09T06:56:44Z",
+  "updatedAt": "2026-09-09T07:30:00Z",
   "source": "调研汇总：各厂商官网活动页/官方文档/公开报道，见各条目 url",
   "note": "云办公电脑免费额度/试用为低频变化信息，种子数据为基础，GitHub Actions 每日尝试自动抓取更新",
-  "vendorCount": 10,
-  "planCount": 12,
+  "vendorCount": 13,
+  "planCount": 16,
   "clouds": [
     {
       "vendor": "阿里云无影",
@@ -177,6 +177,29 @@
             "office": 50
           },
           "freeTag": "免费90天"
+        },
+        {
+          "name": "AI云电脑免费体验",
+          "category": "free_trial",
+          "config": "AI云电脑（内置大模型，Windows/Ubuntu）",
+          "trial": "新用户限时免费体验（微信小程序'天翼AI云电脑'/云电脑APP可领），部分省活动送1个月",
+          "trial_days": 30,
+          "free_hours": 0,
+          "price_month": 33,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "33元/月起（含AI智能体/OpenClaw等能力）",
+          "office": "AI智能体办公，内置大模型开箱即用，支持文案/代码/远程办公",
+          "url": "https://www.ctyun.cn/document/10027004/11091012",
+          "score": 68.2,
+          "scoreBreakdown": {
+            "free": 80,
+            "price": 70,
+            "config": 30,
+            "threshold": 85,
+            "office": 65
+          },
+          "freeTag": "免费30天"
         }
       ]
     },
@@ -209,6 +232,38 @@
             "office": 80
           },
           "freeTag": "送60小时"
+        }
+      ]
+    },
+    {
+      "vendor": "联通云AI云桌面",
+      "vendor_en": "China Unicom AI Cloud PC",
+      "region": "中国大陆",
+      "category": "enterprise",
+      "categoryLabel": "企业级云桌面",
+      "plans": [
+        {
+          "name": "AI云桌面免费体验",
+          "category": "free_trial",
+          "config": "8核16G AI云桌面",
+          "trial": "新注册用户免费领3000万Tokens+8核16G AI云桌面，体验期1个月（数量有限领完为止）",
+          "trial_days": 30,
+          "free_hours": 0,
+          "price_month": 189,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "政企豪华版189元/月起，尊享版359元/月",
+          "office": "AI云桌面内置大模型（Kimi/GLM/Qwen等），支持文案创作、远程办公、代码开发",
+          "url": "https://www.cucloud.cn/",
+          "score": 69.8,
+          "scoreBreakdown": {
+            "free": 80,
+            "price": 40,
+            "config": 90,
+            "threshold": 85,
+            "office": 65
+          },
+          "freeTag": "免费30天"
         }
       ]
     },
@@ -337,6 +392,70 @@
             "office": 70
           },
           "freeTag": "送90分钟"
+        }
+      ]
+    },
+    {
+      "vendor": "青椒云电脑",
+      "vendor_en": "Qingjiao Cloud PC",
+      "region": "中国大陆",
+      "category": "consumer",
+      "categoryLabel": "消费级云电脑",
+      "plans": [
+        {
+          "name": "新人免费试用",
+          "category": "free_trial",
+          "config": "多规格可选（含RTX 3090/4090高性能）",
+          "trial": "新用户可任选一款产品免费试用30分钟（RTX3090/4090试用20分钟），注册即送新人礼券",
+          "trial_days": 1,
+          "free_hours": 0.5,
+          "price_month": null,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "按需购买时长包/套餐，支持自动续费",
+          "office": "高性能显卡适合设计/渲染/3D/重度游戏，多端可用",
+          "url": "https://www.qingjiaocloud.com/",
+          "score": 57.5,
+          "scoreBreakdown": {
+            "free": 45,
+            "price": 40,
+            "config": 90,
+            "threshold": 85,
+            "office": 65
+          },
+          "freeTag": "送30分钟"
+        }
+      ]
+    },
+    {
+      "vendor": "达龙云电脑",
+      "vendor_en": "Dalong Cloud PC",
+      "region": "中国大陆",
+      "category": "consumer",
+      "categoryLabel": "消费级云电脑",
+      "plans": [
+        {
+          "name": "新人试用+每日签到",
+          "category": "free_trial",
+          "config": "云端超级计算机（新标准配置：AMD高性能）",
+          "trial": "新人免费体验+每日签到免费时长，手机/电视/电脑三端进度同步",
+          "trial_days": 1,
+          "free_hours": 0,
+          "price_month": 39,
+          "price_year": null,
+          "verify": "手机号注册",
+          "renewal": "按时阶梯3.5→2.6元/小时，会员+时长包可至约1元/小时，包月30-60元",
+          "office": "办公轻度游戏30-60元/月档位，3888+PC游戏免下载，低配设备秒变高性能终端",
+          "url": "https://www.dalongyun.com/",
+          "score": 54.5,
+          "scoreBreakdown": {
+            "free": 15,
+            "price": 70,
+            "config": 90,
+            "threshold": 85,
+            "office": 65
+          },
+          "freeTag": "免费1天"
         }
       ]
     },
