@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0a1628">
+<title>云电脑 · 免费云办公电脑排行 · FreeEgg Radar</title>
+<meta name="description" content="免费云电脑/云桌面排行——无影、腾讯云桌面、顺网、海马云等10家，谁免费时长最多、谁最便宜、谁最适合办公，一页看全。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 44'%3E%3Cellipse cx='16' cy='26' rx='14' ry='16' fill='%23e0b64e'/%3E%3Cellipse cx='16' cy='16' rx='12' ry='14' fill='%23f5d78e'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css?v=19">
+<style>
+.cloudpc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+.cloudpc-card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  overflow: hidden;
+  animation: cardIn 0.4s ease backwards;
+}
+.cloudpc-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--sky-blue), #4ade80, transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.cloudpc-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+.cloudpc-card:hover::before { opacity: 1; }
+.cloudpc-card.top1 { border-color: rgba(251, 191, 36, 0.45); box-shadow: var(--shadow-card), 0 4px 24px var(--gold-glow); }
+.cloudpc-card.top2 { border-color: rgba(203, 213, 225, 0.4); box-shadow: var(--shadow-card), 0 4px 24px var(--silver-glow); }
+.cloudpc-card.top3 { border-color: rgba(251, 146, 60, 0.45); box-shadow: var(--shadow-card), 0 4px 24px var(--copper-glow); }
+.cloudpc-rank {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--border-strong);
+  line-height: 1;
+  opacity: 0.5;
+}
+.cloudpc-card.top1 .cloudpc-rank { color: var(--gold); opacity: 0.9; text-shadow: 0 0 12px var(--gold-glow); }
+.cloudpc-card.top2 .cloudpc-rank { color: var(--silver); opacity: 0.9; text-shadow: 0 0 12px var(--silver-glow); }
+.cloudpc-card.top3 .cloudpc-rank { color: var(--copper); opacity: 0.9; text-shadow: 0 0 12px var(--copper-glow); }
+.cloudpc-vendor {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--sky-blue);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-right: 40px;
+}
+.cloudpc-vendor::before { content: '🖥'; font-size: 12px; opacity: 0.9; }
+.cloudpc-plan { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.4; }
+.cloudpc-config {
+  font-size: 12px;
+  color: var(--text-dim);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: inline-block;
+  align-self: flex-start;
+}
+.cloudpc-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 2px; }
+.cloudpc-tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; font-weight: 700; }
+.cloudpc-tag.free-forever { color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.4); background: rgba(74, 222, 128, 0.12); }
+.cloudpc-tag.free-tier { color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.35); background: rgba(74, 222, 128, 0.1); }
+.cloudpc-tag.free-trial { color: var(--sky-blue); border: 1px solid rgba(56, 189, 248, 0.35); background: rgba(56, 189, 248, 0.1); }
+.cloudpc-tag.deal { color: var(--amber, #fbbf24); border: 1px solid rgba(251, 191, 36, 0.35); background: rgba(251, 191, 36, 0.1); }
+.cloudpc-tag.info { color: var(--text-faint); border: 1px solid var(--border); background: rgba(255,255,255,0.03); }
+.cloudpc-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: rgba(0,0,0,0.2);
+  border-radius: var(--radius-sm);
+  margin-top: 4px;
+}
+.cloudpc-price-item { flex: 1; }
+.cloudpc-price-label { font-size: 10px; color: var(--text-faint); text-transform: uppercase; letter-spacing: 0.5px; }
+.cloudpc-price-value { font-size: 16px; font-weight: 800; color: var(--sky-blue); margin-top: 2px; }
+.cloudpc-price-value.free { color: #4ade80; }
+.cloudpc-price-value.na { color: var(--text-faint); font-weight: 500; }
+.cloudpc-detail { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+.cloudpc-detail strong { color: var(--text); font-weight: 600; }
+.cloudpc-score-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+}
+.cloudpc-score-label { font-size: 11px; color: var(--text-faint); }
+.cloudpc-score {
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--sky-blue), var(--mist-silver));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.cloudpc-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: var(--sky-blue);
+  text-decoration: none;
+}
+.cloudpc-link:hover { color: var(--mist-silver); }
+.cloudpc-hero { padding: 40px 0 24px; }
+.cloudpc-hero-title {
+  font-size: 32px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, var(--sky-blue) 50%, var(--mist-silver) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+.cloudpc-hero-sub { color: var(--text-dim); font-size: 14px; margin-top: 12px; line-height: 1.7; }
+.cloudpc-hero-meta { color: var(--text-faint); font-size: 12px; margin-top: 14px; display: flex; align-items: center; gap: 6px; }
+.cloudpc-hero-meta::before { content: '🖥'; font-size: 12px; }
+.sort-group { display: flex; align-items: center; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+.sort-group .flabel { margin: 0; }
+@media (max-width: 560px) {
+  .sort-group { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#content">跳到主要内容</a>
+
+<header class="topnav">
+  <div class="container topnav-inner">
+    <a class="brand" href="index.html">
+      <span class="brand-egg" aria-hidden="true">
+        <svg width="20" height="27" viewBox="0 0 32 44" fill="none"><ellipse cx="16" cy="27" rx="14" ry="16" fill="#e0b64e"/><ellipse cx="16" cy="17" rx="12" ry="14" fill="#f5d78e"/></svg>
+      </span>
+      <span class="brand-name">FreeEgg Radar</span>
+      <span class="brand-sub">赛博鸡蛋 · 自动化情报站</span>
+    </a>
+    <nav class="nav-links" aria-label="主导航">
+      <a href="index.html">鸡蛋榜</a>
+      <a href="models.html">模型榜</a>
+      <a href="cloud.html">云主机</a>
+      <a href="cloudpc.html" style="color: var(--sky-blue);">云电脑</a>
+    </nav>
+  </div>
+</header>
+
+<main id="content">
+  <section class="cloudpc-hero">
+    <div class="container">
+      <p class="eyebrow">CLOUD PC · 免费云办公电脑</p>
+      <h1 class="cloudpc-hero-title">没电脑？云上白嫖一台办公电脑</h1>
+      <p class="cloudpc-hero-sub">自动汇总各家免费云电脑/云桌面——阿里云无影、腾讯云桌面、华为 Workspace、顺网、海马云、极云普惠等 10 家。<br>看谁免费时长最多、谁月租最便宜、谁最适合办公。评分 = 免费力度 35% + 价格 25% + 配置 15% + 门槛 10% + 办公适配 15%，每日自动更新。</p>
+      <p class="cloudpc-hero-meta" id="cloudpc-updated-at"></p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="filterbar">
+      <div class="fgroup" role="group" aria-label="类型筛选" id="type-filters">
+        <span class="flabel">类型</span>
+        <button class="chip active" data-type="all">全部</button>
+        <button class="chip" data-type="enterprise">企业级云桌面</button>
+        <button class="chip" data-type="consumer">消费级云电脑</button>
+      </div>
+      <div class="fgroup" role="group" aria-label="免费筛选" id="free-filters">
+        <span class="flabel">免费</span>
+        <button class="chip active" data-free="all">全部</button>
+        <button class="chip" data-free="free">有免费</button>
+        <button class="chip" data-free="deal">限时特惠</button>
+      </div>
+      <div class="sort-group" role="group" aria-label="排序">
+        <span class="flabel">排序</span>
+        <button class="chip active" data-sort="score">综合分</button>
+        <button class="chip" data-sort="free">免费力度</button>
+        <button class="chip" data-sort="price">价格</button>
+      </div>
+      <label class="fsearch">
+        <span class="visually-hidden">搜索</span>
+        <input type="search" id="cloudpc-filter-q" placeholder="搜厂商 / 套餐 / 配置…" autocomplete="off">
+      </label>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="cloudpc-grid" id="cloudpc-grid">
+        <div class="empty">加载中…</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p>© 2026 FreeEgg 赛博鸡蛋 All Rights Reserved.</p>
+    <p class="footer-tip">云电脑信息来自各厂商官网活动页与公开报道，免费时长/价格随时可能变化，请以官网为准。点击卡片查看官方页面。</p>
+  </div>
+</footer>
+
+<script src="js/cloudpc.js?v=19"></script>
+</body>
+</html>
