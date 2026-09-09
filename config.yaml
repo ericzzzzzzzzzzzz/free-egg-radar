@@ -33,6 +33,8 @@ sources:
     enabled: true      # 模型榜（OpenRouter价格+种子性能分，自动更新）
   cloud-vm:
     enabled: true      # 云主机榜（15家厂商免费试用+价格对比，种子+自动探测）
+  cloud-pc:
+    enabled: true      # 云电脑榜（10家免费云办公电脑，免费时长+价格，种子）
 
 # LLM 解析（把公告/线报文本转成结构化条目）
 # 默认关闭；配置 SILICONFLOW_API_KEY 环境变量后自动启用
