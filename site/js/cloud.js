@@ -33,6 +33,7 @@
         state.data = data;
         state.plans = flattenPlans(data);
         state.filtered = state.plans.slice();
+        sortPlans();  // 初始按综合分排序
 
         if (updatedAt && data.version) {
           updatedAt.textContent = '数据更新：' + data.version + ' · ' + data.vendorCount + ' 家厂商 · ' + data.planCount + ' 个套餐 · 每日自动更新';
