@@ -150,6 +150,33 @@ def export_cloud_vm(data: dict, output_dir: Path):
     print(f"[云主机] 已导出到 site/data/clouds.json")
 
 
+def run_cloudpc(cfg: dict) -> dict:
+    """执行云电脑抓取器，返回云电脑数据（免费云桌面排行）。"""
+    sources = cfg.get("sources", {})
+    if not sources.get("cloud-pc", {}).get("enabled", True):
+        return {}
+
+    try:
+        from scrapers.cloudpc import scrape_cloudpcs
+        data = scrape_cloudpcs()
+        print(f"[云电脑] {data['vendorCount']} 家厂商，{data['planCount']} 个套餐")
+        return data
+    except Exception as e:
+        print(f"[云电脑] 抓取失败: {e}")
+        return {}
+
+
+def export_cloudpc(data: dict, output_dir: Path):
+    """导出云电脑数据到 site/data/cloudpcs.json。"""
+    if not data:
+        return
+
+    output_dir.mkdir(parents=True, exist_ok=True)
+    with open(output_dir / "cloudpcs.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
+    print(f"[云电脑] 已导出到 site/data/cloudpcs.json")
+
+
 def main():
     parser = argparse.ArgumentParser(description="FreeEgg Radar")
     parser.add_argument("--no-fetch", action="store_true", help="不执行网络抓取，仅本地数据")
@@ -179,6 +206,11 @@ def main():
     if not args.no_fetch:
         cloud_data = run_cloud_vm(cfg)
         export_cloud_vm(cloud_data, ROOT / "site" / "data")
+
+    # 云电脑抓取和导出
+    if not args.no_fetch:
+        cloudpc_data = run_cloudpc(cfg)
+        export_cloudpc(cloudpc_data, ROOT / "site" / "data")
 
     if args.upload:
         provider = cfg.get("upload", {}).get("provider", "none")
