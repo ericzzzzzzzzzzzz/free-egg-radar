@@ -1,4 +1,4 @@
-/* FreeEgg Radar 云电脑榜逻辑 */
+/* FreeEgg Radar 云电脑榜逻辑 v20 */
 (function () {
   'use strict';
 
