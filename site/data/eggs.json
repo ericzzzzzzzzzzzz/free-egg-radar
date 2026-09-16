@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-16T00:11+00:00",
+  "version": "2026-09-16T12:11+00:00",
   "stats": {
     "gold": 5,
     "silver": 15,
@@ -352,12 +352,12 @@
     },
     {
       "id": "aliyun-bailian-free-2026-09-16",
-      "title": "阿里云百炼多款模型送免费额度（13 款）",
+      "title": "阿里云百炼多款模型送免费额度（25 款）",
       "vendor": "阿里云百炼",
       "category": "token",
       "score": 64.0,
-      "summary": "开通即送每模型免费额度，qwen3-235b-a22b-instruct、qwen3-30b-a3b-instruct、qwen3-14b、qwen3-8b、qwen-turbo、qwen-plus、qwen-max、qwen2.5-coder-32b-instruct 等 13 款，有效期 90 天",
-      "content": "阿里云百炼官方定价文档自动探测（2026-09-16 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen3-235b-a22b-instruct、qwen3-30b-a3b-instruct、qwen3-14b、qwen3-8b、qwen-turbo、qwen-plus、qwen-max、qwen2.5-coder-32b-instruct 等 13 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "开通即送每模型免费额度，qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款，有效期 90 天",
+      "content": "阿里云百炼官方定价文档自动探测（2026-09-16 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://help.aliyun.com/zh/model-studio/billing-for-model-studio",
       "tags": {
         "duration": "limited",
