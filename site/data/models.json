@@ -148,35 +148,6 @@
       "updatedAt": "2026-09-28"
     },
     {
-      "name": "GPT-5.6 Sol",
-      "original_name": "GPT-5.6 Sol Max Effort",
-      "vendor": "Openai",
-      "releaseDate": "2026-06-25",
-      "score": 75.8,
-      "livebenchScore": 81.0,
-      "livebenchReasoning": 91.7,
-      "livebenchCoding": 83.9,
-      "livebenchMath": 96.2,
-      "livebenchDataAnalysis": 79.8,
-      "livebenchLanguage": 87.7,
-      "livebenchInstructionFollowing": 71.8,
-      "cost": "$0.515",
-      "inputCost": 2.0,
-      "outputCost": 10.0,
-      "contextLength": 1050000,
-      "lmsysElo": null,
-      "priceUpdatedAt": "2026-09-28",
-      "priceSource": "openrouter",
-      "scoreBreakdown": {
-        "livebench": 81.0,
-        "lmsys": null,
-        "price": 55,
-        "seed": 81.0
-      },
-      "scoreSource": "livebench+price+seed",
-      "updatedAt": "2026-09-28"
-    },
-    {
       "name": "Gemini 3.5 Flash",
       "original_name": "Gemini 3.5 Flash High",
       "vendor": "Google",
@@ -259,6 +230,35 @@
         "lmsys": null,
         "price": 65,
         "seed": 78.0
+      },
+      "scoreSource": "livebench+price+seed",
+      "updatedAt": "2026-09-28"
+    },
+    {
+      "name": "GPT-5.6 Sol",
+      "original_name": "GPT-5.6 Sol Max Effort",
+      "vendor": "Openai",
+      "releaseDate": "2026-06-25",
+      "score": 73.8,
+      "livebenchScore": 81.0,
+      "livebenchReasoning": 91.7,
+      "livebenchCoding": 83.9,
+      "livebenchMath": 96.2,
+      "livebenchDataAnalysis": 79.8,
+      "livebenchLanguage": 87.7,
+      "livebenchInstructionFollowing": 71.8,
+      "cost": "$0.515",
+      "inputCost": 4.0,
+      "outputCost": 20.0,
+      "contextLength": 1050000,
+      "lmsysElo": null,
+      "priceUpdatedAt": "2026-09-28",
+      "priceSource": "openrouter",
+      "scoreBreakdown": {
+        "livebench": 81.0,
+        "lmsys": null,
+        "price": 45,
+        "seed": 81.0
       },
       "scoreSource": "livebench+price+seed",
       "updatedAt": "2026-09-28"
