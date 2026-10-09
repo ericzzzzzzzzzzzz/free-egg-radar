@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-09T04:20+00:00",
+  "version": "2026-10-09T17:54+00:00",
   "stats": {
     "gold": 4,
     "silver": 15,
@@ -124,12 +124,12 @@
     },
     {
       "id": "siliconflow-free-2026-10-09",
-      "title": "硅基流动免费模型（21 款）",
+      "title": "硅基流动免费模型（22 款）",
       "vendor": "硅基流动",
       "category": "api-quota",
       "score": 72.5,
-      "summary": "官方定价页实时探测：21 款模型标注免费",
-      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-10-09 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**21 款**，含 XingChenAGI/Xing4.0-29B、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3-ASR-1.7B、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR、FunAudioLLM/SenseVoiceSmall 等 21 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "summary": "官方定价页实时探测：22 款模型标注免费",
+      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-10-09 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**22 款**，含 zai-org/GLM-5.3-Flash、XingChenAGI/Xing4.0-29B、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3-ASR-1.7B、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5、Kwai-Kolors/Kolors、deepseek-ai/DeepSeek-OCR 等 22 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
       "link": "https://siliconflow.cn/pricing",
       "tags": {
         "duration": "longterm",
