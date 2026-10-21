@@ -1,5 +1,5 @@
 {
-  "version": "2026-10-21T03:06+00:00",
+  "version": "2026-10-21T16:31+00:00",
   "stats": {
     "gold": 4,
     "silver": 15,
@@ -167,7 +167,7 @@
       "category": "api-quota",
       "score": 68.5,
       "summary": "注册即获 Trial API Key，所有模型免费调用，限速 10 RPM",
-      "content": "Cohere 官方定价页自动探测（2026-10-21 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed Semantic、Embed 5\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
+      "content": "Cohere 官方定价页自动探测（2026-10-21 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed New、Embed 5\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
       "link": "https://cohere.com/pricing",
       "tags": {
         "duration": "longterm",
@@ -337,8 +337,8 @@
       "vendor": "阿里云百炼",
       "category": "token",
       "score": 64.0,
-      "summary": "开通即送每模型免费额度，qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14 等 25 款，有效期 90 天",
-      "content": "阿里云百炼官方定价文档自动探测（2026-10-21 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen3.8-max-prime、qwen3.8-max、qwen3.8-max-0902、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "开通即送每模型免费额度，qwen3.8-max、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28、qwen-plus-2025-01-25 等 25 款，有效期 90 天",
+      "content": "阿里云百炼官方定价文档自动探测（2026-10-21 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen3.8-max、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28、qwen-plus-2025-01-25 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://help.aliyun.com/zh/model-studio/billing-for-model-studio",
       "tags": {
         "duration": "limited",
