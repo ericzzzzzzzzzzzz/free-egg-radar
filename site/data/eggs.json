@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-02T04:06+00:00",
+  "version": "2026-11-02T21:20+00:00",
   "stats": {
     "gold": 4,
     "silver": 15,
@@ -185,8 +185,8 @@
       "vendor": "Google Gemini",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "Google AI Studio 注册即取 API Key，gemini-api、gemini-api-model-table、gemini-api-hovercard-button、gemini-api-hovercard、gemini-api-table-font-color、gemini-api-model-font 等 15 款 免费调用",
-      "content": "Google Gemini API 官方文档自动探测（2026-11-02 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-api、gemini-api-model-table、gemini-api-hovercard-button、gemini-api-hovercard、gemini-api-table-font-color、gemini-api-model-font 等 15 款\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "Google AI Studio 注册即取 API Key，gemini-3.8-flash、gemini-4、gemini-4-argon、gemini-4-models、gemini-3、gemini-3.8-live 等 15 款 免费调用",
+      "content": "Google Gemini API 官方文档自动探测（2026-11-02 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-3.8-flash、gemini-4、gemini-4-argon、gemini-4-models、gemini-3、gemini-3.8-live 等 15 款\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://ai.google.dev/gemini-api/docs/models",
       "tags": {
         "duration": "longterm",
