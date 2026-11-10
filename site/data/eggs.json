@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-10T05:46+00:00",
+  "version": "2026-11-10T19:15+00:00",
   "stats": {
     "gold": 4,
     "silver": 15,
@@ -124,12 +124,12 @@
     },
     {
       "id": "siliconflow-free-2026-11-10",
-      "title": "硅基流动免费模型（24 款）",
+      "title": "硅基流动免费模型（25 款）",
       "vendor": "硅基流动",
       "category": "api-quota",
       "score": 72.5,
-      "summary": "官方定价页实时探测：24 款模型标注免费",
-      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-11-10 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**24 款**，含 OpenMOSS-Team/MOSS-Image、XingChenAGI/Xing4.0-29B、zai-o\"])</script><script>self.__next_f.push([1,\"rg/GLM-5.3-Flash、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenASR-Diarize-V3.0、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3-ASR-1.7B、Qwen/Qwen3.5-4B、PaddlePaddle/PaddleOCR-VL-1.5 等 24 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "summary": "官方定价页实时探测：25 款模型标注免费",
+      "content": "硅基流动 SiliconCloud 定价页自动探测（2026-11-10 快照），页面标注免费（价格 ¥0）的模型：\n\n- 免费模型：**25 款**，含 MiniMaxAI/MiniMax-H3、OpenMOSS-Team/MOSS-Image、XingChenAGI/Xing4.0-29B、zai-o\"])</script><script>self.__next_f.push([1,\"rg/GLM-5.3-Flash、XingChenAGI/XingChenGSR-V1.0、XingChenAGI/XingChenASR-V3.2-Ultra、XingChenAGI/XingChenASR-Diarize-V3.0、XingChenAGI/XingChenASR-V3.2、Qwen/Qwen3-ASR-1.7B、Qwen/Qwen3.5-4B 等 25 款\n- 计费：平台按量付费，免费档模型不扣费，注册即可调用\n\n使用步骤：\n\n1. 打开 [硅基流动官网](https://siliconflow.cn/)注册并登录\n2. 在控制台创建 API Key\n3. 调用时选择标注「免费」的模型即可\n\n**注意**：免费档以官方[定价页](https://siliconflow.cn/pricing)实时标注为准；本条目由自动抓取生成，未人工实测。",
       "link": "https://siliconflow.cn/pricing",
       "tags": {
         "duration": "longterm",
@@ -185,8 +185,8 @@
       "vendor": "Google Gemini",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "Google AI Studio 注册即取 API Key，gemini-3.8-flash、gemini-4、gemini-4-argon、gemini-4-models、gemini-3、gemini-3.8-live 等 15 款 免费调用",
-      "content": "Google Gemini API 官方文档自动探测（2026-11-10 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-3.8-flash、gemini-4、gemini-4-argon、gemini-4-models、gemini-3、gemini-3.8-live 等 15 款\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "Google AI Studio 注册即取 API Key，gemini-3.8-flash、gemini-4、gemini-4-carbon、gemini-4-argon、gemini-4-models、gemini-3 等 15 款 免费调用",
+      "content": "Google Gemini API 官方文档自动探测（2026-11-10 快照）。\n\n- **免费层**：Free Tier，指定模型完全免费\n- **免费模型**：gemini-3.8-flash、gemini-4、gemini-4-carbon、gemini-4-argon、gemini-4-models、gemini-3 等 15 款\n- **速率限制**：免费层 15 RPM（每分钟请求数），1500 RPD（每天请求数）\n- **上下文**：最高 1M tokens（视模型而定）\n\n使用步骤：\n\n1. 打开 [Google AI Studio](https://aistudio.google.com/apikey) 登录 Google 账号\n2. 点击「Create API Key」创建免费 API Key\n3. 调用标注「Free」的模型即可，不扣费\n\n**注意**：免费层有 RPM/RPD 限制，超出后需等待重置或升级到付费层；免费模型清单以 [官方文档](https://ai.google.dev/gemini-api/docs/models) 实时标注为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://ai.google.dev/gemini-api/docs/models",
       "tags": {
         "duration": "longterm",
