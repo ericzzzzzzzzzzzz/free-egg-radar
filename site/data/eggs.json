@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-13T04:50+00:00",
+  "version": "2026-11-13T19:08+00:00",
   "stats": {
     "gold": 4,
     "silver": 15,
@@ -105,12 +105,12 @@
     },
     {
       "id": "openrouter-free-2026-11-13",
-      "title": "OpenRouter 免费模型池（18 款 $0 模型）",
+      "title": "OpenRouter 免费模型池（16 款 $0 模型）",
       "vendor": "OpenRouter",
       "category": "api-quota",
       "score": 72.5,
-      "summary": "官方 API 实时探测：当前 18 款模型输入/输出均免费",
-      "content": "OpenRouter 聚合网关免费模型池，由官方公开 API 自动探测（2026-11-13 快照）。\n\n- 免费模型数：**18 款**（pricing 均为 $0）\n- 代表模型：Baidu: ERNIE-5.5-Flash-Preview (free)、Thinking Machines: Inkling 2 Small (free)、LiquidAI: LFM3-1.7B (free)、Particle AI: Particle-1 (free)、Recursive: Flint (free)、NVIDIA: Nemotron 3.5 Super VL (free)、Apodex: Apodex 1.1 Mini (free)、Dots Studio: Dots3-Note Preview (free)、LiquidAI: LFM2.5-2.6B (free)、NVIDIA: Nemotron 3.5 Lightning (free)、Cohere: North Mini Code (free)、NVIDIA: Nemotron 3 Ultra (free) 等 18 款\n- 接入：OpenAI 兼容 API，注册创建 Key 后调用 `:free` 后缀模型\n\n使用步骤：\n\n1. 打开 [OpenRouter 免费模型页](https://openrouter.ai/models?max_price=0) 筛选 Free\n2. 注册并创建 API Key\n3. 调用标注 Free 的模型即可\n\n**注意**：免费模型上下架频繁，额度与限速以模型页实时标注为准；本条目由自动抓取生成，未人工实测。",
+      "summary": "官方 API 实时探测：当前 16 款模型输入/输出均免费",
+      "content": "OpenRouter 聚合网关免费模型池，由官方公开 API 自动探测（2026-11-13 快照）。\n\n- 免费模型数：**16 款**（pricing 均为 $0）\n- 代表模型：Baidu: ERNIE-5.5-Flash-Preview (free)、Thinking Machines: Inkling 2 Small (free)、LiquidAI: LFM3-1.7B (free)、Particle AI: Particle-1 (free)、Recursive: Flint (free)、NVIDIA: Nemotron 3.5 Super VL (free)、Dots Studio: Dots3-Note Preview (free)、NVIDIA: Nemotron 3.5 Lightning (free)、Cohere: North Mini Code (free)、NVIDIA: Nemotron 3 Ultra (free)、NVIDIA: Nemotron 3 Nano Omni (free)、Google: Gemma 4 26B A4B  (free) 等 16 款\n- 接入：OpenAI 兼容 API，注册创建 Key 后调用 `:free` 后缀模型\n\n使用步骤：\n\n1. 打开 [OpenRouter 免费模型页](https://openrouter.ai/models?max_price=0) 筛选 Free\n2. 注册并创建 API Key\n3. 调用标注 Free 的模型即可\n\n**注意**：免费模型上下架频繁，额度与限速以模型页实时标注为准；本条目由自动抓取生成，未人工实测。",
       "link": "https://openrouter.ai/models?max_price=0",
       "tags": {
         "duration": "longterm",
@@ -167,7 +167,7 @@
       "category": "api-quota",
       "score": 68.5,
       "summary": "注册即获 Trial API Key，所有模型免费调用，限速 10 RPM",
-      "content": "Cohere 官方定价页自动探测（2026-11-13 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed New、Embed 5\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
+      "content": "Cohere 官方定价页自动探测（2026-11-13 快照）。\n\n- **免费层**：Trial API Key 调用完全免费\n- **覆盖模型**：Command R、Command R+、Command Generative、Command Transcribe、Command A、Command R7B、Embed New、Embed Rerank\n- **速率限制**：10 RPM（每分钟 10 次请求）\n- **用途限制**：Trial Key 仅限评估和原型开发，不可用于生产\n\n使用步骤：\n\n1. 打开 [Cohere 注册页](https://dashboard.cohere.com/welcome/register) 注册账号\n2. 在 Dashboard 创建 API Key（默认 Trial 层）\n3. 调用 Cohere API（Chat / Embed / Rerank 等）即可，不扣费\n\n**注意**：Trial Key 有速率限制且不可用于生产环境；如需生产用量需升级到 Production 层。本条目由自动抓取生成，未人工实测。",
       "link": "https://cohere.com/pricing",
       "tags": {
         "duration": "longterm",
