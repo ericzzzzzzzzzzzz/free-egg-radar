@@ -1,5 +1,5 @@
 {
-  "version": "2026-11-23T05:29+00:00",
+  "version": "2026-11-23T23:18+00:00",
   "stats": {
     "gold": 4,
     "silver": 15,
@@ -223,8 +223,8 @@
       "vendor": "Groq",
       "category": "api-quota",
       "score": 68.5,
-      "summary": "注册即取 API Key，llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、gemma2-9b-it 等 22 款 免费调用，LPU 高速推理",
-      "content": "Groq 官方 API/文档自动探测（2026-11-23 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、gemma2-9b-it 等 22 款\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "注册即取 API Key，llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、llama-3.1-8b-instant-price 等 22 款 免费调用，LPU 高速推理",
+      "content": "Groq 官方 API/文档自动探测（2026-11-23 快照）。\n\n- **免费层**：所有模型免费调用，注册即取 API Key\n- **覆盖模型**：llama-3.1-8b-instant、llama-3.3-70b-versatile、meta-llama、llama-prompt-guard-2-22m、llama-prompt-guard-2-86m、llama-3.1-8b-instant-price 等 22 款\n- **推理速度**：LPU 芯片加速，tokens/s 远超传统 GPU\n- **速率限制**：免费层约 30 RPM（每分钟请求数），并发 1\n- **功能**：Chat Completion、JSON Mode、Function Calling、Whisper 语音转文字\n\n使用步骤：\n\n1. 打开 [Groq Console](https://console.groq.com/) 注册账号\n2. 在 API Keys 页面创建免费 API Key\n3. 调用 Groq API（OpenAI 兼容格式，base_url=https://api.groq.com/openai/v1）即可\n\n**注意**：免费层有 RPM 限制，超出后返回 429；模型清单以 [官方文档](https://console.groq.com/docs/models) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://console.groq.com/docs/models",
       "tags": {
         "duration": "longterm",
@@ -337,8 +337,8 @@
       "vendor": "阿里云百炼",
       "category": "token",
       "score": 64.0,
-      "summary": "开通即送每模型免费额度，qwen4-max、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28、qwen-plus-2025-01-25 等 25 款，有效期 90 天",
-      "content": "阿里云百炼官方定价文档自动探测（2026-11-23 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen4-max、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28、qwen-plus-2025-01-25 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
+      "summary": "开通即送每模型免费额度，qwen4-max、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-max-2026-05-20、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款，有效期 90 天",
+      "content": "阿里云百炼官方定价文档自动探测（2026-11-23 快照）。\n\n- **免费福利**：多款模型开通即赠送免费额度（资源包）\n- **覆盖模型**：qwen4-max、qwen3.7-max-2026-05-17、qwen-max、qwen3.7-max-2026-05-20、qwen3.7-plus、qwen3.7-plus-2026-05-26、qwen-plus-2025-07-14、qwen-plus-2025-04-28 等 25 款\n- **免费额度**：每模型赠送 100 万 tokens（具体以模型页标注为准）\n- **有效期**：自开通百炼/模型发布/申请通过之日起 **90 天**（以较晚者为准）\n- **获取条件**：注册阿里云账号 + 实名认证，开通百炼服务\n- **计费方式**：优先扣减免费资源包，超出后按量付费\n\n使用步骤：\n\n1. 打开 [阿里云百炼控制台](https://bailian.console.aliyun.com/) 注册并登录\n2. 完成实名认证，开通百炼服务\n3. 在「模型广场」选择带「免费」标签的模型，点击「开通」\n4. 系统自动发放免费资源包，调用 API 时优先扣减\n\n**注意**：免费额度仅限对应模型，有效期 90 天，过期作废；部分模型需申请通过后开通。模型清单以 [官方文档](https://help.aliyun.com/zh/model-studio/billing-for-model-studio) 为准。本条目由自动抓取生成，未人工实测。",
       "link": "https://help.aliyun.com/zh/model-studio/billing-for-model-studio",
       "tags": {
         "duration": "limited",
